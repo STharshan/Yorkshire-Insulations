@@ -6,7 +6,7 @@ const ServiceHeader = ({ data }) => {
       {/* Breadcrumbs */}
       <header className="px-6 py-4 max-w-7xl mt-30 mx-auto">
         <nav className="text-xs md:text-sm text-[#404143]">
-          Home / <span>Service</span> /{" "}
+          Home / <span>Services</span> /{" "}
           <span className="text-black font-medium">
             {data.breadcrumbTitle}
           </span>
@@ -43,7 +43,7 @@ const ServiceHeader = ({ data }) => {
         <div className="relative w-full rounded-[2rem] overflow-hidden shadow-xl">
           <img
             src={data.image}
-            alt={data.title}
+            alt={data.imageAlt || data.title}
             className="w-full h-[300px] md:h-[600px] object-top"
           />
           <div className="absolute inset-0 bg-black/5" />

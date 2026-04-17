@@ -1,0 +1,42 @@
+<svg width="1400" height="1100" viewBox="0 0 1400 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1400" height="1100" rx="44" fill="#F7F4EC"/>
+<rect width="1400" height="360" fill="url(#paint0_linear_301_4)"/>
+<circle cx="1094" cy="184" r="78" fill="#F8D46B"/>
+<circle cx="1094" cy="184" r="52" fill="#FFF2AF"/>
+<path d="M204 404L700 154L1196 404" stroke="#3F342A" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M700 212V878" stroke="#3F342A" stroke-width="18"/>
+<path d="M258 415H1142V876H258V415Z" fill="#FFFDF8" stroke="#3F342A" stroke-width="18"/>
+<rect x="308" y="520" width="784" height="26" rx="13" fill="#554235"/>
+<rect x="324" y="546" width="42" height="182" rx="18" fill="#78604E"/>
+<rect x="412" y="546" width="42" height="182" rx="18" fill="#78604E"/>
+<rect x="500" y="546" width="42" height="182" rx="18" fill="#78604E"/>
+<rect x="588" y="546" width="42" height="182" rx="18" fill="#78604E"/>
+<rect x="676" y="546" width="42" height="182" rx="18" fill="#78604E"/>
+<rect x="764" y="546" width="42" height="182" rx="18" fill="#78604E"/>
+<rect x="852" y="546" width="42" height="182" rx="18" fill="#78604E"/>
+<rect x="940" y="546" width="42" height="182" rx="18" fill="#78604E"/>
+<rect x="1028" y="546" width="42" height="182" rx="18" fill="#78604E"/>
+<rect x="292" y="700" width="816" height="52" rx="20" fill="#E9B30B"/>
+<rect x="292" y="752" width="816" height="76" rx="24" fill="#F3C947"/>
+<path d="M326 648C356 610 404 588 468 588H1024C1069 588 1105 602 1132 631L1104 661C1083 641 1058 632 1028 632H468C426 632 391 649 365 678L326 648Z" fill="#F9E396"/>
+<rect x="760" y="470" width="280" height="152" rx="30" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="8"/>
+<path d="M802 548L860 606L998 474" stroke="#D97706" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="784" y="536" fill="#111827" font-family="Arial, sans-serif" font-size="32" font-weight="700">Installed cleanly</text>
+<text x="784" y="582" fill="#6B7280" font-family="Arial, sans-serif" font-size="26">consistent depth across the loft</text>
+<path d="M865 432H1084" stroke="#D97706" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+<path d="M888 396H1120" stroke="#D97706" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+<rect x="972" y="828" width="260" height="146" rx="30" fill="#111827"/>
+<text x="1020" y="885" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="36" font-weight="700">Warmer home</text>
+<text x="1020" y="929" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="26">less heat escaping through</text>
+<text x="1020" y="963" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="26">the roof space</text>
+<rect x="168" y="830" width="260" height="144" rx="30" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="8"/>
+<text x="216" y="888" fill="#111827" font-family="Arial, sans-serif" font-size="36" font-weight="700">Better EPC</text>
+<text x="216" y="932" fill="#6B7280" font-family="Arial, sans-serif" font-size="26">a practical upgrade for</text>
+<text x="216" y="966" fill="#6B7280" font-family="Arial, sans-serif" font-size="26">selling or letting</text>
+<defs>
+<linearGradient id="paint0_linear_301_4" x1="700" y1="0" x2="700" y2="360" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F5E6C8"/>
+<stop offset="1" stop-color="#F7F4EC"/>
+</linearGradient>
+</defs>
+</svg>
