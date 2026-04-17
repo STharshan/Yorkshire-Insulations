@@ -1,81 +1,103 @@
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Check } from "lucide-react";
-
-const highlights = [
-  "Honest, trusted, and highly rated local service",
-  "Certified technicians who work cleanly and carefully",
-  "Clear advice tailored to the property, not guesswork",
-];
+import { useRef } from "react";
 
 export default function AboutSection() {
-  return (
-    <section className="overflow-hidden bg-white py-[4.5rem] md:py-24">
-      <div className="mx-auto grid max-w-7xl gap-14 px-6 md:px-10 lg:grid-cols-2 lg:items-center">
-        <div className="relative min-h-[420px]">
-          <div className="brand-media-frame absolute left-0 top-0 w-[72%] overflow-hidden">
-            <img
-              src="/about2.webp"
-              alt="Yorkshire insulation installation"
-              className="h-[360px] w-full object-cover"
-            />
-          </div>
+    const ref = useRef(null);
 
-          <div className="brand-card absolute left-[8%] top-8 z-20 max-w-[220px] bg-white p-4 shadow-[var(--brand-card-hover-shadow)]">
-            <img
-              src="/about.png"
-              alt="Yorkshire Insulation badge"
-              className="w-full object-cover"
-            />
-          </div>
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"],
+    });
 
-          <div className="brand-media-frame absolute bottom-0 right-0 z-10 w-[62%] overflow-hidden">
-            <img
-              src="/about1.webp"
-              alt="Home insulation team at work"
-              className="h-[290px] w-full object-cover"
-            />
-          </div>
-        </div>
+    // Maintaining your requested scroll animation logic
+    const yBack = useTransform(scrollYProgress, [0, 1], [50, -150]);
+    const yFront = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
-        <div>
-          <span className="brand-badge">Company Overview</span>
+    return (
+        <section ref={ref} className="py-30 bg-white overflow-hidden">
+            <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
 
-          <h2 className="heading-font mt-8 text-4xl font-extrabold tracking-[-0.03em] text-[var(--brand-navy)] md:text-[52px]">
-            Professional but approachable, with advice you can trust
-          </h2>
+                {/* LEFT SIDE: IMAGE COMPOSITION */}
+                <div className="relative">
+                    {/* Main Large Image (Top Left) */}
+                    <div className="relative z-10 w-[85%] lg:w-[80%]">
+                        <img
+                            src="/about2.webp"
+                            alt="Roofing background"
+                            className="w-full object-cover"
+                        />
 
-          <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--brand-muted)] md:text-lg">
-            Yorkshire Insulation Solutions helps homeowners reduce heat loss,
-            improve comfort, and make informed decisions about loft and roof
-            insulation. We focus on practical recommendations, clean work, and
-            results that make a real difference in everyday living.
-          </p>
+                        {/* Floating Badge (Matches the white star card in image) */}
+                        <motion.div  style={{ y: yBack }} className="absolute top-10 z-30">
+                            <img
+                                src="/about.png"
+                                alt="Roofing background"
+                                className="w-full object-cover "
+                            />
+                        </motion.div>
+                    </div>
 
-          <div className="mt-8 space-y-4">
-            {highlights.map((item) => (
-              <div
-                key={item}
-                className="flex items-start gap-4 rounded-[10px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-5 py-4"
-              >
-                <span className="mt-1 flex h-7 w-7 items-center justify-center rounded-full border border-[var(--brand-success)]/30 bg-white text-[var(--brand-success)]">
-                  <Check className="h-4 w-4" strokeWidth={3} />
-                </span>
-                <p className="text-sm font-medium leading-7 text-[var(--brand-text)] md:text-base">
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
+                    {/* Overlapping Front Image (Bottom Right) */}
+                    <motion.div
+                        style={{ y: yFront }}
+                        className="absolute -bottom-50 -right-4 lg:-right-5 z-30 w-[80%] sm:w-[85%]"
+                    >
+                        <img
+                            src="/about1.webp" // Replace with your bottom-right image
+                            alt="Worker on roof"
+                            className=" w-full object-cover"
+                        />
+                    </motion.div>
+                </div>
 
-          <a
-            href="https://wa.me/447590250335"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="brand-button brand-button--gold mt-10"
-          >
-            Get Advice
-          </a>
-        </div>
-      </div>
-    </section>
-  );
+                {/* RIGHT SIDE: CONTENT */}
+                <div className="lg:pl-10">
+                    <p className="text-[#E9B155] font-bold uppercase text-sm mb-4">
+                        About Our Company
+                    </p>
+
+                    <h2 className="text-4xl font-bold text-gray-900 leading-[1.4] mb-8">
+                        Best Quality Roofing <br />
+                        Services Providers
+                    </h2>
+
+                    <p className="text-gray-600 text-base leading-relaxed mb-8 max-w-xl">
+                        Enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+                        sed quia consequuntur magni dolores eos qui voluptatem sequi
+                        nesciunt porro quisquam est, qui dolorem ipsum
+                    </p>
+
+                    {/* LIST */}
+                    <div className="space-y-4 mb-10">
+                        {[1, 2, 3].map((item) => (
+                            <div key={item} className="flex items-center gap-4">
+                                <div className="bg-transparent border border-green-500 rounded-full p-0.5">
+                                    <Check className="text-green-500" size={16} strokeWidth={3} />
+                                </div>
+                                <p className="text-gray-900 font-semibold text-base">
+                                    Do enim minim veniam quis nostrud exercitation
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* BUTTON */}
+                    <button className="bg-[#E9B155] hover:bg-[#d4a049] text-black font-bold uppercase tracking-wider px-7 py-3 rounded-md shadow-lg transition-all transform hover:-translate-y-1">
+                        More About
+                    </button>
+                </div>
+            </div>
+
+            <style jsx global>{`
+        @keyframes bounce-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-bounce-slow {
+          animation: bounce-slow 4s infinite ease-in-out;
+        }
+      `}</style>
+        </section>
+    );
 }

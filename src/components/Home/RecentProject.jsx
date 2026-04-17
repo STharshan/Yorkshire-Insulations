@@ -1,90 +1,154 @@
 import { MapPin } from "lucide-react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css'; // Swiper styles
+import 'swiper/css/pagination'; // Pagination styles
+import 'swiper/css/autoplay'; // Autoplay styles
+import { Autoplay, Pagination } from 'swiper/modules'; // Correct module import for swiper v8+
 
-const highlights = [
+const projects = [
   {
-    title: "Leeds Homes",
-    location: "Leeds",
+    title: "Council House Dome",
+    location: "Nottingham",
     description:
-      "Support for terraces, semis, and newer homes that need better loft and roof-space insulation decisions.",
-    image: "/heroimage.jpeg",
-    tags: ["Local knowledge", "Practical advice", "Home comfort"],
+      "Complex scaffolding solution for historic civic building restoration, providing safe access for dome maintenance and architectural preservation work.",
+    image: "/council.png", // update path as needed
+    tags: ["Historic Building", "Complex Access", "Civic Project"],
   },
   {
-    title: "Yorkshire Roof Spaces",
-    location: "Yorkshire",
+    title: "Victoria Law Courts",
+    location: "Birmingham",
     description:
-      "Careful recommendations for loft spaces that need upgrades, reinstatement, or a more dependable insulation setup.",
-    image: "/about2.webp",
-    tags: ["Clean installation", "Certified team", "Clear quoting"],
+      "Comprehensive scaffolding installation for major Victorian courthouse renovation, ensuring complete building envelope coverage for restoration works.",
+    image: "/victoria.png",
+    tags: ["Victorian Architecture", "Full Coverage", "Legal Institution"],
   },
   {
-    title: "Property Assessments",
-    location: "West Yorkshire",
+    title: "Sherwood Observatory",
+    location: "Sutton-in-Ashfield",
     description:
-      "Focused on real property conditions, not one-size-fits-all assumptions, so the right work gets done first time.",
-    image: "/about1.webp",
-    tags: ["Survey-led", "Trusted workmanship", "Yorkshire coverage"],
+      "Multi-level scaffolding system for modern institutional building maintenance, providing safe working platforms across multiple floors and sections.",
+    video: "/castle.mp4", // Video URL for this project
+    tags: ["Multi-Level", "Institutional", "Modern Building"],
+  },
+  {
+    title: "Nottingham Castle",
+    location: "Nottingham",
+    description:
+      "Complex scaffolding solution for historic civic building restoration, providing safe access for dome maintenance and architectural preservation work.",
+    image: "/nottingham castle.jpg", // update path as needed
+    tags: ["Historic Building", "Complex Access", "Civic Project"],
+  },
+  {
+    title: "Ablett House",
+    location: "Liverpool",
+    description:
+      "Modern student accommodation development designed to provide safe and stylish living in the heart of Liverpool.",
+    image: "/ablett.jpg",
+    tags: ["Modern student accommodation", "City-centre location", "High-rise structure"],
+  },
+  {
+    title: "Nottingham Queens Medical Centre",
+    location: "Nottingham",
+    description:
+      "Plettac scaffold for window replacement",
+    image: "/queen.jpg",
+    tags: ["Victorian Architecture", "Full Coverage", "Legal Institution"],
+  },
+  {
+    title: "Temporary garage for Fire engine",
+    location: "Nottingham",
+    description:
+      "A short-term period, often during construction, renovation, or emergency situations where a permanent garage is unavailable.",
+    image: "/garage.jpg",
+    tags: ["Temporary", "Emergency", "Legal Institution"],
+  },
+  {
+    title: "Mansfield Road",
+    location: "Nottingham",
+    description:
+      "Traditional tube and fit scaffolding for full renovation works",
+    image: "/Mansfield.webp",
+    tags: ["Full Building Access" , "Safety & Compliance", "Custom Builds"],
   },
 ];
 
 const RecentProject = () => {
   return (
-    <section className="bg-white py-[4.5rem] md:py-24" id="recent-projects">
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <div className="mb-12 text-center md:mb-16">
-          <span className="brand-badge">Coverage & Highlights</span>
-          <h2 className="heading-font mt-6 text-4xl font-extrabold tracking-[-0.03em] text-[var(--brand-navy)] md:text-[50px]">
-            Work shaped around Yorkshire homes
-          </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-[var(--brand-muted)] md:text-lg">
-            The homepage does not need generic template project cards. This
-            version keeps the visual structure but makes it fit the insulation
-            brand and PDF design language.
-          </p>
-        </div>
+    <section className="px-4 py-10 sm:px-6 lg:px-16 bg-white scroll-m-18" id="recent-projects">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-2">Recent Projects</h2>
+        <p className="text-gray-600 mb-10 text-md sm:text-lg max-w-xl mx-auto">
+          Showcasing our expertise in high-profile commercial and institutional scaffolding projects
+        </p>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {highlights.map((item) => (
-            <article
-              key={item.title}
-              className="brand-card brand-card-hover overflow-hidden"
-            >
-              <div className="overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="h-60 w-full object-cover transition duration-500 hover:scale-[1.03]"
-                />
-              </div>
-
-              <div className="p-6">
-                <h3 className="heading-font text-[28px] font-bold text-[var(--brand-navy)]">
-                  {item.title}
-                </h3>
-
-                <div className="mt-3 flex items-center gap-2 text-sm text-[var(--brand-muted)]">
-                  <MapPin className="h-4 w-4 text-[var(--brand-gold)]" />
-                  <span>{item.location}</span>
+        {/* Swiper component for swipe functionality */}
+        <Swiper
+          modules={[Autoplay, Pagination]} // Correct module import for swiper v8+
+          spaceBetween={30}
+          loop={true}
+          autoplay={{ delay: 3000 }}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 1 }, // For small screens, 1 project card visible
+            768: { slidesPerView: 2 }, // For medium screens, 2 project cards visible
+            1024: { slidesPerView: 3 }, // For large screens, 3 project cards visible
+          }}
+          className="relative"
+        >
+          {projects.map((project, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative group h-120 bg-white rounded-xl mb-12 shadow-md overflow-hidden text-left flex flex-col">
+                <div className="relative overflow-hidden">
+                  {/* Conditionally render video for the "Sir John Robinson House" project */}
+                  {project.video ? (
+                    <video
+                      src={project.video}
+                      alt={project.title}
+                      className="w-full h-58 object-cover rounded-2xl transform transition-transform duration-300 group-hover:scale-105"
+                      autoplay
+                      muted
+                      loop
+                    />
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-58 object-cover rounded-2xl transform transition-transform duration-300 group-hover:scale-105"
+                    />
+                  )}
+                  <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                    Commercial
+                  </span>
                 </div>
-
-                <p className="mt-4 text-sm leading-8 text-[var(--brand-muted)] md:text-base">
-                  {item.description}
-                </p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {item.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-3 py-1 text-xs font-medium text-[var(--brand-text)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="font-semibold text-lg mb-1">{project.title}</h3>
+                  <div className="flex items-center text-sm text-gray-500 mb-2">
+                    <MapPin className="w-4 h-4 mr-1" />
+                    {project.location}
+                  </div>
+                  <p className="text-sm text-gray-700 mb-4">{project.description}</p>
+                  <div className="mt-auto flex flex-wrap gap-2 mb-5">
+                    {project.tags.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs border border-gray-300 text-black px-2 py-1 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </article>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
+
+        {/* CTA Button
+        <div className="mt-10">
+          <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-blue-700 transition">
+            View All Projects
+          </button>
+        </div> */}
       </div>
     </section>
   );
