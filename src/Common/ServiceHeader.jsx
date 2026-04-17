@@ -1,4 +1,5 @@
 import React from "react";
+import { Mail, Phone } from "lucide-react";
 
 const headingStyle = { fontFamily: "Montserrat, sans-serif" };
 
@@ -69,6 +70,26 @@ const ServiceHeader = ({ data }) => {
                 Local advice, practical recommendations, and a clean installation.
               </div>
             </div>
+
+            {data.contactDetails ? (
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={data.contactDetails.phoneHref}
+                  className="inline-flex items-center gap-3 rounded-md border border-white/14 bg-white/8 px-4 py-3 text-sm text-white/86 transition hover:bg-white/12"
+                >
+                  <Phone className="h-4 w-4 text-[var(--brand-gold)]" />
+                  <span>{data.contactDetails.phoneLabel}</span>
+                </a>
+
+                <a
+                  href={data.contactDetails.emailHref}
+                  className="inline-flex items-center gap-3 rounded-md border border-white/14 bg-white/8 px-4 py-3 text-sm text-white/86 transition hover:bg-white/12"
+                >
+                  <Mail className="h-4 w-4 text-[var(--brand-gold)]" />
+                  <span>{data.contactDetails.emailLabel}</span>
+                </a>
+              </div>
+            ) : null}
           </div>
 
           <div className="relative">

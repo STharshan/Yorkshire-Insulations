@@ -12,7 +12,13 @@ export const locationData = {
       "Local team, local knowledge, and every job done properly.",
     ],
     whatsappLabel: "Get a Quote via WhatsApp",
-    whatsappLink: "https://wa.me/447851823807",
+    whatsappLink: "https://wa.me/447590250335",
+    contactDetails: {
+      phoneLabel: "07590 250 335",
+      phoneHref: "tel:07590250335",
+      emailLabel: "info@yorkshireinsulationsolutions.co.uk",
+      emailHref: "mailto:info@yorkshireinsulationsolutions.co.uk",
+    },
     form: {
       title: "Get in touch",
       submitLabel: "Send Enquiry",

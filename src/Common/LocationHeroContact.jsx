@@ -2,7 +2,9 @@ import { useState } from "react";
 import {
   ChevronDown,
   ChevronRight,
+  Mail,
   MessageCircle,
+  Phone,
   ShieldCheck,
   Star,
 } from "lucide-react";
@@ -170,6 +172,26 @@ const LocationHeroContact = ({ data, onSubmit }) => {
                 </a>
               ) : null}
             </div>
+
+            {data.contactDetails ? (
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={data.contactDetails.phoneHref}
+                  className="inline-flex items-center gap-3 rounded-md border border-white/12 bg-black/12 px-4 py-3 text-sm text-white/84 backdrop-blur transition hover:bg-white/10"
+                >
+                  <Phone className="h-4 w-4 text-[var(--brand-gold)]" />
+                  <span>{data.contactDetails.phoneLabel}</span>
+                </a>
+
+                <a
+                  href={data.contactDetails.emailHref}
+                  className="inline-flex items-center gap-3 rounded-md border border-white/12 bg-black/12 px-4 py-3 text-sm text-white/84 backdrop-blur transition hover:bg-white/10"
+                >
+                  <Mail className="h-4 w-4 text-[var(--brand-gold)]" />
+                  <span>{data.contactDetails.emailLabel}</span>
+                </a>
+              </div>
+            ) : null}
           </div>
 
           <aside className="overflow-hidden rounded-[10px] border border-[var(--brand-border)] bg-white text-[var(--brand-text)] shadow-[0_12px_36px_rgba(26,44,91,0.18)] lg:sticky lg:top-28">
