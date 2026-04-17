@@ -5,6 +5,7 @@
   --brand-navy: #1a2c5b;
   --brand-blue: #2e4fa3;
   --brand-gold: #d4a017;
+  --brand-gold-hover: #b8890f;
   --brand-offwhite: #f8f7f4;
   --brand-surface: #ffffff;
   --brand-panel: #f0f2f7;
@@ -14,6 +15,10 @@
   --brand-dark: #111827;
   --brand-success: #2d7a4f;
   --brand-star: #f5a623;
+  --brand-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  --brand-card-hover-shadow: 0 6px 24px rgba(26, 44, 91, 0.13);
+  --brand-panel-shadow: 0 12px 36px rgba(26, 44, 91, 0.18);
+  --brand-media-shadow: 0 20px 60px rgba(10, 22, 48, 0.28);
 }
 
 html {
@@ -40,4 +45,172 @@ h4,
 h5,
 h6 {
   text-rendering: optimizeLegibility;
+}
+
+.heading-font {
+  font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+}
+
+.brand-badge,
+.brand-badge-light {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.brand-badge {
+  border: 1px solid rgba(46, 79, 163, 0.16);
+  background: rgba(46, 79, 163, 0.08);
+  color: var(--brand-blue);
+}
+
+.brand-badge-light {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--brand-gold);
+}
+
+.brand-card,
+.brand-card-soft,
+.brand-card-panel {
+  border: 1px solid var(--brand-border);
+  border-radius: 10px;
+  box-shadow: var(--brand-card-shadow);
+}
+
+.brand-card {
+  background: var(--brand-surface);
+}
+
+.brand-card-soft {
+  background: var(--brand-offwhite);
+}
+
+.brand-card-panel {
+  background: var(--brand-panel);
+}
+
+.brand-card-hover {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.brand-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--brand-card-hover-shadow);
+}
+
+.brand-chip,
+.brand-chip-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.2;
+}
+
+.brand-chip {
+  border: 1px solid rgba(46, 79, 163, 0.12);
+  background: rgba(46, 79, 163, 0.06);
+  color: var(--brand-text);
+}
+
+.brand-chip-dark {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.14);
+  color: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(8px);
+}
+
+.brand-button,
+.brand-button-outline {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  border-radius: 6px;
+  padding: 0.8rem 1.6rem;
+  font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.brand-button {
+  background: var(--brand-blue);
+  color: #fff;
+}
+
+.brand-button:hover {
+  background: var(--brand-navy);
+}
+
+.brand-button--gold {
+  background: var(--brand-gold);
+}
+
+.brand-button--gold:hover {
+  background: var(--brand-gold-hover);
+}
+
+.brand-button-outline {
+  border: 1px solid var(--brand-blue);
+  color: var(--brand-blue);
+  background: transparent;
+}
+
+.brand-button-outline:hover {
+  background: var(--brand-blue);
+  color: #fff;
+}
+
+.brand-section-dark {
+  background: linear-gradient(135deg, var(--brand-navy), var(--brand-blue));
+  color: #fff;
+}
+
+.brand-input {
+  width: 100%;
+  border: 1px solid var(--brand-border);
+  border-radius: 8px;
+  background: var(--brand-offwhite);
+  padding: 1rem;
+  color: var(--brand-text);
+  font-size: 15px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.brand-input::placeholder {
+  color: var(--brand-muted);
+}
+
+.brand-input:focus {
+  border-color: var(--brand-blue);
+  background: var(--brand-surface);
+}
+
+.brand-media-frame {
+  overflow: hidden;
+  border: 1px solid var(--brand-border);
+  border-radius: 10px;
+  background: var(--brand-surface);
+  box-shadow: var(--brand-media-shadow);
 }

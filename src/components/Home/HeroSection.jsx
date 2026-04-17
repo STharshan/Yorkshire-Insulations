@@ -1,97 +1,138 @@
-"use client";
+import {
+  ArrowRight,
+  Mail,
+  MessageCircle,
+  Phone,
+  ShieldCheck,
+  Star,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, EffectFade } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/effect-fade";
-
-import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const slides = [
-    {
-        image:
-            "https://muffle.droitlab.com/wp-content/uploads/2022/11/background.webp",
-    },
-    {
-        image:
-            "https://muffle.droitlab.com/wp-content/uploads/2023/01/iamge_2.png",
-    },
-    {
-        image:
-            "https://muffle.droitlab.com/wp-content/uploads/2023/01/image_3.png",
-    },
+const trustSignals = [
+  "17+ five-star reviews",
+  "Certified technicians",
+  "Yorkshire-wide coverage",
 ];
 
-export default function HeroSlider() {
-    return (
-        <div className="relative w-full h-screen">
-            <Swiper
-                modules={[Navigation, Autoplay, EffectFade]}
-                effect="fade"
-                loop
-                autoplay={{ delay: 3000 }}
-                navigation={{
-                    nextEl: ".next-btn",
-                    prevEl: ".prev-btn",
-                }}
-                className="h-full"
+export default function HeroSection() {
+  return (
+    <section
+      className="relative overflow-hidden text-white"
+      style={{
+        backgroundImage:
+          "linear-gradient(135deg, rgba(26,44,91,0.82), rgba(46,79,163,0.68)), url('/heroimage.jpeg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,160,23,0.24),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.12),transparent_34%)]" />
+
+      <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-6 pb-16 pt-32 md:px-10 lg:grid-cols-[1.08fr_0.92fr]">
+        <div className="max-w-3xl">
+          <span className="brand-badge-light">Warmth that lasts a lifetime</span>
+
+          <h1 className="heading-font mt-8 max-w-4xl text-5xl font-extrabold tracking-[-0.04em] md:text-[72px] md:leading-[1.02]">
+            Professional Insulation Solutions Across Yorkshire
+          </h1>
+
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-white/84 md:text-xl">
+            Honest advice, highly rated workmanship, and practical insulation
+            solutions for lofts, roofs, and homes that need to stay warmer for
+            longer.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            {trustSignals.map((signal) => (
+              <div key={signal} className="brand-chip-dark">
+                <ShieldCheck className="h-4 w-4 text-[var(--brand-gold)]" />
+                <span>{signal}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Link
+              to="/services/loft-insulation"
+              className="brand-button brand-button--gold"
             >
-                {slides.map((slide, index) => (
-                    <SwiperSlide key={index}>
-                        {/* Background */}
-                        <div
-                            className="w-full h-full bg-cover bg-center relative"
-                            style={{ backgroundImage: `url(${slide.image})` }}
-                        >
-                            {/* Overlay */}
-                            <div className="absolute inset-0 bg-black/50"></div>
+              View Services
+              <ArrowRight className="h-4 w-4" />
+            </Link>
 
-                            {/* Content */}
-                            <div className="relative z-10 h-full flex items-center">
-                                <div className="px-4 sm:px-6 lg:px-14">
-                                    <p className="text-yellow-400 mt-30 uppercase tracking-widest text-sm md:text-base font-semibold mb-4">
-                                        Complete solution for your roofing vision
-                                    </p>
-
-                                    <h1 className="text-white font-bold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-7xl max-w-4xl">
-                                        Expert Roofing & Fixing Services
-                                    </h1>
-
-                                    <p className="text-gray-200 mt-8 mb-10 max-w-2xl text-sm sm:text-xl">
-                                        Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit
-                                        esse cillum dolore
-                                    </p>
-
-                                    {/* Buttons */}
-                                    <div className="mt-6 flex flex-wrap gap-4">
-                                        <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-6 py-3 rounded">
-                                            Book a Schedule
-                                        </button>
-
-                                        <button className="bg-white text-black px-6 py-3 rounded font-bold hover:bg-gray-200">
-                                            About Us
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-
-            {/* Navigation Buttons (Right Side Vertical) */}
-            <div className="absolute right-6 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4">
-                <button className="prev-btn bg-white/20 hover:bg-white/40 p-3 rounded-full backdrop-blur">
-                    <ChevronLeft className="text-white" />
-                </button>
-
-                <button className="next-btn bg-white/20 hover:bg-white/40 p-3 rounded-full backdrop-blur">
-                    <ChevronRight className="text-white" />
-                </button>
-            </div>
+            <Link
+              to="/locations/leeds"
+              className="inline-flex min-h-12 items-center justify-center gap-3 rounded-[6px] border border-white/18 bg-white/8 px-6 py-3 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition hover:bg-white/14"
+            >
+              Leeds Coverage
+            </Link>
+          </div>
         </div>
-    );
+
+        <div className="brand-card bg-white/96 p-6 text-[var(--brand-text)] shadow-[var(--brand-panel-shadow)] backdrop-blur md:p-8">
+          <div className="flex items-center gap-2 text-sm text-[var(--brand-muted)]">
+            <Star className="h-4 w-4 fill-[var(--brand-star)] text-[var(--brand-star)]" />
+            <Star className="h-4 w-4 fill-[var(--brand-star)] text-[var(--brand-star)]" />
+            <Star className="h-4 w-4 fill-[var(--brand-star)] text-[var(--brand-star)]" />
+            <Star className="h-4 w-4 fill-[var(--brand-star)] text-[var(--brand-star)]" />
+            <Star className="h-4 w-4 fill-[var(--brand-star)] text-[var(--brand-star)]" />
+            <span>Trusted by Yorkshire homeowners</span>
+          </div>
+
+          <h2 className="heading-font mt-6 text-3xl font-bold text-[var(--brand-navy)] md:text-[38px]">
+            Clear recommendations. Clean installation. Real comfort.
+          </h2>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <div className="brand-card-soft p-5">
+              <p className="heading-font text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-blue)]">
+                Services
+              </p>
+              <p className="mt-3 text-sm leading-7 text-[var(--brand-muted)]">
+                Loft insulation, spray foam removal, new build insulation,
+                remove and relay, and practical roof-space upgrades.
+              </p>
+            </div>
+
+            <div className="brand-card-soft p-5">
+              <p className="heading-font text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-blue)]">
+                Coverage
+              </p>
+              <p className="mt-3 text-sm leading-7 text-[var(--brand-muted)]">
+                Based in Yorkshire and supporting homeowners across Leeds and
+                the surrounding area with dependable, no-nonsense advice.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 space-y-3">
+            <a
+              href="tel:07590250335"
+              className="flex items-center gap-3 rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-sm text-[var(--brand-text)]"
+            >
+              <Phone className="h-4 w-4 text-[var(--brand-gold)]" />
+              <span>07590 250 335</span>
+            </a>
+
+            <a
+              href="mailto:info@yorkshireinsulationsolutions.co.uk"
+              className="flex items-center gap-3 rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-sm text-[var(--brand-text)]"
+            >
+              <Mail className="h-4 w-4 text-[var(--brand-gold)]" />
+              <span>info@yorkshireinsulationsolutions.co.uk</span>
+            </a>
+          </div>
+
+          <a
+            href="https://wa.me/447590250335"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="brand-button mt-6 w-full"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Get a Quote
+          </a>
+        </div>
+      </div>
+    </section>
+  );
 }
