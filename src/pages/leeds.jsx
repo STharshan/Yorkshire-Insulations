@@ -10,6 +10,8 @@ const Leeds = () => {
   const pageData = locationData.leeds;
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+
     const previousTitle = document.title;
     const previousDescription = document
       .querySelector('meta[name="description"]')
@@ -28,6 +30,26 @@ const Leeds = () => {
     document.title = pageData.seo.title;
     descriptionTag.setAttribute("content", pageData.seo.description);
 
+    const schemaScript = document.createElement("script");
+    schemaScript.type = "application/ld+json";
+    schemaScript.id = "location-schema-leeds";
+    schemaScript.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: pageData.title,
+      areaServed: {
+        "@type": "City",
+        name: "Leeds",
+      },
+      provider: {
+        "@type": "Organization",
+        name: "Yorkshire Insulation Solutions Ltd",
+      },
+      serviceType: pageData.services.items.map((item) => item.title),
+    });
+
+    document.head.appendChild(schemaScript);
+
     return () => {
       document.title = previousTitle;
 
@@ -36,8 +58,10 @@ const Leeds = () => {
       } else if (previousDescription !== undefined) {
         descriptionTag.setAttribute("content", previousDescription || "");
       }
+
+      schemaScript.remove();
     };
-  }, [pageData.seo.description, pageData.seo.title]);
+  }, [pageData.seo.description, pageData.seo.title, pageData.services.items, pageData.title]);
 
   return (
     <>

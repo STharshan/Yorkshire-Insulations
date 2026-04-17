@@ -36,6 +36,7 @@ const LocationFaq = ({ data }) => {
         <div className="space-y-6">
           {data.items.map((item, index) => {
             const isOpen = openIndex === index;
+            const answerId = `location-faq-answer-${index}`;
 
             return (
               <article
@@ -45,6 +46,8 @@ const LocationFaq = ({ data }) => {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                  aria-expanded={isOpen}
+                  aria-controls={answerId}
                   className="flex w-full items-start justify-between gap-6 px-6 py-6 text-left md:px-8 md:py-7"
                 >
                   <span
@@ -64,7 +67,10 @@ const LocationFaq = ({ data }) => {
                 </button>
 
                 {isOpen ? (
-                  <div className="px-6 pb-6 text-base leading-8 text-[var(--brand-muted)] md:px-8 md:pb-8 md:text-lg">
+                  <div
+                    id={answerId}
+                    className="px-6 pb-6 text-base leading-8 text-[var(--brand-muted)] md:px-8 md:pb-8 md:text-lg"
+                  >
                     {item.answer}
                   </div>
                 ) : null}

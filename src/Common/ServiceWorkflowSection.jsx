@@ -233,12 +233,14 @@ const ServiceWorkflowSection = ({ data }) => {
               <form className="space-y-5 p-8 md:p-10" onSubmit={handleSubmit}>
                 <div>
                   <label
+                    htmlFor="service-full-name"
                     className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
                     style={headingStyle}
                   >
                     {data.contactForm.fields.fullName.label}
                   </label>
                   <input
+                    id="service-full-name"
                     name="fullName"
                     type={data.contactForm.fields.fullName.type}
                     value={formData.fullName}
@@ -250,12 +252,14 @@ const ServiceWorkflowSection = ({ data }) => {
 
                 <div>
                   <label
+                    htmlFor="service-phone"
                     className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
                     style={headingStyle}
                   >
                     {data.contactForm.fields.phone.label}
                   </label>
                   <input
+                    id="service-phone"
                     name="phone"
                     type={data.contactForm.fields.phone.type}
                     value={formData.phone}
@@ -267,12 +271,14 @@ const ServiceWorkflowSection = ({ data }) => {
 
                 <div>
                   <label
+                    htmlFor="service-select"
                     className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
                     style={headingStyle}
                   >
                     {data.contactForm.fields.service.label}
                   </label>
                   <select
+                    id="service-select"
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
@@ -286,12 +292,14 @@ const ServiceWorkflowSection = ({ data }) => {
 
                 <div>
                   <label
+                    htmlFor="service-note"
                     className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
                     style={headingStyle}
                   >
                     {data.contactForm.fields.note.label}
                   </label>
                   <textarea
+                    id="service-note"
                     name="note"
                     rows={data.contactForm.fields.note.rows}
                     value={formData.note}
@@ -302,6 +310,7 @@ const ServiceWorkflowSection = ({ data }) => {
                 </div>
 
                 <button
+                  type="submit"
                   className="flex min-h-12 w-full items-center justify-center rounded-[6px] bg-[var(--brand-blue)] px-6 py-4 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[var(--brand-navy)]"
                   style={headingStyle}
                 >

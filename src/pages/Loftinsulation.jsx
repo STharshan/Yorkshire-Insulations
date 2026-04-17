@@ -9,6 +9,8 @@ const workflowData = serviceWorkflowData.loftInsulation;
 
 const LoftInsulation = () => {
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+
     const previousTitle = document.title;
     const previousDescription = document
       .querySelector('meta[name="description"]')

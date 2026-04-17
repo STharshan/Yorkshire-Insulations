@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   ChevronDown,
   ChevronRight,
@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 
 const headingStyle = { fontFamily: "Montserrat, sans-serif" };
+const emptyFields = Object.freeze({});
 
 const getInitialFormState = (fields = {}) =>
   Object.fromEntries(
@@ -42,12 +43,8 @@ const trustSignals = [
 ];
 
 const LocationHeroContact = ({ data, onSubmit }) => {
-  const formFields = data?.form?.fields || {};
+  const formFields = data?.form?.fields ?? emptyFields;
   const [formState, setFormState] = useState(() => getInitialFormState(formFields));
-
-  useEffect(() => {
-    setFormState(getInitialFormState(formFields));
-  }, [formFields]);
 
   if (!data) {
     return null;
