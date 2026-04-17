@@ -1,92 +1,97 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, EffectFade } from 'swiper/modules';
+"use client";
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/effect-fade';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 
-const MuffleHero = () => {
-  const slides = [
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
+
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const slides = [
     {
-      id: 1,
-      bg: "https://muffle.droitlab.com/wp-content/uploads/2022/11/background.webp",
-      subtitle: "Complete solution for your roofing vision",
-      title: "Expert Roofing & Fixing Services",
-      desc: "Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore",
+        image:
+            "https://muffle.droitlab.com/wp-content/uploads/2022/11/background.webp",
     },
-    // Add other slides here...
-  ];
+    {
+        image:
+            "https://muffle.droitlab.com/wp-content/uploads/2023/01/iamge_2.png",
+    },
+    {
+        image:
+            "https://muffle.droitlab.com/wp-content/uploads/2023/01/image_3.png",
+    },
+];
 
-  return (
-    <div className="relative min-h-screen flex flex-col">
-
-      {/* --- HERO SLIDER --- */}
-      <Swiper
-        modules={[Autoplay, Navigation, EffectFade]}
-        effect="fade"
-        speed={1000}
-        autoplay={{ delay: 5000 }}
-        loop={true}
-        navigation={{ nextEl: '.next-btn', prevEl: '.prev-btn' }}
-        className="flex-grow w-full h-screen"
-      >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <div 
-              className="relative w-full h-full bg-cover bg-center flex items-center"
-              style={{ backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.4), transparent), url(${slide.bg})` }}
+export default function HeroSlider() {
+    return (
+        <div className="relative w-full h-screen">
+            <Swiper
+                modules={[Navigation, Autoplay, EffectFade]}
+                effect="fade"
+                loop
+                autoplay={{ delay: 3000 }}
+                navigation={{
+                    nextEl: ".next-btn",
+                    prevEl: ".prev-btn",
+                }}
+                className="h-full"
             >
-              <div className="container mx-auto px-6 lg:px-16">
-                <div className="max-w-4xl text-left">
-                  <h4 className="text-[#E9B155] text-sm md:text-base font-bold uppercase tracking-[0.2em] mb-4 animate-fadeInLeft">
-                    {slide.subtitle}
-                  </h4>
-                  <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] mb-6 animate-fadeInLeft delay-75">
-                    {slide.title}
-                  </h1>
-                  <p className="text-white/90 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed animate-fadeInLeft delay-150">
-                    {slide.desc}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-4 animate-fadeInLeft delay-300">
-                    <button className="bg-[#E9B155] hover:bg-[#d4a049] text-black px-10 py-5 font-bold text-sm uppercase transition-all rounded-sm shadow-lg">
-                      Book a Schedule
-                    </button>
-                    <button className="bg-white hover:bg-gray-100 text-black px-10 py-5 font-bold text-sm uppercase transition-all rounded-sm shadow-lg">
-                      About Us
-                    </button>
-                  </div>
-                </div>
-              </div>
+                {slides.map((slide, index) => (
+                    <SwiperSlide key={index}>
+                        {/* Background */}
+                        <div
+                            className="w-full h-full bg-cover bg-center relative"
+                            style={{ backgroundImage: `url(${slide.image})` }}
+                        >
+                            {/* Overlay */}
+                            <div className="absolute inset-0 bg-black/50"></div>
+
+                            {/* Content */}
+                            <div className="relative z-10 h-full flex items-center">
+                                <div className="px-4 sm:px-6 lg:px-14">
+                                    <p className="text-yellow-400 mt-30 uppercase tracking-widest text-sm md:text-base font-semibold mb-4">
+                                        Complete solution for your roofing vision
+                                    </p>
+
+                                    <h1 className="text-white font-bold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-7xl max-w-4xl">
+                                        Expert Roofing & Fixing Services
+                                    </h1>
+
+                                    <p className="text-gray-200 mt-8 mb-10 max-w-2xl text-sm sm:text-xl">
+                                        Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit
+                                        esse cillum dolore
+                                    </p>
+
+                                    {/* Buttons */}
+                                    <div className="mt-6 flex flex-wrap gap-4">
+                                        <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-6 py-3 rounded">
+                                            Book a Schedule
+                                        </button>
+
+                                        <button className="bg-white text-black px-6 py-3 rounded font-bold hover:bg-gray-200">
+                                            About Us
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+
+            {/* Navigation Buttons (Right Side Vertical) */}
+            <div className="absolute right-6 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4">
+                <button className="prev-btn bg-white/20 hover:bg-white/40 p-3 rounded-full backdrop-blur">
+                    <ChevronLeft className="text-white" />
+                </button>
+
+                <button className="next-btn bg-white/20 hover:bg-white/40 p-3 rounded-full backdrop-blur">
+                    <ChevronRight className="text-white" />
+                </button>
             </div>
-          </SwiperSlide>
-        ))}
-
-        {/* --- NAVIGATION ARROWS (Matches Image) --- */}
-        <div className="absolute inset-y-0 w-full flex items-center justify-between px-4 lg:px-10 z-30 pointer-events-none">
-          <button className="prev-btn pointer-events-auto w-12 h-12 rounded-full bg-white/10 hover:bg-[#E9B155] text-white flex items-center justify-center transition-all border border-white/20">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
-          </button>
-          <button className="next-btn pointer-events-auto w-12 h-12 rounded-full bg-white/10 hover:bg-[#E9B155] text-white flex items-center justify-center transition-all border border-white/20">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
-          </button>
         </div>
-      </Swiper>
-
-      <style jsx global>{`
-        @keyframes fadeInLeft {
-          from { opacity: 0; transform: translateX(-50px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        .animate-fadeInLeft { animation: fadeInLeft 0.8s ease-out forwards; }
-        .delay-75 { animation-delay: 0.1s; }
-        .delay-150 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-      `}</style>
-    </div>
-  );
-};
-
-export default MuffleHero;
+    );
+}
