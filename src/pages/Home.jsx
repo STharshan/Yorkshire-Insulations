@@ -6,6 +6,7 @@ import AboutSection from '../components/Home/AboutSection'
 import FeatureCards from '../components/Home/FeatureCards'
 import { WhatWeDo } from '../components/Home/WhatWeDo'
 import RecentProject from '../components/Home/RecentProject'
+import ContactSection from '../components/Home/ContactSection'
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <ServiceSection />
             <RecentProject />
             <FAQSection />
+            <ContactSection />
         </div>
     )
 }
