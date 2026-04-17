@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ChevronDown, Plus } from "lucide-react";
 
+const headingStyle = { fontFamily: "Montserrat, sans-serif" };
+
 const LocationFaq = ({ data }) => {
   const [openIndex, setOpenIndex] = useState(0);
 
@@ -9,15 +11,26 @@ const LocationFaq = ({ data }) => {
   }
 
   return (
-    <section className="bg-[#f7f6f3] text-slate-950">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 md:px-10 md:py-24 lg:grid-cols-[0.9fr_1.1fr]">
+    <section className="bg-[var(--brand-panel)] text-[var(--brand-text)]">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-[4.5rem] md:px-10 md:py-24 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#e11d2e]">
+          <p
+            className="text-[12px] font-bold uppercase tracking-[0.22em] text-[var(--brand-blue)]"
+            style={headingStyle}
+          >
             {data.badge}
           </p>
-          <h2 className="mt-8 max-w-xl text-5xl font-black tracking-tight md:text-7xl">
+
+          <h2
+            className="mt-8 max-w-xl text-5xl font-extrabold tracking-[-0.04em] text-[var(--brand-navy)] md:text-[64px]"
+            style={headingStyle}
+          >
             {data.title}
           </h2>
+
+          <p className="mt-6 max-w-md text-lg leading-8 text-[var(--brand-muted)]">
+            Straight answers, clear expectations, and practical guidance for Leeds homeowners.
+          </p>
         </div>
 
         <div className="space-y-6">
@@ -27,27 +40,31 @@ const LocationFaq = ({ data }) => {
             return (
               <article
                 key={item.question}
-                className="overflow-hidden rounded-[2rem] bg-[#f1f1ef] shadow-[0_10px_30px_rgba(15,23,42,0.05)]"
+                className="overflow-hidden rounded-[10px] border border-[var(--brand-border)] bg-white shadow-[0_2px_12px_rgba(0,0,0,0.07)]"
               >
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                  className="flex w-full items-start justify-between gap-6 px-8 py-8 text-left"
+                  className="flex w-full items-start justify-between gap-6 px-6 py-6 text-left md:px-8 md:py-7"
                 >
-                  <span className="text-2xl font-bold leading-9 md:text-[2rem]">
+                  <span
+                    className="text-2xl font-bold leading-9 text-[var(--brand-navy)] md:text-[30px]"
+                    style={headingStyle}
+                  >
                     {item.question}
                   </span>
-                  <span className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full border border-[#c6d4ea] text-[#5a6b85]">
+
+                  <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-[var(--brand-border)] bg-[var(--brand-offwhite)] text-[var(--brand-blue)]">
                     {isOpen ? (
-                      <ChevronDown className="h-8 w-8" />
+                      <ChevronDown className="h-6 w-6" />
                     ) : (
-                      <Plus className="h-8 w-8" />
+                      <Plus className="h-6 w-6" />
                     )}
                   </span>
                 </button>
 
                 {isOpen ? (
-                  <div className="px-8 pb-8 text-xl leading-10 text-slate-600">
+                  <div className="px-6 pb-6 text-base leading-8 text-[var(--brand-muted)] md:px-8 md:pb-8 md:text-lg">
                     {item.answer}
                   </div>
                 ) : null}

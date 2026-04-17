@@ -3,9 +3,12 @@ import {
   ChevronDown,
   ChevronRight,
   MessageCircle,
-  MoreHorizontal,
+  ShieldCheck,
+  Star,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const headingStyle = { fontFamily: "Montserrat, sans-serif" };
 
 const getInitialFormState = (fields = {}) =>
   Object.fromEntries(
@@ -31,6 +34,12 @@ const buildWhatsAppMessage = (title, fields, values) => {
 
   return lines.join("\n");
 };
+
+const trustSignals = [
+  "17+ five-star reviews",
+  "Certified installers",
+  "Yorkshire-first advice",
+];
 
 const LocationHeroContact = ({ data, onSubmit }) => {
   const formFields = data?.form?.fields || {};
@@ -70,29 +79,21 @@ const LocationHeroContact = ({ data, onSubmit }) => {
 
   return (
     <section
-      className="relative overflow-hidden border-b border-white/8 bg-[#22201c]"
+      className="relative overflow-hidden border-b border-[var(--brand-border)] bg-[linear-gradient(135deg,var(--brand-navy),var(--brand-blue))] text-white"
       style={{
         backgroundImage: data.heroBackgroundImage
-          ? `linear-gradient(180deg, rgba(16,14,12,0.84), rgba(28,24,20,0.94)), url(${data.heroBackgroundImage})`
-          : "linear-gradient(180deg, rgba(16,14,12,0.84), rgba(28,24,20,0.94))",
+          ? `linear-gradient(135deg, rgba(26,44,91,0.92), rgba(46,79,163,0.86)), url(${data.heroBackgroundImage})`
+          : "linear-gradient(135deg, rgba(26,44,91,0.98), rgba(46,79,163,0.92))",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="mx-auto max-w-7xl px-6 pb-16 pt-32 md:px-10 md:pb-24 md:pt-40">
-        <div className="mb-8 flex justify-end">
-          <button
-            type="button"
-            className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/4 text-stone-300 backdrop-blur"
-            aria-label="More options"
-          >
-            <MoreHorizontal className="h-6 w-6" />
-          </button>
-        </div>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,160,23,0.25),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.14),transparent_32%)]" />
 
+      <div className="relative mx-auto max-w-7xl px-6 pb-16 pt-[7.5rem] md:px-10 md:pb-24 md:pt-[9.5rem]">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div className="max-w-3xl">
-            <nav className="mb-8 flex flex-wrap items-center gap-2 text-sm text-stone-400">
+            <nav className="mb-8 flex flex-wrap items-center gap-2 text-sm text-white/70">
               {(data.breadcrumb || []).map((item, index) => {
                 const isLast = index === data.breadcrumb.length - 1;
 
@@ -103,7 +104,9 @@ const LocationHeroContact = ({ data, onSubmit }) => {
                         {item.label}
                       </Link>
                     ) : (
-                      <span className={isLast ? "text-stone-100" : ""}>{item.label}</span>
+                      <span className={isLast ? "text-[var(--brand-gold)]" : ""}>
+                        {item.label}
+                      </span>
                     )}
                     {!isLast ? <ChevronRight className="h-4 w-4" /> : null}
                   </div>
@@ -112,57 +115,110 @@ const LocationHeroContact = ({ data, onSubmit }) => {
             </nav>
 
             {data.badge ? (
-              <span className="inline-flex rounded-full border border-white/12 bg-white/4 px-6 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-stone-300">
+              <span
+                className="inline-flex rounded-md border border-white/18 bg-white/8 px-4 py-2 text-[12px] font-bold uppercase tracking-[0.24em] text-[var(--brand-gold)]"
+                style={headingStyle}
+              >
                 {data.badge}
               </span>
             ) : null}
 
             {data.title ? (
-              <h1 className="mt-8 max-w-2xl text-5xl font-black tracking-tight text-white md:text-7xl">
+              <h1
+                className="mt-8 max-w-3xl text-5xl font-extrabold tracking-[-0.04em] text-white md:text-[68px] md:leading-[1.02]"
+                style={headingStyle}
+              >
                 {data.title}
               </h1>
             ) : null}
 
-            <div className="mt-8 max-w-3xl space-y-6 text-xl leading-10 text-stone-300">
+            <div className="mt-8 max-w-3xl space-y-6 text-lg leading-8 text-white/84 md:text-xl md:leading-10">
               {(data.intro || []).map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
 
-            {data.whatsappLink ? (
-              <a
-                href={data.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-12 inline-flex items-center gap-4 rounded-2xl border border-white/14 bg-black/15 px-6 py-4 text-lg font-semibold text-white backdrop-blur transition hover:bg-white/8"
-              >
-                <MessageCircle className="h-7 w-7" />
-                {data.whatsappLabel}
-              </a>
-            ) : null}
+            <div className="mt-8 flex flex-wrap gap-3">
+              {trustSignals.map((signal) => (
+                <div
+                  key={signal}
+                  className="inline-flex items-center gap-2 rounded-md border border-white/12 bg-black/12 px-4 py-2 text-sm text-white/82 backdrop-blur"
+                >
+                  <ShieldCheck className="h-4 w-4 text-[var(--brand-gold)]" />
+                  <span>{signal}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-6">
+              <div className="inline-flex items-center gap-2 rounded-md border border-white/12 bg-white/8 px-4 py-3 text-sm text-white/85">
+                <Star className="h-4 w-4 fill-[var(--brand-star)] text-[var(--brand-star)]" />
+                <Star className="h-4 w-4 fill-[var(--brand-star)] text-[var(--brand-star)]" />
+                <Star className="h-4 w-4 fill-[var(--brand-star)] text-[var(--brand-star)]" />
+                <Star className="h-4 w-4 fill-[var(--brand-star)] text-[var(--brand-star)]" />
+                <Star className="h-4 w-4 fill-[var(--brand-star)] text-[var(--brand-star)]" />
+                <span className="ml-1">Trusted local team</span>
+              </div>
+
+              {data.whatsappLink ? (
+                <a
+                  href={data.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-12 items-center gap-3 rounded-[6px] bg-[var(--brand-gold)] px-7 py-3 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[#b8890f]"
+                  style={headingStyle}
+                >
+                  <MessageCircle className="h-5 w-5" />
+                  {data.whatsappLabel}
+                </a>
+              ) : null}
+            </div>
           </div>
 
-          <aside className="rounded-[2rem] border border-white/10 bg-white/7 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur md:p-10 lg:sticky lg:top-28">
-            {data.form?.title ? (
-              <h2 className="text-4xl font-bold text-white">{data.form.title}</h2>
-            ) : null}
+          <aside className="overflow-hidden rounded-[10px] border border-[var(--brand-border)] bg-white text-[var(--brand-text)] shadow-[0_12px_36px_rgba(26,44,91,0.18)] lg:sticky lg:top-28">
+            <div className="border-b border-[var(--brand-border)] bg-[var(--brand-panel)] px-6 py-6 md:px-8">
+              <p
+                className="text-[12px] font-bold uppercase tracking-[0.22em] text-[var(--brand-blue)]"
+                style={headingStyle}
+              >
+                Local Enquiry
+              </p>
 
-            <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+              {data.form?.title ? (
+                <h2
+                  className="mt-3 text-4xl font-bold text-[var(--brand-navy)]"
+                  style={headingStyle}
+                >
+                  {data.form.title}
+                </h2>
+              ) : null}
+
+              <p className="mt-3 text-sm leading-7 text-[var(--brand-muted)]">
+                Share a few property details and we will point you to the right insulation option.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-5 p-6 md:p-8">
               {Object.entries(formFields).map(([key, config]) => {
                 const fieldName = config.name || key;
 
                 if (config.options?.length) {
                   return (
                     <div key={fieldName} className="relative">
-                      <label htmlFor={fieldName} className="sr-only">
+                      <label
+                        htmlFor={fieldName}
+                        className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
+                        style={headingStyle}
+                      >
                         {config.label || fieldName}
                       </label>
+
                       <select
                         id={fieldName}
                         name={fieldName}
                         value={formState[fieldName] || ""}
                         onChange={handleChange}
-                        className="w-full appearance-none rounded-2xl border border-white/10 bg-[#34322d] px-6 py-5 pr-14 text-lg text-white outline-none transition focus:border-white/25"
+                        className="w-full appearance-none rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 pr-12 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                       >
                         <option value="">{config.placeholder || config.label}</option>
                         {config.options.map((option) => (
@@ -171,7 +227,8 @@ const LocationHeroContact = ({ data, onSubmit }) => {
                           </option>
                         ))}
                       </select>
-                      <ChevronDown className="pointer-events-none absolute right-5 top-1/2 h-6 w-6 -translate-y-1/2 text-stone-300" />
+
+                      <ChevronDown className="pointer-events-none absolute right-4 top-[53px] h-5 w-5 text-[var(--brand-muted)]" />
                     </div>
                   );
                 }
@@ -179,9 +236,14 @@ const LocationHeroContact = ({ data, onSubmit }) => {
                 if (config.type === "textarea" || config.rows) {
                   return (
                     <div key={fieldName}>
-                      <label htmlFor={fieldName} className="sr-only">
+                      <label
+                        htmlFor={fieldName}
+                        className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
+                        style={headingStyle}
+                      >
                         {config.label || fieldName}
                       </label>
+
                       <textarea
                         id={fieldName}
                         name={fieldName}
@@ -189,7 +251,7 @@ const LocationHeroContact = ({ data, onSubmit }) => {
                         value={formState[fieldName] || ""}
                         onChange={handleChange}
                         placeholder={config.placeholder || config.label}
-                        className="w-full rounded-2xl border border-white/10 bg-[#34322d] px-6 py-5 text-lg text-white placeholder:text-stone-500 outline-none transition focus:border-white/25"
+                        className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] placeholder:text-[var(--brand-muted)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                       />
                     </div>
                   );
@@ -197,9 +259,14 @@ const LocationHeroContact = ({ data, onSubmit }) => {
 
                 return (
                   <div key={fieldName}>
-                    <label htmlFor={fieldName} className="sr-only">
+                    <label
+                      htmlFor={fieldName}
+                      className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
+                      style={headingStyle}
+                    >
                       {config.label || fieldName}
                     </label>
+
                     <input
                       id={fieldName}
                       name={fieldName}
@@ -207,7 +274,7 @@ const LocationHeroContact = ({ data, onSubmit }) => {
                       value={formState[fieldName] || ""}
                       onChange={handleChange}
                       placeholder={config.placeholder || config.label}
-                      className="w-full rounded-2xl border border-white/10 bg-[#34322d] px-6 py-5 text-lg text-white placeholder:text-stone-500 outline-none transition focus:border-white/25"
+                      className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] placeholder:text-[var(--brand-muted)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                     />
                   </div>
                 );
@@ -216,7 +283,8 @@ const LocationHeroContact = ({ data, onSubmit }) => {
               {data.form?.submitLabel ? (
                 <button
                   type="submit"
-                  className="w-full rounded-2xl border border-white/16 bg-white/3 px-6 py-5 text-xl font-semibold text-white transition hover:bg-white/8"
+                  className="flex min-h-12 w-full items-center justify-center rounded-[6px] bg-[var(--brand-blue)] px-6 py-4 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[var(--brand-navy)]"
+                  style={headingStyle}
                 >
                   {data.form.submitLabel}
                 </button>

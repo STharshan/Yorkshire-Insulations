@@ -1,5 +1,16 @@
 import React, { useState } from "react";
 
+const headingStyle = { fontFamily: "Montserrat, sans-serif" };
+
+const SectionBadge = ({ children }) => (
+  <span
+    className="inline-flex rounded-md border border-[var(--brand-blue)]/16 bg-[var(--brand-blue)]/8 px-4 py-2 text-[12px] font-bold uppercase tracking-[0.24em] text-[var(--brand-blue)]"
+    style={headingStyle}
+  >
+    {children}
+  </span>
+);
+
 const ServiceWorkflowSection = ({ data }) => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -34,72 +45,113 @@ const ServiceWorkflowSection = ({ data }) => {
   };
 
   return (
-    <div className="bg-white text-black">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-16 items-start">
-          <div className="space-y-24">
-            <section id="about-service" className="space-y-6">
-              <div className="inline-block bg-[#F21B23]/20 px-4 py-1 rounded-full text-[#F21B23] font-bold text-xs uppercase tracking-widest">
-                {data.badge}
-              </div>
-              <h2 className="text-4xl md:text-5xl font-black">
+    <div className="bg-[var(--brand-offwhite)] text-[var(--brand-text)]">
+      <div className="mx-auto max-w-7xl px-6 py-[4.5rem] md:px-10 md:py-24">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1.12fr_0.88fr]">
+          <div className="space-y-16">
+            <section
+              id="about-service"
+              className="rounded-[10px] border border-[var(--brand-border)] bg-white p-8 shadow-[0_2px_12px_rgba(0,0,0,0.07)] md:p-10"
+            >
+              <SectionBadge>{data.badge}</SectionBadge>
+
+              <h2
+                className="mt-6 text-4xl font-extrabold tracking-[-0.03em] text-[var(--brand-navy)] md:text-[46px]"
+                style={headingStyle}
+              >
                 {data.aboutService.title}
               </h2>
-              <div className="text-[#404143] space-y-4 text-lg leading-relaxed">
+
+              <div className="mt-6 space-y-5 text-[15px] leading-8 text-[var(--brand-muted)] md:text-base">
                 <p>{data.aboutService.intro}</p>
 
-                <ul className="list-disc list-inside space-y-2">
+                <ul className="grid gap-3 md:grid-cols-2">
                   {data.aboutService.features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
+                    <li
+                      key={index}
+                      className="flex gap-3 rounded-[10px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4"
+                    >
+                      <span className="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-[var(--brand-gold)]" />
+                      <span className="text-[var(--brand-text)]">{feature}</span>
+                    </li>
                   ))}
                 </ul>
 
                 <p>{data.aboutService.outro}</p>
               </div>
 
-              <h3 className="text-2xl font-bold pt-4">
+              <h3
+                className="pt-8 text-2xl font-bold text-[var(--brand-navy)] md:text-[28px]"
+                style={headingStyle}
+              >
                 {data.aboutService.includedTitle}
               </h3>
-              <p className="text-[#404143]">{data.aboutService.includedIntro}</p>
-              <ul className="space-y-4">
+
+              <p className="mt-3 text-[var(--brand-muted)]">
+                {data.aboutService.includedIntro}
+              </p>
+
+              <ul className="mt-6 grid gap-4">
                 {data.aboutService.includedItems.map((item, index) => (
-                  <li key={index} className="flex gap-4 items-start group">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#F21B23] text-white flex items-center justify-center text-xs font-bold mt-1">
+                  <li
+                    key={index}
+                    className="flex gap-4 rounded-[10px] border border-[var(--brand-border)] bg-[var(--brand-panel)] px-5 py-5"
+                  >
+                    <span
+                      className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md bg-[var(--brand-blue)] text-xs font-bold text-white"
+                      style={headingStyle}
+                    >
                       {index + 1}
                     </span>
-                    <p className="text-[#404143]">{item}</p>
+                    <p className="text-[var(--brand-muted)]">{item}</p>
                   </li>
                 ))}
               </ul>
-              <p className="text-[#404143]">{data.aboutService.includedOutro}</p>
+
+              <p className="mt-6 text-[var(--brand-muted)]">
+                {data.aboutService.includedOutro}
+              </p>
             </section>
 
             {data.howWeWork ? (
-              <section id="how-we-work" className="space-y-8">
-                <div>
-                  <div className="inline-block bg-[#F21B23]/20 px-4 py-1 rounded-full text-[#F21B23] font-bold text-xs uppercase tracking-widest mb-4">
-                    {data.howWeWork.badge}
-                  </div>
-                  <h2 className="text-4xl md:text-5xl font-black mb-4">
-                    {data.howWeWork.title}
-                  </h2>
-                  <p className="text-[#404143] text-lg">
-                    {data.howWeWork.description}
-                  </p>
-                </div>
+              <section
+                id="how-we-work"
+                className="rounded-[10px] border border-[var(--brand-border)] bg-white p-8 shadow-[0_2px_12px_rgba(0,0,0,0.07)] md:p-10"
+              >
+                <SectionBadge>{data.howWeWork.badge}</SectionBadge>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <h2
+                  className="mt-6 text-4xl font-extrabold tracking-[-0.03em] text-[var(--brand-navy)] md:text-[44px]"
+                  style={headingStyle}
+                >
+                  {data.howWeWork.title}
+                </h2>
+
+                <p className="mt-4 max-w-3xl text-lg text-[var(--brand-muted)]">
+                  {data.howWeWork.description}
+                </p>
+
+                <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
                   {data.howWeWork.steps.map((step, index) => (
                     <div
                       key={step.id}
-                      className="p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow group"
+                      className="rounded-[10px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] p-7 transition duration-200 hover:-translate-y-1 hover:shadow-[0_6px_24px_rgba(26,44,91,0.13)]"
                     >
-                      <div className="w-14 h-14 bg-[#F21B23]/20 rounded-xl flex items-center justify-center mb-6 text-[#F21B23] font-bold text-lg">
+                      <div
+                        className="mb-6 flex h-12 w-12 items-center justify-center rounded-md bg-[var(--brand-blue)] text-base font-bold text-white"
+                        style={headingStyle}
+                      >
                         {index + 1}
                       </div>
 
-                      <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                      <p className="text-[#404143] text-sm leading-relaxed">
+                      <h3
+                        className="text-xl font-bold text-[var(--brand-navy)]"
+                        style={headingStyle}
+                      >
+                        {step.title}
+                      </h3>
+
+                      <p className="mt-3 text-sm leading-7 text-[var(--brand-muted)]">
                         {step.description}
                       </p>
                     </div>
@@ -108,50 +160,82 @@ const ServiceWorkflowSection = ({ data }) => {
               </section>
             ) : null}
 
-            <section id="benefits" className="space-y-8">
-              <div>
-                <div className="inline-block bg-[#F21B23]/20 px-4 py-1 rounded-full text-[#F21B23] font-bold text-xs uppercase tracking-widest mb-4">
-                  {data.benefits.badge}
-                </div>
-                <h2 className="text-4xl md:text-5xl font-black">
-                  {data.benefits.title}
-                </h2>
-              </div>
-              <p className="text-[#404143] text-lg leading-relaxed">
+            <section
+              id="benefits"
+              className="rounded-[10px] border border-[var(--brand-border)] bg-[var(--brand-panel)] p-8 shadow-[0_2px_12px_rgba(0,0,0,0.07)] md:p-10"
+            >
+              <SectionBadge>{data.benefits.badge}</SectionBadge>
+
+              <h2
+                className="mt-6 text-4xl font-extrabold tracking-[-0.03em] text-[var(--brand-navy)] md:text-[44px]"
+                style={headingStyle}
+              >
+                {data.benefits.title}
+              </h2>
+
+              <p className="mt-4 text-lg leading-8 text-[var(--brand-muted)]">
                 {data.benefits.intro}
               </p>
-              <ul className="space-y-4">
+
+              <ul className="mt-8 space-y-4">
                 {data.benefits.items.map((benefit, index) => (
-                  <li key={index} className="flex gap-4 items-start">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#F21B23]/20 text-[#F21B23] flex items-center justify-center text-xs font-bold mt-1">
+                  <li
+                    key={index}
+                    className="flex gap-4 rounded-[10px] border border-white/80 bg-white px-5 py-4 shadow-[0_2px_12px_rgba(0,0,0,0.05)]"
+                  >
+                    <span
+                      className="mt-1 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md bg-[var(--brand-gold)] text-xs font-bold text-white"
+                      style={headingStyle}
+                    >
                       {index + 1}
                     </span>
-                    <p className="text-[#404143]">{benefit}</p>
+                    <p className="text-[var(--brand-muted)]">{benefit}</p>
                   </li>
                 ))}
               </ul>
-              <p className="text-[#404143] text-lg leading-relaxed">
+
+              <p className="mt-6 text-lg leading-8 text-[var(--brand-muted)]">
                 {data.benefits.outro}
               </p>
 
-              <div className="rounded-3xl overflow-hidden shadow-2xl mt-10">
+              <div className="mt-10 overflow-hidden rounded-[10px] border border-[var(--brand-border)] bg-white p-3 shadow-[0_8px_24px_rgba(26,44,91,0.13)]">
                 <img
                   src={data.benefits.image}
                   alt={data.benefits.imageAlt}
-                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                  className="h-auto w-full rounded-[8px] object-cover transition duration-500 hover:scale-[1.02]"
                 />
               </div>
             </section>
           </div>
 
           <aside className="lg:sticky lg:top-28">
-            <div className="bg-[#f8fafc] p-8 md:p-10 rounded-[2.5rem] border border-gray-100 shadow-2xl">
-              <h3 className="text-3xl font-black mb-8">
-                {data.contactForm.title}
-              </h3>
-              <form className="space-y-5" onSubmit={handleSubmit}>
+            <div className="overflow-hidden rounded-[10px] border border-[var(--brand-border)] bg-white shadow-[0_6px_24px_rgba(26,44,91,0.13)]">
+              <div className="border-b border-[var(--brand-border)] bg-[linear-gradient(135deg,var(--brand-navy),var(--brand-blue))] px-8 py-8 text-white md:px-10">
+                <p
+                  className="text-[12px] font-bold uppercase tracking-[0.24em] text-[var(--brand-gold)]"
+                  style={headingStyle}
+                >
+                  Quote Request
+                </p>
+
+                <h3
+                  className="mt-3 text-3xl font-bold md:text-[34px]"
+                  style={headingStyle}
+                >
+                  {data.contactForm.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-white/78">
+                  Tell us about your property and we will prepare a practical recommendation.
+                </p>
+              </div>
+
+              <form className="space-y-5 p-8 md:p-10" onSubmit={handleSubmit}>
                 <div>
-                  <label className="block text-sm font-bold mb-2">
+                  <label
+                    className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
+                    style={headingStyle}
+                  >
                     {data.contactForm.fields.fullName.label}
                   </label>
                   <input
@@ -160,11 +244,15 @@ const ServiceWorkflowSection = ({ data }) => {
                     value={formData.fullName}
                     onChange={handleChange}
                     placeholder={data.contactForm.fields.fullName.placeholder}
-                    className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#F21B23] outline-none transition-all"
+                    className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                   />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-bold mb-2">
+                  <label
+                    className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
+                    style={headingStyle}
+                  >
                     {data.contactForm.fields.phone.label}
                   </label>
                   <input
@@ -173,26 +261,34 @@ const ServiceWorkflowSection = ({ data }) => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder={data.contactForm.fields.phone.placeholder}
-                    className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#F21B23] outline-none transition-all"
+                    className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                   />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-bold mb-2">
+                  <label
+                    className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
+                    style={headingStyle}
+                  >
                     {data.contactForm.fields.service.label}
                   </label>
                   <select
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#F21B23] outline-none transition-all bg-white"
+                    className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                   >
                     {data.contactForm.fields.service.options.map((option, index) => (
                       <option key={index}>{option}</option>
                     ))}
                   </select>
                 </div>
+
                 <div>
-                  <label className="block text-sm font-bold mb-2">
+                  <label
+                    className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
+                    style={headingStyle}
+                  >
                     {data.contactForm.fields.note.label}
                   </label>
                   <textarea
@@ -201,13 +297,21 @@ const ServiceWorkflowSection = ({ data }) => {
                     value={formData.note}
                     onChange={handleChange}
                     placeholder={data.contactForm.fields.note.placeholder}
-                    className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#F21B23] outline-none transition-all resize-none"
+                    className="w-full resize-none rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                   />
                 </div>
-                <button className="w-full bg-[#F21B23] text-white font-bold py-4 rounded-xl hover:bg-[#404143] transition-all transform active:scale-95 shadow-lg shadow-[#F21B23]/30">
+
+                <button
+                  className="flex min-h-12 w-full items-center justify-center rounded-[6px] bg-[var(--brand-blue)] px-6 py-4 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[var(--brand-navy)]"
+                  style={headingStyle}
+                >
                   {data.contactForm.submitButton}
                 </button>
               </form>
+
+              <div className="border-t border-[var(--brand-border)] bg-[var(--brand-panel)] px-8 py-5 text-sm text-[var(--brand-muted)] md:px-10">
+                Trusted, no-nonsense advice with workmanship that is built to last.
+              </div>
             </div>
           </aside>
         </div>
