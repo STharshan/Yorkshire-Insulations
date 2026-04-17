@@ -11,6 +11,7 @@ export const locationData = {
       "Yorkshire Insulation provides professional loft, cavity wall, spray foam, and underfloor insulation across Leeds and the surrounding areas. We know Leeds housing inside out - from Victorian back-to-backs in Headingley to 1960s semis in Morley and new builds in Seacroft.",
       "Local team, local knowledge, and every job done properly.",
     ],
+    heroBackgroundImage: "/heroimage.jpeg",
     whatsappLabel: "Get a Quote via WhatsApp",
     whatsappLink: "https://wa.me/447590250335",
     contactDetails: {

@@ -40,7 +40,7 @@ export const serviceWorkflowData = {
       ],
       outro:
         "We take the time to do it properly - because a well-insulated home makes a real difference to the people living in it.",
-      image: "/loft-insulation-benefits.svg",
+      image: "/heroimage.jpeg",
       imageAlt: "Completed loft insulation Yorkshire property",
     },
     contactForm: {

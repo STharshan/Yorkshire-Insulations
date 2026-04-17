@@ -4,7 +4,7 @@ const serviceHeaderData = {
     title: "Loft Insulation",
     description:
       "One of the most effective ways to reduce heat loss in your home. A properly insulated loft can make a significant difference to how warm your home feels and how much you spend on energy - and for most properties, the installation is straightforward and completed in a single day.",
-    image: "/loft-insulation-hero.svg",
+    image: "/heroimage.jpeg",
     imageAlt: "Loft insulation installation Yorkshire",
     contactDetails: {
       phoneLabel: "07590 250 335",
