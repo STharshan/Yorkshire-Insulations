@@ -26,7 +26,7 @@ const slides = [
 
 export default function HeroSlider() {
     return (
-        <div className="relative w-full h-screen">
+        <div className="relative h-screen w-full">
             <Swiper
                 modules={[Navigation, Autoplay, EffectFade]}
                 effect="fade"
@@ -40,38 +40,34 @@ export default function HeroSlider() {
             >
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
-                        {/* Background */}
                         <div
-                            className="w-full h-full bg-cover bg-center relative"
+                            className="relative h-full w-full bg-cover bg-center"
                             style={{ backgroundImage: `url(${slide.image})` }}
                         >
-                            {/* Overlay */}
-                            <div className="absolute inset-0 bg-black/50"></div>
+                            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(26,44,91,0.86),rgba(46,79,163,0.62),rgba(28,28,28,0.45))]"></div>
 
-                            {/* Content */}
-                            <div className="relative z-10 h-full flex items-center">
+                            <div className="relative z-10 flex h-full items-center">
                                 <div className="px-4 sm:px-6 lg:px-14">
-                                    <p className="text-yellow-400 mt-30 uppercase tracking-widest text-sm md:text-base font-semibold mb-4">
+                                    <p className="heading-font mt-30 mb-4 text-[13px] font-bold uppercase tracking-[0.28em] text-[var(--brand-gold)] md:text-sm">
                                         Complete solution for your roofing vision
                                     </p>
 
-                                    <h1 className="text-white font-bold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-7xl max-w-4xl">
+                                    <h1 className="heading-font max-w-4xl text-4xl font-bold leading-tight text-white sm:text-5xl md:text-[52px] lg:text-[68px]">
                                         Expert Roofing & Fixing Services
                                     </h1>
 
-                                    <p className="text-gray-200 mt-8 mb-10 max-w-2xl text-sm sm:text-xl">
+                                    <p className="mt-8 mb-10 max-w-2xl text-sm text-white/80 sm:text-lg">
                                         Ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                         Duis aute irure dolor in reprehenderit in voluptate velit
                                         esse cillum dolore
                                     </p>
 
-                                    {/* Buttons */}
                                     <div className="mt-6 flex flex-wrap gap-4">
-                                        <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-6 py-3 rounded">
+                                        <button className="heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[var(--brand-gold-hover)]">
                                             Book a Schedule
                                         </button>
 
-                                        <button className="bg-white text-black px-6 py-3 rounded font-bold hover:bg-gray-200">
+                                        <button className="heading-font rounded-md border border-white px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-[var(--brand-navy)]">
                                             About Us
                                         </button>
                                     </div>
@@ -82,14 +78,13 @@ export default function HeroSlider() {
                 ))}
             </Swiper>
 
-            {/* Navigation Buttons (Right Side Vertical) */}
-            <div className="absolute right-6 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4">
-                <button className="prev-btn bg-white/20 hover:bg-white/40 p-3 rounded-full backdrop-blur">
-                    <ChevronLeft className="text-white" />
+            <div className="absolute right-6 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-4">
+                <button className="prev-btn rounded-full border border-white/30 bg-white/12 p-3 text-white backdrop-blur transition hover:bg-white hover:text-[var(--brand-navy)]">
+                    <ChevronLeft />
                 </button>
 
-                <button className="next-btn bg-white/20 hover:bg-white/40 p-3 rounded-full backdrop-blur">
-                    <ChevronRight className="text-white" />
+                <button className="next-btn rounded-full border border-white/30 bg-white/12 p-3 text-white backdrop-blur transition hover:bg-white hover:text-[var(--brand-navy)]">
+                    <ChevronRight />
                 </button>
             </div>
         </div>

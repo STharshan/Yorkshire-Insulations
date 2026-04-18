@@ -1,9 +1,9 @@
 import { MapPin } from "lucide-react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css'; // Swiper styles
-import 'swiper/css/pagination'; // Pagination styles
-import 'swiper/css/autoplay'; // Autoplay styles
-import { Autoplay, Pagination } from 'swiper/modules'; // Correct module import for swiper v8+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 const projects = [
   {
@@ -11,7 +11,7 @@ const projects = [
     location: "Nottingham",
     description:
       "Complex scaffolding solution for historic civic building restoration, providing safe access for dome maintenance and architectural preservation work.",
-    image: "/council.png", // update path as needed
+    image: "/council.png",
     tags: ["Historic Building", "Complex Access", "Civic Project"],
   },
   {
@@ -27,7 +27,7 @@ const projects = [
     location: "Sutton-in-Ashfield",
     description:
       "Multi-level scaffolding system for modern institutional building maintenance, providing safe working platforms across multiple floors and sections.",
-    video: "/castle.mp4", // Video URL for this project
+    video: "/castle.mp4",
     tags: ["Multi-Level", "Institutional", "Modern Building"],
   },
   {
@@ -35,7 +35,7 @@ const projects = [
     location: "Nottingham",
     description:
       "Complex scaffolding solution for historic civic building restoration, providing safe access for dome maintenance and architectural preservation work.",
-    image: "/nottingham castle.jpg", // update path as needed
+    image: "/nottingham castle.jpg",
     tags: ["Historic Building", "Complex Access", "Civic Project"],
   },
   {
@@ -74,37 +74,35 @@ const projects = [
 
 const RecentProject = () => {
   return (
-    <section className="px-4 py-10 sm:px-6 lg:px-16 bg-white scroll-m-18" id="recent-projects">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-2">Recent Projects</h2>
-        <p className="text-gray-600 mb-10 text-md sm:text-lg max-w-xl mx-auto">
+    <section className="scroll-m-18 bg-white px-4 py-10 sm:px-6 lg:px-16" id="recent-projects">
+      <div className="mx-auto max-w-7xl text-center">
+        <h2 className="heading-font mb-2 text-2xl font-bold text-[var(--brand-text)] sm:text-3xl">Recent Projects</h2>
+        <p className="mx-auto mb-10 max-w-xl text-md text-[var(--brand-muted)] sm:text-lg">
           Showcasing our expertise in high-profile commercial and institutional scaffolding projects
         </p>
 
-        {/* Swiper component for swipe functionality */}
         <Swiper
-          modules={[Autoplay, Pagination]} // Correct module import for swiper v8+
+          modules={[Autoplay, Pagination]}
           spaceBetween={30}
           loop={true}
           autoplay={{ delay: 3000 }}
           pagination={{ clickable: true }}
           breakpoints={{
-            640: { slidesPerView: 1 }, // For small screens, 1 project card visible
-            768: { slidesPerView: 2 }, // For medium screens, 2 project cards visible
-            1024: { slidesPerView: 3 }, // For large screens, 3 project cards visible
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
           }}
           className="relative"
         >
           {projects.map((project, index) => (
             <SwiperSlide key={index}>
-              <div className="relative group h-120 bg-white rounded-xl mb-12 shadow-md overflow-hidden text-left flex flex-col">
+              <div className="brand-card brand-card-hover relative mb-12 flex h-120 flex-col overflow-hidden rounded-xl bg-white text-left">
                 <div className="relative overflow-hidden">
-                  {/* Conditionally render video for the "Sir John Robinson House" project */}
                   {project.video ? (
                     <video
                       src={project.video}
                       alt={project.title}
-                      className="w-full h-58 object-cover rounded-2xl transform transition-transform duration-300 group-hover:scale-105"
+                      className="h-58 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       autoplay
                       muted
                       loop
@@ -113,25 +111,25 @@ const RecentProject = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-58 object-cover rounded-2xl transform transition-transform duration-300 group-hover:scale-105"
+                      className="h-58 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   )}
-                  <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  <span className="absolute top-3 left-3 rounded-full bg-[var(--brand-blue)] px-3 py-1 text-xs font-semibold text-white">
                     Commercial
                   </span>
                 </div>
-                <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="font-semibold text-lg mb-1">{project.title}</h3>
-                  <div className="flex items-center text-sm text-gray-500 mb-2">
-                    <MapPin className="w-4 h-4 mr-1" />
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="heading-font mb-1 text-lg font-semibold text-[var(--brand-text)]">{project.title}</h3>
+                  <div className="mb-2 flex items-center text-sm text-[var(--brand-muted)]">
+                    <MapPin className="mr-1 h-4 w-4" />
                     {project.location}
                   </div>
-                  <p className="text-sm text-gray-700 mb-4">{project.description}</p>
-                  <div className="mt-auto flex flex-wrap gap-2 mb-5">
+                  <p className="mb-4 text-sm text-[var(--brand-muted)]">{project.description}</p>
+                  <div className="mt-auto mb-5 flex flex-wrap gap-2">
                     {project.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="text-xs border border-gray-300 text-black px-2 py-1 rounded-full"
+                        className="rounded-full border border-[var(--brand-border)] px-2 py-1 text-xs text-[var(--brand-text)]"
                       >
                         {tag}
                       </span>
@@ -142,13 +140,6 @@ const RecentProject = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/* CTA Button
-        <div className="mt-10">
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-blue-700 transition">
-            View All Projects
-          </button>
-        </div> */}
       </div>
     </section>
   );

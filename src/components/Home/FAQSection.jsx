@@ -28,19 +28,17 @@ const FAQSection = () => {
 
   return (
     <section className="bg-white py-8 sm:py-10 md:py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
 
-        {/* LEFT */}
         <div className="lg:sticky lg:top-8 lg:self-start">
-          <span className="block text-[#F21B23] font-semibold mb-3 sm:mb-4 text-sm sm:text-base">
+          <span className="heading-font mb-3 block text-sm font-semibold uppercase tracking-[0.2em] text-[var(--brand-blue)] sm:mb-4 sm:text-base">
             FAQ
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-black leading-tight">
+          <h2 className="heading-font text-2xl font-extrabold leading-tight text-[var(--brand-text)] sm:text-3xl md:text-4xl">
             Frequently Asked Questions
           </h2>
         </div>
 
-        {/* RIGHT */}
         <div className="space-y-3 sm:space-y-4">
           {faqs.map((item, index) => {
             const isOpen = openIndex === index;
@@ -48,22 +46,21 @@ const FAQSection = () => {
             return (
               <div
                 key={index}
-                className="bg-gray-50 rounded-2xl overflow-hidden transition"
+                className="brand-card overflow-hidden rounded-2xl bg-[var(--brand-offwhite)] transition"
               >
-                {/* HEADER */}
                 <button
                   onClick={() => toggle(index)}
-                  className="w-full flex items-center justify-between gap-3 px-4 sm:px-6 py-4 sm:py-5 text-left"
+                  className="flex w-full items-center justify-between gap-3 px-4 py-4 text-left sm:px-6 sm:py-5"
                 >
-                  <span className="font-semibold text-black text-sm sm:text-base leading-snug">
+                  <span className="heading-font text-sm font-semibold leading-snug text-[var(--brand-text)] sm:text-base">
                     {item.q}
                   </span>
 
                   <span
-                    className={`flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full border transition-transform duration-300 ${
+                    className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border transition-transform duration-300 sm:h-9 sm:w-9 ${
                       isOpen
-                        ? "rotate-45 border-[#F21B23] text-[#F21B23]"
-                        : "border-slate-300 text-slate-600"
+                        ? "rotate-45 border-[var(--brand-blue)] text-[var(--brand-blue)]"
+                        : "border-[var(--brand-border)] text-[var(--brand-muted)]"
                     }`}
                   >
                     <Plus size={16} className="sm:hidden" />
@@ -71,7 +68,6 @@ const FAQSection = () => {
                   </span>
                 </button>
 
-                {/* CONTENT */}
                 <div
                   className={`grid transition-all duration-300 ease-in-out ${
                     isOpen
@@ -79,7 +75,7 @@ const FAQSection = () => {
                       : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
-                  <div className="overflow-hidden px-4 sm:px-6 pb-4 sm:pb-5 text-slate-600 text-sm sm:text-base leading-relaxed">
+                  <div className="overflow-hidden px-4 pb-4 text-sm leading-relaxed text-[var(--brand-muted)] sm:px-6 sm:pb-5 sm:text-base">
                     {item.a}
                   </div>
                 </div>

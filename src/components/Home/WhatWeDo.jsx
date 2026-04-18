@@ -75,20 +75,18 @@ export function WhatWeDo() {
         setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
 
     return (
-        <section className="py-12 md:py-20 bg-background overflow-hidden" id="services">
-            <div className="container mx-auto px-4 max-w-7xl">
+        <section className="overflow-hidden bg-[var(--brand-offwhite)] py-12 md:py-20" id="services">
+            <div className="container mx-auto max-w-7xl px-4">
 
-                {/* Section Header */}
-                <div className="text-center space-y-4 mb-10 md:mb-16">
-                    <span className="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                <div className="mb-10 space-y-4 text-center md:mb-16">
+                    <span className="heading-font inline-block rounded-md bg-[var(--brand-blue)]/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-blue)]">
                         • Our Services
                     </span>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold px-2">
+                    <h2 className="heading-font px-2 text-2xl font-bold text-[var(--brand-text)] sm:text-3xl md:text-4xl">
                         Compassionate care, tailored to every individual
                     </h2>
                 </div>
 
-                {/* ── MOBILE SLIDER (< md) ── */}
                 <div className="block md:hidden">
                     <div className="relative overflow-hidden">
                         <motion.div
@@ -103,34 +101,30 @@ export function WhatWeDo() {
                                         key={index}
                                         className="min-w-full px-2"
                                     >
-                                        <div className="flex flex-col text-center pt-8 rounded-[24px] border border-primary/20 shadow-xl bg-card">
-                                            {/* Icon */}
-                                            <div className="flex justify-center mb-4">
-                                                <Icon className="h-7 w-7 text-primary" />
+                                        <div className="brand-card flex flex-col rounded-[24px] border border-[var(--brand-border)] pt-8 text-center shadow-xl">
+                                            <div className="mb-4 flex justify-center">
+                                                <Icon className="h-7 w-7 text-[var(--brand-blue)]" />
                                             </div>
 
-                                            {/* Title */}
-                                            <h3 className="font-bold text-lg px-6 text-primary">
+                                            <h3 className="heading-font px-6 text-lg font-semibold text-[var(--brand-blue)]">
                                                 {service.title}
                                             </h3>
 
-                                            {/* Description */}
-                                            <p className="text-sm px-6 mt-3 leading-relaxed text-muted-foreground">
+                                            <p className="mt-3 px-6 text-sm leading-relaxed text-[var(--brand-muted)]">
                                                 {service.description}
                                             </p>
 
-                                            {/* Image */}
-                                            <div className="relative p-3 mt-2">
-                                                <div className="relative rounded-[20px] overflow-hidden">
+                                            <div className="relative mt-2 p-3">
+                                                <div className="relative overflow-hidden rounded-[20px]">
                                                     <img
                                                         src={service.img}
                                                         alt={service.title}
-                                                        className="w-full h-[200px] object-cover"
+                                                        className="h-[200px] w-full object-cover"
                                                     />
-                                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-card px-6 py-2 rounded-b-[16px] shadow-sm">
+                                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 rounded-b-[16px] bg-white px-6 py-2 shadow-sm">
                                                         <Link
                                                             to={service.link}
-                                                            className="text-[11px] font-bold uppercase tracking-widest text-foreground flex items-center gap-2 hover:text-primary transition-colors whitespace-nowrap"
+                                                            className="heading-font flex items-center gap-2 whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--brand-text)] transition-colors hover:text-[var(--brand-blue)]"
                                                         >
                                                             Read More
                                                             <ArrowRight className="h-3 w-3" />
@@ -145,11 +139,10 @@ export function WhatWeDo() {
                         </motion.div>
                     </div>
 
-                    {/* Mobile Controls */}
-                    <div className="flex items-center justify-center gap-5 mt-8">
+                    <div className="mt-8 flex items-center justify-center gap-5">
                         <button
                             onClick={prevSlide}
-                            className="p-3 rounded-full border border-primary/20 hover:bg-primary hover:text-white transition-all"
+                            className="rounded-full border border-[var(--brand-blue)]/20 p-3 text-[var(--brand-blue)] transition-all hover:bg-[var(--brand-blue)] hover:text-white"
                             aria-label="Previous"
                         >
                             <ChevronLeft className="h-5 w-5" />
@@ -161,7 +154,7 @@ export function WhatWeDo() {
                                     key={i}
                                     onClick={() => setCurrentIndex(i)}
                                     aria-label={`Go to slide ${i + 1}`}
-                                    className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i ? "w-8 bg-primary" : "w-2 bg-primary/20"
+                                    className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i ? "w-8 bg-[var(--brand-blue)]" : "w-2 bg-[var(--brand-blue)]/20"
                                         }`}
                                 />
                             ))}
@@ -169,7 +162,7 @@ export function WhatWeDo() {
 
                         <button
                             onClick={nextSlide}
-                            className="p-3 rounded-full border border-primary/20 hover:bg-primary hover:text-white transition-all"
+                            className="rounded-full border border-[var(--brand-blue)]/20 p-3 text-[var(--brand-blue)] transition-all hover:bg-[var(--brand-blue)] hover:text-white"
                             aria-label="Next"
                         >
                             <ChevronRight className="h-5 w-5" />
@@ -177,7 +170,6 @@ export function WhatWeDo() {
                     </div>
                 </div>
 
-                {/* ── TABLET SLIDER (md → lg) ── */}
                 <div className="hidden md:block lg:hidden">
                     <div className="relative overflow-hidden">
                         <motion.div
@@ -188,7 +180,6 @@ export function WhatWeDo() {
                             transition={{ type: "spring", stiffness: 200, damping: 25 }}
                             style={{ width: "100%" }}
                         >
-                            {/* Leading spacer */}
                             <div className="min-w-[calc(50%-0.625rem)] shrink-0" />
 
                             {services.map((service, index) => {
@@ -198,45 +189,45 @@ export function WhatWeDo() {
                                 return (
                                     <div key={index} className="min-w-[calc(50%-0.625rem)] shrink-0">
                                         <div
-                                            className={`h-full flex flex-col text-center pt-8 rounded-[28px] border transition-all duration-500 ${isActive
-                                                    ? "border-primary/20 shadow-2xl bg-card scale-100 opacity-100"
-                                                    : "border-border bg-card opacity-40 scale-95"
+                                            className={`brand-card h-full flex flex-col rounded-[28px] border transition-all duration-500 ${isActive
+                                                    ? "border-[var(--brand-blue)]/20 bg-white scale-100 opacity-100 shadow-2xl"
+                                                    : "border-[var(--brand-border)] bg-white opacity-40 scale-95"
                                                 }`}
                                         >
-                                            <div className="flex justify-center mb-5">
+                                            <div className="mb-5 flex justify-center pt-8">
                                                 <Icon
-                                                    className={`h-7 w-7 transition-colors duration-500 ${isActive ? "text-primary" : "text-muted-foreground"
+                                                    className={`h-7 w-7 transition-colors duration-500 ${isActive ? "text-[var(--brand-blue)]" : "text-[var(--brand-muted)]"
                                                         }`}
                                                 />
                                             </div>
 
                                             <h3
-                                                className={`font-bold text-lg px-6 transition-colors duration-500 ${isActive ? "text-primary" : "text-foreground"
+                                                className={`heading-font px-6 text-center text-lg font-semibold transition-colors duration-500 ${isActive ? "text-[var(--brand-blue)]" : "text-[var(--brand-text)]"
                                                     }`}
                                             >
                                                 {service.title}
                                             </h3>
 
                                             <p
-                                                className={`text-sm px-6 mt-3 leading-relaxed transition-opacity duration-500 ${isActive
-                                                        ? "text-muted-foreground opacity-100"
+                                                className={`mt-3 px-6 text-center text-sm leading-relaxed transition-opacity duration-500 ${isActive
+                                                        ? "text-[var(--brand-muted)] opacity-100"
                                                         : "opacity-0"
                                                     }`}
                                             >
                                                 {service.description}
                                             </p>
 
-                                            <div className="relative p-3 mt-auto">
-                                                <div className="relative rounded-[20px] overflow-hidden">
+                                            <div className="relative mt-auto p-3">
+                                                <div className="relative overflow-hidden rounded-[20px]">
                                                     <img
                                                         src={service.img}
                                                         alt={service.title}
-                                                        className="w-full h-[200px] object-cover"
+                                                        className="h-[200px] w-full object-cover"
                                                     />
-                                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-card px-6 py-2 rounded-b-[16px] shadow-sm">
+                                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 rounded-b-[16px] bg-white px-6 py-2 shadow-sm">
                                                         <Link
                                                             to={service.link}
-                                                            className="text-[11px] font-bold uppercase tracking-widest text-foreground flex items-center gap-2 hover:text-primary transition-colors whitespace-nowrap"
+                                                            className="heading-font flex items-center gap-2 whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--brand-text)] transition-colors hover:text-[var(--brand-blue)]"
                                                         >
                                                             Read More
                                                             <ArrowRight className="h-3 w-3" />
@@ -249,16 +240,14 @@ export function WhatWeDo() {
                                 );
                             })}
 
-                            {/* Trailing spacer */}
                             <div className="min-w-[calc(50%-0.625rem)] shrink-0" />
                         </motion.div>
                     </div>
 
-                    {/* Tablet Controls */}
-                    <div className="flex items-center justify-center gap-5 mt-10">
+                    <div className="mt-10 flex items-center justify-center gap-5">
                         <button
                             onClick={prevSlide}
-                            className="p-3 rounded-full border border-primary/20 hover:bg-primary hover:text-white transition-all"
+                            className="rounded-full border border-[var(--brand-blue)]/20 p-3 text-[var(--brand-blue)] transition-all hover:bg-[var(--brand-blue)] hover:text-white"
                             aria-label="Previous"
                         >
                             <ChevronLeft className="h-5 w-5" />
@@ -270,7 +259,7 @@ export function WhatWeDo() {
                                     key={i}
                                     onClick={() => setCurrentIndex(i)}
                                     aria-label={`Go to slide ${i + 1}`}
-                                    className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i ? "w-8 bg-primary" : "w-2 bg-primary/20"
+                                    className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i ? "w-8 bg-[var(--brand-blue)]" : "w-2 bg-[var(--brand-blue)]/20"
                                         }`}
                                 />
                             ))}
@@ -278,7 +267,7 @@ export function WhatWeDo() {
 
                         <button
                             onClick={nextSlide}
-                            className="p-3 rounded-full border border-primary/20 hover:bg-primary hover:text-white transition-all"
+                            className="rounded-full border border-[var(--brand-blue)]/20 p-3 text-[var(--brand-blue)] transition-all hover:bg-[var(--brand-blue)] hover:text-white"
                             aria-label="Next"
                         >
                             <ChevronRight className="h-5 w-5" />
@@ -286,10 +275,9 @@ export function WhatWeDo() {
                     </div>
                 </div>
 
-                {/* ── DESKTOP SLIDER (≥ lg) — original layout preserved ── */}
                 <div className="hidden lg:block">
                     <div className="relative">
-                        <div className="flex justify-center items-center overflow-visible">
+                        <div className="flex items-center justify-center overflow-visible">
                             <motion.div
                                 className="flex gap-6"
                                 animate={{
@@ -307,50 +295,50 @@ export function WhatWeDo() {
                                     return (
                                         <div key={index} className="min-w-[calc(33.333%-1rem)]">
                                             <div
-                                                className={`h-full flex flex-col text-center pt-10 rounded-[32px] border transition-all duration-500 ${isActive
-                                                        ? "border-primary/20 shadow-2xl bg-card scale-105 z-20 opacity-100"
-                                                        : "border-border bg-card opacity-40 scale-95"
+                                                className={`brand-card h-full flex flex-col rounded-[32px] border transition-all duration-500 ${isActive
+                                                        ? "border-[var(--brand-blue)]/20 bg-white scale-105 z-20 opacity-100 shadow-2xl"
+                                                        : "border-[var(--brand-border)] bg-white opacity-40 scale-95"
                                                     }`}
                                             >
-                                                <div className="flex justify-center mb-6">
+                                                <div className="mb-6 flex justify-center pt-10">
                                                     <Icon
-                                                        className={`h-8 w-8 transition-colors duration-500 ${isActive ? "text-primary" : "text-muted-foreground"
+                                                        className={`h-8 w-8 transition-colors duration-500 ${isActive ? "text-[var(--brand-blue)]" : "text-[var(--brand-muted)]"
                                                             }`}
                                                     />
                                                 </div>
 
                                                 <h3
-                                                    className={`font-bold text-xl px-6 transition-colors duration-500 ${isActive ? "text-primary" : "text-foreground"
+                                                    className={`heading-font px-6 text-center text-xl font-semibold transition-colors duration-500 ${isActive ? "text-[var(--brand-blue)]" : "text-[var(--brand-text)]"
                                                         }`}
                                                 >
                                                     {service.title}
                                                 </h3>
 
                                                 <p
-                                                    className={`text-sm px-8 mt-4 leading-relaxed transition-opacity duration-500 ${isActive
-                                                            ? "text-muted-foreground opacity-100"
+                                                    className={`mt-4 px-8 text-center text-sm leading-relaxed transition-opacity duration-500 ${isActive
+                                                            ? "text-[var(--brand-muted)] opacity-100"
                                                             : "opacity-0"
                                                         }`}
                                                 >
                                                     {service.description}
                                                 </p>
 
-                                                <div className="relative p-4 mt-auto">
-                                                    <div className="relative rounded-[24px] overflow-hidden">
+                                                <div className="relative mt-auto p-4">
+                                                    <div className="relative overflow-hidden rounded-[24px]">
                                                         <img
                                                             src={service.img}
                                                             alt={service.title}
-                                                            className="w-full h-[220px] object-cover"
+                                                            className="h-[220px] w-full object-cover"
                                                         />
                                                         <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-30">
                                                             <Link
                                                                 to={service.link}
-                                                                className="bg-white px-8 py-3 pt-9 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] flex items-center gap-3 hover:bg-gray-50 transition-all group/btn"
+                                                                className="group/btn flex items-center gap-3 rounded-xl bg-white px-8 py-3 pt-9 shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all hover:bg-[var(--brand-offwhite)]"
                                                             >
-                                                                <span className="text-[12px] font-black uppercase tracking-[0.15em] text-gray-800">
+                                                                <span className="heading-font text-[12px] font-black uppercase tracking-[0.15em] text-[var(--brand-text)]">
                                                                     Read More
                                                                 </span>
-                                                                <ArrowRight className="h-4 w-4 text-gray-800 transition-transform group-hover/btn:translate-x-1" />
+                                                                <ArrowRight className="h-4 w-4 text-[var(--brand-text)] transition-transform group-hover/btn:translate-x-1" />
                                                             </Link>
                                                         </div>
                                                     </div>
@@ -364,11 +352,10 @@ export function WhatWeDo() {
                             </motion.div>
                         </div>
 
-                        {/* Desktop Controls */}
-                        <div className="flex items-center justify-center gap-6 mt-16">
+                        <div className="mt-16 flex items-center justify-center gap-6">
                             <button
                                 onClick={prevSlide}
-                                className="p-3 rounded-full border border-primary/20 hover:bg-primary hover:text-white transition-all"
+                                className="rounded-full border border-[var(--brand-blue)]/20 p-3 text-[var(--brand-blue)] transition-all hover:bg-[var(--brand-blue)] hover:text-white"
                                 aria-label="Previous"
                             >
                                 <ChevronLeft className="h-6 w-6" />
@@ -380,7 +367,7 @@ export function WhatWeDo() {
                                         key={i}
                                         onClick={() => setCurrentIndex(i)}
                                         aria-label={`Go to slide ${i + 1}`}
-                                        className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i ? "w-8 bg-primary" : "w-2 bg-primary/20"
+                                        className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i ? "w-8 bg-[var(--brand-blue)]" : "w-2 bg-[var(--brand-blue)]/20"
                                             }`}
                                     />
                                 ))}
@@ -388,7 +375,7 @@ export function WhatWeDo() {
 
                             <button
                                 onClick={nextSlide}
-                                className="p-3 rounded-full border border-primary/20 hover:bg-primary hover:text-white transition-all"
+                                className="rounded-full border border-[var(--brand-blue)]/20 p-3 text-[var(--brand-blue)] transition-all hover:bg-[var(--brand-blue)] hover:text-white"
                                 aria-label="Next"
                             >
                                 <ChevronRight className="h-6 w-6" />
