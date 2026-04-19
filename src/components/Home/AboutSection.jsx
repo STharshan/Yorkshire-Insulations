@@ -10,53 +10,62 @@ export default function AboutSection() {
         offset: ["start end", "end start"],
     });
 
-    const yBack = useTransform(scrollYProgress, [0, 1], [50, -150]);
-    const yFront = useTransform(scrollYProgress, [0, 1], [80, -80]);
+    // Reduce parallax movement on mobile to prevent layout breaking
+    const yBack = useTransform(scrollYProgress, [0, 1], [30, -40]);
+    const yFront = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
     return (
-        <section id="about" ref={ref} className="overflow-hidden bg-white py-30">
-            <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 lg:grid-cols-2">
+        <section id="about" ref={ref} className="overflow-hidden bg-white py-1">
+            <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
 
-                <div className="relative">
-                    <div className="relative z-10 w-[85%] lg:w-[80%]">
+                {/* IMAGE COMPOSITION */}
+                <div className="relative order-1 lg:order-none">
+                    {/* Main Background Image */}
+                    <div className="relative z-10 w-[90%] lg:w-[80%]">
                         <img
                             src="/about2.webp"
                             alt="Roofing background"
-                            className="w-full rounded-[10px] object-cover shadow-[var(--brand-media-shadow)]"
+                            className="w-full rounded-[10px] object-cover shadow-xl"
                         />
 
-                        <motion.div style={{ y: yBack }} className="absolute top-10 z-30">
+                        {/* Middle Floating Image */}
+                        <motion.div 
+                            style={{ y: yBack }} 
+                            className="absolute top-5 left-5 z-20 w-[60%] lg:top-10"
+                        >
                             <img
                                 src="/about.png"
-                                alt="Roofing background"
+                                alt="Insulation detail"
                                 className="w-full object-cover"
                             />
                         </motion.div>
                     </div>
 
+                    {/* Front Floating Logo/Image */}
                     <motion.div
                         style={{ y: yFront }}
-                        className="absolute -bottom-50 -right-4 z-30 w-[80%] sm:w-[85%] lg:-right-5"
+                        className="absolute -bottom-10 right-0 z-30 w-[60%] sm:w-[50%] lg:-right-5 lg:w-[85%]"
                     >
                         <img
                             src="/logo.png"
-                            alt="Worker on roof"
-                            className="w-full rounded-[10px] object-cover "
+                            alt="Yorkshire Insulation Logo"
+                            className="w-full rounded-[10px] object-cover"
                         />
                     </motion.div>
                 </div>
 
-                <div className="lg:pl-10">
-                    <p className="heading-font mb-4 text-[13px] font-bold uppercase tracking-[0.26em] text-[var(--brand-gold)]">
+                {/* TEXT CONTENT */}
+                <div className="lg:pl-10 mt-12 lg:mt-0">
+                    <p className="heading-font mb-4 text-[12px] md:text-[13px] font-bold uppercase tracking-[0.26em] text-[var(--brand-gold)]">
                         ABOUT YORKSHIRE INSULATION
                     </p>
 
-                    <h2 className="heading-font mb-8 text-[36px] font-bold leading-[1.2] text-[var(--brand-text)] md:text-[42px]">
-                        Keeping Yorkshire Homes Warm<br />
+                    <h2 className="heading-font mb-6 text-[30px] font-bold leading-[1.2] text-[var(--brand-text)] md:text-[42px]">
+                        Keeping Yorkshire Homes Warm<br className="hidden md:block" />
                         Since Day One
                     </h2>
 
-                    <p className="mb-8 max-w-xl text-base leading-relaxed text-[var(--brand-muted)]">
+                    <p className="mb-8 max-w-xl text-sm md:text-base leading-relaxed text-[var(--brand-muted)]">
                         We're a Yorkshire-based insulation company helping homeowners across the region reduce heat
                         loss, lower energy bills, and make their homes more comfortable year round. From a single loft to a full
                         external wall installation - we handle it all, properly.
@@ -72,28 +81,35 @@ export default function AboutSection() {
                                 <div className="mt-1 shrink-0 rounded-full border border-[var(--brand-success)] p-0.5">
                                     <Check className="text-[var(--brand-success)]" size={14} strokeWidth={4} />
                                 </div>
-                                <p className="text-base font-semibold text-[var(--brand-text)] leading-tight">
+                                <p className="text-sm md:text-base font-semibold text-[var(--brand-text)] leading-tight">
                                     {text}
                                 </p>
                             </div>
                         ))}
                     </div>
 
-                    <button className="heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-[var(--brand-gold-hover)]">
+                    <button className="w-full md:w-auto heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-[var(--brand-gold-hover)]">
                         About Us
                     </button>
                 </div>
             </div>
 
             <style jsx global>{`
-        @keyframes bounce-slow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-bounce-slow {
-          animation: bounce-slow 4s infinite ease-in-out;
-        }
-      `}</style>
+                :root {
+                    --brand-gold: #c5a059;
+                    --brand-gold-hover: #b48f48;
+                    --brand-text: #1a1a1a;
+                    --brand-muted: #666666;
+                    --brand-success: #22c55e;
+                }
+                @keyframes bounce-slow {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-10px); }
+                }
+                .animate-bounce-slow {
+                    animation: bounce-slow 4s infinite ease-in-out;
+                }
+            `}</style>
         </section>
     );
 }
