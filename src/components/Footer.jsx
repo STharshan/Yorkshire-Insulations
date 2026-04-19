@@ -12,29 +12,29 @@ export default function Footer() {
     };
 
     return (
-        <footer className="border-t border-[var(--brand-dark-border)] bg-[var(--brand-footer-bg)] font-inter text-white">
+        <footer className="border-t border-[var(--brand-footer-border)] bg-[var(--brand-footer-bg)] font-inter text-white">
             <div className="max-w-7xl mx-auto px-6 py-10">
                 {/* GRID */}
                 <div className="grid grid-cols-1 gap-15 border-b border-[var(--brand-dark-border)] pb-12 md:grid-cols-4">
                     {/* Column 1 - Brand */}
                     <div>
-                        <h2 className="text-2xl font-bold tracking-tight">
+                        <h2 className="heading-font text-[28px] font-bold tracking-[-0.02em] text-white">
                             Yorkshire<span className="text-[var(--brand-accent)]"> Insulations</span>
                         </h2>
-                        <p className="mt-4 max-w-[260px] text-sm leading-relaxed text-[var(--brand-light-muted)]">
+                        <p className="mt-4 max-w-[260px] text-sm leading-relaxed text-[var(--brand-footer-text)]">
                             Based in Yorkshire and working nationwide, our experienced team delivers a range of services including loft and garage insulation, new build insulation projects, spray foam removal, and certified pest control packages.
                         </p>
                     </div>
 
                     {/* Column 2 - Contact */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-5 text-white">Contact</h4>
-                        <ul className="space-y-3 text-sm text-[var(--brand-light-muted)]">
+                        <h4 className="heading-font mb-5 text-[18px] font-semibold text-white">Contact</h4>
+                        <ul className="space-y-3 text-sm text-[var(--brand-footer-text)]">
                             <li className="flex items-center gap-3 transition-colors hover:text-[var(--brand-accent)]">
                                 <Phone size={18} className="text-[var(--brand-accent)]" />
                                 <a href="tel:+447590250335">07590 250 335</a>
                             </li>
-                            <li className="flex items-start gap-3 text-sm text-[var(--brand-light-muted)]">
+                            <li className="flex items-start gap-3 text-sm text-[var(--brand-footer-text)]">
                                 <Mail
                                     size={18}
                                     className="mt-1 shrink-0 text-[var(--brand-accent)]"
@@ -58,8 +58,8 @@ export default function Footer() {
 
                     {/* Column 3 - Services */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-5 text-white">Our Service</h4>
-                        <ul className="space-y-3 text-sm text-[var(--brand-light-muted)]">
+                        <h4 className="heading-font mb-5 text-[18px] font-semibold text-white">Our Service</h4>
+                        <ul className="space-y-3 text-sm text-[var(--brand-footer-text)]">
                             {[
                                 { name: "Loft Insulation", path: "/services/loft-insulation" },
                             ].map((service) => (
@@ -76,8 +76,8 @@ export default function Footer() {
                     </div>
                     {/* Column 4 - Quick Links */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-5 text-white">Quick Links</h4>
-                        <ul className="space-y-3 text-sm text-[var(--brand-light-muted)]">
+                        <h4 className="heading-font mb-5 text-[18px] font-semibold text-white">Quick Links</h4>
+                        <ul className="space-y-3 text-sm text-[var(--brand-footer-text)]">
                             {[
                                 { name: "Home", href: "/#" },
                                 { name: "About", href: "/#about" },
@@ -99,7 +99,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="flex flex-col items-center justify-between gap-4 pt-8 text-sm text-[var(--brand-light-soft)] md:flex-row">
+                <div className="flex flex-col items-center justify-between gap-4 pt-8 text-sm text-[var(--brand-footer-muted)] md:flex-row">
                     <p>
                         © {new Date().getFullYear()} Yorkshire Insulations. All rights reserved.
                     </p>
@@ -110,7 +110,7 @@ export default function Footer() {
                             //href="https://web.facebook.com/p/AutoPlus-Nottingham-100092195330520"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded-full border border-[var(--brand-dark-border)] p-2 transition hover:bg-[var(--brand-accent)] hover:text-[var(--brand-navy)]"
+                            className="rounded-full border border-[var(--brand-footer-border)] p-2 transition hover:bg-[var(--brand-blue)] hover:text-white"
                         >
                             <FaFacebookF size={16} />
                         </a>
@@ -119,7 +119,7 @@ export default function Footer() {
                             //href="https://www.instagram.com/Autoplusnottingham/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded-full border border-[var(--brand-dark-border)] p-2 transition hover:bg-[var(--brand-accent)] hover:text-[var(--brand-navy)]"
+                            className="rounded-full border border-[var(--brand-footer-border)] p-2 transition hover:bg-[var(--brand-blue)] hover:text-white"
                         >
                             <FaInstagram size={16} />
                         </a>
@@ -127,26 +127,26 @@ export default function Footer() {
                 </div>
 
                 {/* Powered by Ansely */}
-                <div className="mt-2 flex flex-col items-center justify-center gap-3 text-center font-semibold text-[var(--brand-light-soft)] sm:flex-row">
+                <div className="mt-2 flex flex-col items-center justify-center gap-3 text-center font-semibold text-[var(--brand-footer-muted)] sm:flex-row">
                     {/* Left: Terms & Privacy */}
                     <div className="flex gap-4 text-sm">
                         <Link
                             to="/terms"
-                            className="text-[var(--brand-light-soft)] transition duration-300 hover:text-[var(--brand-accent)]"
+                            className="text-[var(--brand-footer-muted)] transition duration-300 hover:text-[var(--brand-accent)]"
                         >
                             Terms & Conditions
                         </Link>
-                        <span className="text-[var(--brand-light-soft)]">|</span>
+                        <span className="text-[var(--brand-footer-muted)]">|</span>
                         <Link
                             to="/privacy"
-                            className="text-[var(--brand-light-soft)] transition duration-300 hover:text-[var(--brand-accent)]"
+                            className="text-[var(--brand-footer-muted)] transition duration-300 hover:text-[var(--brand-accent)]"
                         >
                             Privacy Policy
                         </Link>
                     </div>
 
                     {/* Center: Powered by Ansely (unchanged) */}
-                    <p className="text-center font-semibold text-[var(--brand-light-soft)]">
+                    <p className="text-center font-semibold text-[var(--brand-footer-muted)]">
                         Powered by{" "}
                         <a
                             href="https://www.ansely.co.uk/"

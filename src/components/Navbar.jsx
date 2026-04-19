@@ -75,7 +75,7 @@ export default function Navbar() {
   return (
     <header
       ref={navRef}
-      className="fixed top-0 left-0 z-50 w-full border-b border-[var(--brand-dark-border)] bg-[var(--brand-navbar-bg)]"
+      className="fixed top-0 left-0 z-50 w-full border-b border-[var(--brand-navbar-border)] bg-[var(--brand-navbar-bg)]"
     >
       <div className="mx-auto flex items-center justify-between py-4 px-4 md:px-10 lg:px-20">
 
@@ -85,7 +85,7 @@ export default function Navbar() {
         </Link>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden lg:flex items-center gap-8 text-white font-bold tracking-wide text-[14px] whitespace-nowrap">
+        <nav className="heading-font hidden items-center gap-8 whitespace-nowrap text-[15px] font-medium tracking-[0.12em] text-[var(--brand-navbar-text)] lg:flex">
           {menuItems.map((item) => (
             <div key={item.label} className="relative">
               {item.submenu ? (
@@ -95,19 +95,19 @@ export default function Navbar() {
                     onClick={() => handleDropdownClick(item.label)}
                     className={`flex items-center gap-1 cursor-pointer transition ${
                       openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) 
-                      ? "text-[var(--brand-accent)]" : "text-white hover:text-[var(--brand-accent)]"
+                      ? "text-[var(--brand-navbar-hover)]" : "text-[var(--brand-navbar-text)] hover:text-[var(--brand-navbar-hover)]"
                     }`}
                   >
                     <span className={`h-5 w-[2px] ${
                       openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) 
-                      ? "bg-[var(--brand-accent)]" : "bg-transparent"
+                      ? "bg-[var(--brand-navbar-hover)]" : "bg-transparent"
                     }`}></span>
                     {item.label} <ChevronDown size={14} />
                   </button>
 
                   {/* DROPDOWN MENU */}
                   {openDropdown === item.label && (
-                    <div className="absolute left-0 z-50 mt-4 flex w-48 flex-col border border-[var(--brand-dark-border)] bg-[var(--brand-dark-surface-strong)]">
+                    <div className="absolute left-0 z-50 mt-4 flex w-48 flex-col overflow-hidden rounded-[10px] border border-[var(--brand-navbar-border)] bg-[var(--brand-navbar-menu-bg)] shadow-[0_16px_40px_rgba(26,44,91,0.12)]">
                       {item.submenu.map((sub) => (
                         <Link
                           key={sub.label}
@@ -116,7 +116,7 @@ export default function Navbar() {
                           className={`px-4 py-3 text-left text-[12px] transition ${
                             isActive(sub.path)
                               ? "bg-[var(--brand-blue)] text-white"
-                              : "text-white hover:bg-[var(--brand-accent)] hover:text-[var(--brand-navy)]"
+                              : "text-[var(--brand-navbar-text)] hover:bg-[var(--brand-navbar-menu-hover)] hover:text-[var(--brand-navbar-hover)]"
                           }`}
                         >
                           {sub.label}
@@ -133,8 +133,8 @@ export default function Navbar() {
                   onClick={closeMenus}
                   className="flex items-center gap-1"
                 >
-                  <span className={`h-5 w-[2px] ${isActive(item.path) ? "bg-[var(--brand-accent)]" : "bg-transparent"}`}></span>
-                  <span className={`transition ${isActive(item.path) ? "text-[var(--brand-accent)]" : "text-white hover:text-[var(--brand-accent)]"}`}>
+                  <span className={`h-5 w-[2px] ${isActive(item.path) ? "bg-[var(--brand-navbar-hover)]" : "bg-transparent"}`}></span>
+                  <span className={`transition ${isActive(item.path) ? "text-[var(--brand-navbar-hover)]" : "text-[var(--brand-navbar-text)] hover:text-[var(--brand-navbar-hover)]"}`}>
                     {item.label}
                   </span>
                 </HashLink>
@@ -146,21 +146,21 @@ export default function Navbar() {
         {/* RIGHT — CONTACT BUTTON */}
         <a
           href="tel:+447590250335"
-          className="hidden bg-[var(--brand-accent)] px-5 py-2 font-bold tracking-wide text-[var(--brand-navy)] transition hover:bg-[var(--brand-accent-hover)] lg:block"
+          className="heading-font hidden rounded-[6px] bg-[var(--brand-blue)] px-5 py-3 text-[15px] font-semibold tracking-[0.18em] text-white transition hover:bg-[var(--brand-navy)] lg:block"
         >
           CONTACT
         </a>
 
         {/* MOBILE — HAMBURGER */}
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-white">
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[var(--brand-navbar-text)] lg:hidden">
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="max-h-[80vh] overflow-y-auto border-t border-[var(--brand-dark-border)] bg-[var(--brand-navbar-bg)] px-6 py-4 lg:hidden">
-          <nav className="flex flex-col gap-4 font-bold text-white tracking-wide">
+        <div className="max-h-[80vh] overflow-y-auto border-t border-[var(--brand-navbar-border)] bg-[var(--brand-navbar-bg)] px-6 py-4 lg:hidden">
+          <nav className="heading-font flex flex-col gap-4 text-[15px] font-medium tracking-[0.1em] text-[var(--brand-navbar-text)]">
             {menuItems.map((item) => (
               <div key={item.label}>
                 {item.submenu ? (
@@ -172,22 +172,22 @@ export default function Navbar() {
                       <div className="flex items-center gap-2">
                         <span className={`h-4 w-[2px] ${
                           openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) 
-                          ? "bg-[var(--brand-accent)]" : "bg-transparent"
+                          ? "bg-[var(--brand-navbar-hover)]" : "bg-transparent"
                         }`}></span>
-                        <span className={openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) ? "text-[var(--brand-accent)]" : "text-white"}>
+                        <span className={openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) ? "text-[var(--brand-navbar-hover)]" : "text-[var(--brand-navbar-text)]"}>
                           {item.label}
                         </span>
                       </div>
                       <ChevronDown size={16} className={openDropdown === item.label ? "rotate-180 transition-transform" : "transition-transform"} />
                     </button>
                     {openDropdown === item.label && (
-                      <div className="mt-2 flex flex-col gap-3 border-l border-[var(--brand-dark-border)] pl-6">
+                      <div className="mt-2 flex flex-col gap-3 border-l border-[var(--brand-navbar-border)] pl-6">
                         {item.submenu.map((sub) => (
                           <Link
                             key={sub.label}
                             to={sub.path}
                             onClick={closeMenus}
-                            className={`py-1 text-left ${isActive(sub.path) ? "text-[var(--brand-accent)]" : "text-[var(--brand-light-muted)]"}`}
+                            className={`py-1 text-left text-[14px] ${isActive(sub.path) ? "text-[var(--brand-navbar-hover)]" : "text-[var(--brand-muted)]"}`}
                           >
                             {sub.label}
                           </Link>
@@ -202,8 +202,8 @@ export default function Navbar() {
                     onClick={closeMenus}
                     className="flex items-center gap-2 py-2"
                   >
-                    <span className={`h-4 w-[2px] ${isActive(item.path) ? "bg-[var(--brand-accent)]" : "bg-transparent"}`}></span>
-                    <span className={isActive(item.path) ? "text-[var(--brand-accent)]" : "text-white"}>
+                    <span className={`h-4 w-[2px] ${isActive(item.path) ? "bg-[var(--brand-navbar-hover)]" : "bg-transparent"}`}></span>
+                    <span className={isActive(item.path) ? "text-[var(--brand-navbar-hover)]" : "text-[var(--brand-navbar-text)]"}>
                       {item.label}
                     </span>
                   </HashLink>

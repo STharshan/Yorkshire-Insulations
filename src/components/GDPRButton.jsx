@@ -40,16 +40,14 @@ export default function GDPRConsent() {
     <>
       {/* Cookie Banner */}
       {visible && (
-        <div className="fixed bottom-4 left-4 right-4 md:bottom-6 text-center md:right-6 md:left-auto max-w-full md:max-w-xs p-4 rounded-lg 
-                         text-[var(--brand-offwhite)] shadow-lg z-50 
-                      bg-[var(--brand-gdpr-bg)] transition-colors">
-          <p className="text-sm mb-2 text-center text-white">
+        <div className="fixed bottom-4 left-4 right-4 z-50 max-w-full rounded-[10px] border border-[var(--brand-gdpr-border)] bg-[var(--brand-gdpr-bg)] p-4 text-center text-[var(--brand-gdpr-text)] shadow-[0_12px_36px_rgba(26,44,91,0.16)] transition-colors md:bottom-6 md:left-auto md:right-6 md:max-w-xs">
+          <p className="mb-2 text-center text-sm text-[var(--brand-gdpr-text)]">
             We use cookies to improve your experience.{" "}
           </p>
           <p className="mb-3">
             <Link
               to="/privacy"
-              className="text-[var(--brand-accent)] underline hover:text-[var(--brand-accent-hover)]"
+              className="text-[var(--brand-gdpr-link)] underline hover:text-[var(--brand-navy)]"
             >
               See our Privacy Policy
             </Link>
@@ -58,14 +56,14 @@ export default function GDPRConsent() {
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <button
               onClick={handleReject}
-              className="rounded bg-[var(--brand-accent)] px-4 py-2 text-sm text-[var(--brand-navy)] transition hover:bg-[var(--brand-accent-hover)]"
+              className="heading-font rounded-[6px] border-2 border-[var(--brand-blue)] bg-transparent px-4 py-3 text-[15px] font-semibold uppercase tracking-[0.14em] text-[var(--brand-blue)] transition hover:bg-[var(--brand-blue)] hover:text-white"
             >
               Reject
             </button>
             <button
               onClick={handleAccept}
-              className="rounded bg-[var(--brand-blue)] px-4 py-2 text-sm 
-                         text-white hover:bg-[var(--brand-navy)] transition 
+              className="heading-font rounded-[6px] bg-[var(--brand-blue)] px-4 py-3 text-[15px] 
+                         font-semibold uppercase tracking-[0.14em] text-white hover:bg-[var(--brand-navy)] transition 
                          "
             >
               Accept
@@ -79,7 +77,8 @@ export default function GDPRConsent() {
         <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40">
           <button
             onClick={handleIconClick}
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--brand-gdpr-icon-bg)] shadow-lg border border-white 
+            className="h-10 w-10 rounded-full border border-white bg-[var(--brand-gdpr-icon-bg)] shadow-lg 
+                       sm:h-12 sm:w-12
                        flex items-center justify-center hover:scale-105 transition cursor-pointer
                        "
             title="Cookie Preferences"
