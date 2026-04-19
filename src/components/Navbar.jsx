@@ -77,11 +77,11 @@ export default function Navbar() {
       ref={navRef}
       className="fixed top-0 left-0 z-50 w-full border-b border-[var(--brand-dark-border)] bg-[var(--brand-navbar-bg)]"
     >
-      <div className="mx-auto flex items-center justify-between py-4 px-4 md:px-10 lg:px-20">
+      <div className="mx-auto flex items-center justify-between py-1 px-4 md:px-10 lg:px-20">
 
         {/* LEFT — LOGO */}
         <Link to="/" className="flex items-center gap-3" onClick={closeMenus}>
-          <img src="/logo1.png" alt="Logo" className="h-20 w-auto" />
+          <img src="/logo1.png" alt="Logo" className="h-25 w-auto" />
         </Link>
 
         {/* DESKTOP NAV */}
