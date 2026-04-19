@@ -3,20 +3,20 @@ import { Plus } from "lucide-react";
 
 const faqs = [
   {
-    q: "How long does window tinting take?",
-    a: "Most window tinting services are completed within a few hours, depending on the vehicle type and tint selection.",
+    q: "How much does loft insulation cost in Yorkshire?",
+    a: "The cost depends on the size of your loft and the type of insulation used. We assess every property individually so you get an accurate price before any work begins - no hidden charges and no obligation.",
   },
   {
-    q: "Can headlights be restored instead of replaced?",
-    a: "Yes. Headlight restoration is often effective unless the lens is severely damaged or cracked.",
+    q: "What is cavity wall insulation and is my home suitable?",
+    a: "Cavity wall insulation involves injecting insulation material into the gap between your inner and outer walls. Most Yorkshire homes built between 1920 and 1980 - including terraces and semis - are suitable. We'll assess your property and let you know exactly what's possible.",
   },
   {
-    q: "Do you offer headlight crack repair?",
-    a: "Yes. We provide professional headlight crack repair to prevent moisture buildup and further damage.",
+    q: "Will insulation work cause disruption to my home?",
+    a: "Most of our installations are completed in a single day with minimal mess. Cavity wall work is done entirely from the outside, and loft insulation requires no major upheaval. We always leave the property clean and tidy.",
   },
   {
-    q: "What causes headlight condensation?",
-    a: "Condensation is usually caused by seal damage or temperature changes. We offer targeted condensation repair solutions.",
+    q: "Can spray foam insulation affect my mortgage?",
+    a: "Some lenders have raised concerns about certain types of spray foam in roof spaces. We only use approved products and will always advise you on the best option for your property and circumstances before any work begins.",
   },
 ];
 
@@ -27,7 +27,7 @@ const FAQSection = () => {
     setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <section className="bg-white py-8 sm:py-10 md:py-12">
+    <section id="faq" className="bg-white py-8 sm:py-10 md:py-12">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
 
         <div className="lg:sticky lg:top-8 lg:self-start">

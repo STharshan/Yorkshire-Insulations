@@ -26,7 +26,7 @@ const slides = [
 
 export default function HeroSlider() {
     return (
-        <div className="relative h-screen w-full">
+        <div id="/#" className="relative h-screen w-full">
             <Swiper
                 modules={[Navigation, Autoplay, EffectFade]}
                 effect="fade"
@@ -49,27 +49,31 @@ export default function HeroSlider() {
                             <div className="relative z-10 flex h-full items-center">
                                 <div className="px-4 sm:px-6 lg:px-14">
                                     <p className="heading-font mt-30 mb-4 text-[13px] font-bold uppercase tracking-[0.28em] text-[var(--brand-gold)] md:text-sm">
-                                        Complete solution for your roofing vision
+                                        Yorkshire's Trusted Insulation Specialists
                                     </p>
 
                                     <h1 className="heading-font max-w-4xl text-4xl font-bold leading-tight text-white sm:text-5xl md:text-[52px] lg:text-[68px]">
-                                        Expert Roofing & Fixing Services
+                                        Keep Warm. Cut Bills. Live Comfortably.
                                     </h1>
 
                                     <p className="mt-8 mb-10 max-w-2xl text-sm text-white/80 sm:text-lg">
-                                        Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit
-                                        esse cillum dolore
+                                        From loft insulation to cavity wall and spray foam - we help Yorkshire homeowners cut energy
+bills, stay warmer, and add real value to their property. Fully accredited, locally based, and trusted
+across the region.
                                     </p>
 
                                     <div className="mt-6 flex flex-wrap gap-4">
-                                        <button className="heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[var(--brand-gold-hover)]">
-                                            Book a Schedule
-                                        </button>
+                                        <a 
+                                            href="#contact"
+                                            className="heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[var(--brand-gold-hover)]">
+                                            Get a Free Quote
+                                        </a>
 
-                                        <button className="heading-font rounded-md border border-white px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-[var(--brand-navy)]">
-                                            About Us
-                                        </button>
+                                        <a 
+                                            href="#services"
+                                            className="heading-font rounded-md border border-white px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-[var(--brand-navy)]">
+                                            Our Services
+                                        </a>
                                     </div>
                                 </div>
                             </div>

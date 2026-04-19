@@ -7,69 +7,40 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 const projects = [
   {
-    title: "Council House Dome",
-    location: "Nottingham",
-    description:
-      "Complex scaffolding solution for historic civic building restoration, providing safe access for dome maintenance and architectural preservation work.",
+    title: "Project Harrogate",
+    location: "North Yorkshire",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "/council.png",
-    tags: ["Historic Building", "Complex Access", "Civic Project"],
+    tags: ["Tag One", "Tag Two", "Tag Three"],
   },
   {
-    title: "Victoria Law Courts",
-    location: "Birmingham",
-    description:
-      "Comprehensive scaffolding installation for major Victorian courthouse renovation, ensuring complete building envelope coverage for restoration works.",
+    title: "Project Roundhay",
+    location: "Leeds, West Yorkshire",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "/victoria.png",
-    tags: ["Victorian Architecture", "Full Coverage", "Legal Institution"],
+    tags: ["Tag One", "Tag Two", "Tag Three"],
   },
   {
-    title: "Sherwood Observatory",
-    location: "Sutton-in-Ashfield",
-    description:
-      "Multi-level scaffolding system for modern institutional building maintenance, providing safe working platforms across multiple floors and sections.",
-    video: "/castle.mp4",
-    tags: ["Multi-Level", "Institutional", "Modern Building"],
-  },
-  {
-    title: "Nottingham Castle",
-    location: "Nottingham",
-    description:
-      "Complex scaffolding solution for historic civic building restoration, providing safe access for dome maintenance and architectural preservation work.",
+    title: "Project York Centre",
+    location: "York, North Yorkshire",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "/nottingham castle.jpg",
-    tags: ["Historic Building", "Complex Access", "Civic Project"],
+    tags: ["Tag One", "Tag Two", "Tag Three"],
   },
   {
-    title: "Ablett House",
-    location: "Liverpool",
-    description:
-      "Modern student accommodation development designed to provide safe and stylish living in the heart of Liverpool.",
+    title: "Project Huddersfield",
+    location: "Kirklees, West Yorkshire",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "/ablett.jpg",
-    tags: ["Modern student accommodation", "City-centre location", "High-rise structure"],
+    tags: ["Tag One", "Tag Two", "Tag Three"],
   },
   {
-    title: "Nottingham Queens Medical Centre",
-    location: "Nottingham",
-    description:
-      "Plettac scaffold for window replacement",
+    title: "Project Saltaire",
+    location: "Bradford, West Yorkshire",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     image: "/queen.jpg",
-    tags: ["Victorian Architecture", "Full Coverage", "Legal Institution"],
-  },
-  {
-    title: "Temporary garage for Fire engine",
-    location: "Nottingham",
-    description:
-      "A short-term period, often during construction, renovation, or emergency situations where a permanent garage is unavailable.",
-    image: "/garage.jpg",
-    tags: ["Temporary", "Emergency", "Legal Institution"],
-  },
-  {
-    title: "Mansfield Road",
-    location: "Nottingham",
-    description:
-      "Traditional tube and fit scaffolding for full renovation works",
-    image: "/Mansfield.webp",
-    tags: ["Full Building Access" , "Safety & Compliance", "Custom Builds"],
-  },
+    tags: ["Tag One", "Tag Two", "Tag Three"],
+  }
 ];
 
 const RecentProject = () => {
@@ -78,7 +49,7 @@ const RecentProject = () => {
       <div className="mx-auto max-w-7xl text-center">
         <h2 className="heading-font mb-2 text-2xl font-bold text-[var(--brand-text)] sm:text-3xl">Recent Projects</h2>
         <p className="mx-auto mb-10 max-w-xl text-md text-[var(--brand-muted)] sm:text-lg">
-          Showcasing our expertise in high-profile commercial and institutional scaffolding projects
+          Real installs. Real Yorkshire homes. Real results.
         </p>
 
         <Swiper
@@ -90,46 +61,43 @@ const RecentProject = () => {
           breakpoints={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            1280: { slidesPerView: 3 },
           }}
           className="relative"
         >
           {projects.map((project, index) => (
             <SwiperSlide key={index}>
-              <div className="brand-card brand-card-hover relative mb-12 flex h-120 flex-col overflow-hidden rounded-xl bg-white text-left">
+              <div className="brand-card brand-card-hover relative mb-12 flex h-120 flex-col overflow-hidden rounded-xl bg-white text-left shadow-sm border border-[var(--brand-border)]">
                 <div className="relative overflow-hidden">
                   {project.video ? (
                     <video
                       src={project.video}
-                      alt={project.title}
                       className="h-58 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      autoplay
+                      autoPlay
                       muted
                       loop
+                      playsInline
                     />
                   ) : (
                     <img
-                      src={project.image}
+                      src="logo.png"
                       alt={project.title}
-                      className="h-58 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="sm:h-65 h-55 w-72 mx-auto sm:w-full lg:h-68 p-2 object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   )}
-                  <span className="absolute top-3 left-3 rounded-full bg-[var(--brand-blue)] px-3 py-1 text-xs font-semibold text-white">
-                    Commercial
-                  </span>
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="heading-font mb-1 text-lg font-semibold text-[var(--brand-text)]">{project.title}</h3>
                   <div className="mb-2 flex items-center text-sm text-[var(--brand-muted)]">
-                    <MapPin className="mr-1 h-4 w-4" />
+                    <MapPin className="mr-1 h-4 w-4 text-[var(--brand-gold)]" />
                     {project.location}
                   </div>
-                  <p className="mb-4 text-sm text-[var(--brand-muted)]">{project.description}</p>
+                  <p className="mb-4 text-sm text-[var(--brand-muted)] line-clamp-3">{project.description}</p>
                   <div className="mt-auto mb-5 flex flex-wrap gap-2">
                     {project.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="rounded-full border border-[var(--brand-border)] px-2 py-1 text-xs text-[var(--brand-text)]"
+                        className="rounded-full border border-[var(--brand-border)] px-2 py-1 text-[10px] uppercase tracking-wider text-[var(--brand-text)]"
                       >
                         {tag}
                       </span>

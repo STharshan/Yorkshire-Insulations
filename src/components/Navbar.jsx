@@ -1,117 +1,210 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { HashLink } from "react-router-hash-link";
 
 export default function Navbar() {
-  const [active, setActive] = useState("ABOUT");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const location = useLocation();
+  const navRef = useRef(null);
 
   const menuItems = [
-    { label: "ABOUT", id: "about" },
-    { label: "OUR TRAINING", id: "training" },
-    { label: "TIMETABLE", id: "timetable" },
-    { label: "WHY CHOOSE", id: "whychoose" },
-    { label: "TESTIMONIAL", id: "testimonials" },
-    { label: "GALLERY", id: "gallery" },
+    { label: "HOME", path: "/#" },
+    { label: "ABOUT", path: "/#about" },
+    { 
+      label: "SERVICES", 
+      path: "#", 
+      submenu: [
+        { label: "Loft Insulation", path: "/services/loft-insulation" },
+      ]
+    },
+    { 
+      label: "LOCATION", 
+      path: "#", 
+      submenu: [
+        { label: "Leeds", path: "/locations/leeds" },
+      ]
+    },
+    { label: "FAQ", path: "/#faq" },
+    { label: "CONTACT", path: "/#contact" },
   ];
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 120; 
-      const y = element.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top: y, behavior: "smooth" });
+  // Close menus when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Force re-render when location changes to update active states
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location]);
+
+  const handleDropdownClick = (label) => {
+    setOpenDropdown(openDropdown === label ? null : label);
+  };
+
+  const closeMenus = () => {
+    setOpenDropdown(null);
+    setMobileOpen(false);
+  };
+
+  // Improved Active Logic
+  const isActive = (path) => {
+    // 1. Handle Home Case
+    if (path === "/") {
+      return location.pathname === "/" && (location.hash === "" || location.hash === "#");
     }
+    
+    // 2. Handle Hash Links (e.g., /#about)
+    if (path.includes("#") && path !== "#") {
+      const [basePath, hash] = path.split("#");
+      return location.pathname === basePath && location.hash === `#${hash}`;
+    }
+    
+    // 3. Handle Standard Routes (e.g., /services/...)
+    return location.pathname === path;
   };
 
   return (
-    <header className="w-full border-b border-gray-800 bg-black fixed top-0 left-0 z-50">
+    <header ref={navRef} className="w-full border-b border-gray-800 bg-black fixed top-0 left-0 z-50">
       <div className="mx-auto flex items-center justify-between py-4 px-4 md:px-10 lg:px-20">
 
         {/* LEFT — LOGO */}
-        <div className="flex items-center gap-3">
-          <img src="/logo1.png" alt="Boxing Academy" className="h-20 w-auto " />
+        <Link to="/" className="flex items-center gap-3" onClick={closeMenus}>
+          <img src="/logo1.png" alt="Logo" className="h-20 w-auto" />
+        </Link>
 
-          
-        </div>
-
-        {/* DESKTOP NAV (show from lg upward) */}
+        {/* DESKTOP NAV */}
         <nav className="hidden lg:flex items-center gap-8 text-white font-bold tracking-wide text-[14px] whitespace-nowrap">
           {menuItems.map((item) => (
-            <button
-              key={item.label}
-              onClick={() => {
-                setActive(item.label);
-                scrollToSection(item.id);
-              }}
-              className="flex items-center gap-1 cursor-pointer"
-            >
-              <span
-                className={`h-5 w-[2px] ${
-                  active === item.label ? "bg-red-600" : "bg-transparent"
-                }`}
-              ></span>
+            <div key={item.label} className="relative">
+              {item.submenu ? (
+                /* DROPDOWN TRIGGER */
+                <div className="relative group">
+                  <button
+                    onClick={() => handleDropdownClick(item.label)}
+                    className={`flex items-center gap-1 cursor-pointer transition ${
+                      openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) 
+                      ? "text-red-600" : "text-white hover:text-red-500"
+                    }`}
+                  >
+                    <span className={`h-5 w-[2px] ${
+                      openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) 
+                      ? "bg-red-600" : "bg-transparent"
+                    }`}></span>
+                    {item.label} <ChevronDown size={14} />
+                  </button>
 
-              <span className={`${active === item.label ? "text-red-600" : "text-white"}`}>
-                {item.label}
-              </span>
-            </button>
+                  {/* DROPDOWN MENU */}
+                  {openDropdown === item.label && (
+                    <div className="absolute left-0 mt-4 w-48 bg-black border border-gray-800 flex flex-col z-50">
+                      {item.submenu.map((sub) => (
+                        <Link
+                          key={sub.label}
+                          to={sub.path}
+                          onClick={closeMenus}
+                          className={`px-4 py-3 text-left text-[12px] transition ${
+                            isActive(sub.path) ? "bg-red-700 text-white" : "text-white hover:bg-red-600"
+                          }`}
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                /* STANDARD LINK / HASH LINK */
+                <HashLink
+                  smooth
+                  to={item.path}
+                  onClick={closeMenus}
+                  className="flex items-center gap-1"
+                >
+                  <span className={`h-5 w-[2px] ${isActive(item.path) ? "bg-red-600" : "bg-transparent"}`}></span>
+                  <span className={`transition ${isActive(item.path) ? "text-red-600" : "text-white hover:text-red-500"}`}>
+                    {item.label}
+                  </span>
+                </HashLink>
+              )}
+            </div>
           ))}
         </nav>
 
-        {/* RIGHT — CONTACT BUTTON (desktop only) */}
-        <button
-          onClick={() => scrollToSection("contact")}
+        {/* RIGHT — CONTACT BUTTON */}
+        <a
+          href="tel:+447590250335"
           className="hidden lg:block bg-red-600 text-white font-bold px-5 py-2 tracking-wide hover:bg-red-700 transition"
         >
           CONTACT
-        </button>
+        </a>
 
-        {/* MOBILE — HAMBURGER BUTTON */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden flex flex-col gap-1"
-        >
-          <span className="w-6 h-[2px] bg-white"></span>
-          <span className="w-6 h-[2px] bg-white"></span>
-          <span className="w-6 h-[2px] bg-white"></span>
+        {/* MOBILE — HAMBURGER */}
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-white">
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="lg:hidden bg-black border-t border-gray-700 px-6 py-4">
+        <div className="lg:hidden bg-black border-t border-gray-700 px-6 py-4 max-h-[80vh] overflow-y-auto">
           <nav className="flex flex-col gap-4 font-bold text-white tracking-wide">
             {menuItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => {
-                  setActive(item.label);
-                  scrollToSection(item.id);
-                  setMobileOpen(false);
-                }}
-                className="flex items-center gap-2 py-2"
-              >
-                <span
-                  className={`h-4 w-[2px] ${
-                    active === item.label ? "bg-red-600" : "bg-transparent"
-                  }`}
-                ></span>
-
-                <span className={`${active === item.label ? "text-red-600" : "text-white"}`}>
-                  {item.label}
-                </span>
-              </button>
+              <div key={item.label}>
+                {item.submenu ? (
+                  <>
+                    <button
+                      onClick={() => handleDropdownClick(item.label)}
+                      className="flex items-center justify-between w-full py-2"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className={`h-4 w-[2px] ${
+                          openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) 
+                          ? "bg-red-600" : "bg-transparent"
+                        }`}></span>
+                        <span className={openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) ? "text-red-600" : "text-white"}>
+                          {item.label}
+                        </span>
+                      </div>
+                      <ChevronDown size={16} className={openDropdown === item.label ? "rotate-180 transition-transform" : "transition-transform"} />
+                    </button>
+                    {openDropdown === item.label && (
+                      <div className="flex flex-col pl-6 mt-2 gap-3 border-l border-gray-800">
+                        {item.submenu.map((sub) => (
+                          <Link
+                            key={sub.label}
+                            to={sub.path}
+                            onClick={closeMenus}
+                            className={`text-left py-1 ${isActive(sub.path) ? "text-red-500" : "text-gray-400"}`}
+                          >
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <HashLink
+                    smooth
+                    to={item.path}
+                    onClick={closeMenus}
+                    className="flex items-center gap-2 py-2"
+                  >
+                    <span className={`h-4 w-[2px] ${isActive(item.path) ? "bg-red-600" : "bg-transparent"}`}></span>
+                    <span className={isActive(item.path) ? "text-red-600" : "text-white"}>
+                      {item.label}
+                    </span>
+                  </HashLink>
+                )}
+              </div>
             ))}
-
-            {/* MOBILE CONTACT BUTTON */}
-            <button
-              onClick={() => {
-                scrollToSection("contact");
-                setMobileOpen(false);
-              }}
-              className="bg-red-600 text-white font-bold px-6 py-3 tracking-wide mt-2"
-            >
-              CONTACT
-            </button>
           </nav>
         </div>
       )}

@@ -14,7 +14,7 @@ export default function AboutSection() {
     const yFront = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
     return (
-        <section ref={ref} className="overflow-hidden bg-white py-30">
+        <section id="about" ref={ref} className="overflow-hidden bg-white py-30">
             <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 lg:grid-cols-2">
 
                 <div className="relative">
@@ -39,44 +39,48 @@ export default function AboutSection() {
                         className="absolute -bottom-50 -right-4 z-30 w-[80%] sm:w-[85%] lg:-right-5"
                     >
                         <img
-                            src="/about1.webp"
+                            src="/logo.png"
                             alt="Worker on roof"
-                            className="w-full rounded-[10px] object-cover shadow-[0_18px_50px_rgba(10,22,48,0.2)]"
+                            className="w-full rounded-[10px] object-cover "
                         />
                     </motion.div>
                 </div>
 
                 <div className="lg:pl-10">
                     <p className="heading-font mb-4 text-[13px] font-bold uppercase tracking-[0.26em] text-[var(--brand-gold)]">
-                        About Our Company
+                        ABOUT YORKSHIRE INSULATION
                     </p>
 
                     <h2 className="heading-font mb-8 text-[36px] font-bold leading-[1.2] text-[var(--brand-text)] md:text-[42px]">
-                        Best Quality Roofing <br />
-                        Services Providers
+                        Keeping Yorkshire Homes Warm<br />
+                        Since Day One
                     </h2>
 
                     <p className="mb-8 max-w-xl text-base leading-relaxed text-[var(--brand-muted)]">
-                        Enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-                        sed quia consequuntur magni dolores eos qui voluptatem sequi
-                        nesciunt porro quisquam est, qui dolorem ipsum
+                        We're a Yorkshire-based insulation company helping homeowners across the region reduce heat
+                        loss, lower energy bills, and make their homes more comfortable year round. From a single loft to a full
+                        external wall installation - we handle it all, properly.
                     </p>
 
                     <div className="mb-10 space-y-4">
-                        {[1, 2, 3].map((item) => (
-                            <div key={item} className="flex items-center gap-4">
-                                <div className="rounded-full border border-[var(--brand-success)] p-0.5">
-                                    <Check className="text-[var(--brand-success)]" size={16} strokeWidth={3} />
+                        {[
+                            "Fully accredited installers - trusted across Yorkshire",
+                            "All major insulation types covered under one roof",
+                            "Free surveys with no obligation and no hard sell"
+                        ].map((text, index) => (
+                            <div key={index} className="flex items-start gap-4">
+                                <div className="mt-1 shrink-0 rounded-full border border-[var(--brand-success)] p-0.5">
+                                    <Check className="text-[var(--brand-success)]" size={14} strokeWidth={4} />
                                 </div>
-                                <p className="text-base font-semibold text-[var(--brand-text)]">
-                                    Do enim minim veniam quis nostrud exercitation
+                                <p className="text-base font-semibold text-[var(--brand-text)] leading-tight">
+                                    {text}
                                 </p>
                             </div>
                         ))}
                     </div>
 
                     <button className="heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-[var(--brand-gold-hover)]">
-                        More About
+                        About Us
                     </button>
                 </div>
             </div>

@@ -1,25 +1,26 @@
 import React from 'react';
-import { Package, HardHat, Headset } from 'lucide-react';
+import { ShieldCheck, Users, ClipboardCheck } from "lucide-react";
 
 const FeatureCards = () => {
+
   const features = [
     {
       id: 1,
-      title: "Quality Products",
-      desc: "Ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor reprehenderit in voluptate velit esse cillum dolore",
-      icon: <Package size={32} className="text-[var(--brand-gold)]" strokeWidth={1.5} />,
+      title: "Accredited Installers",
+      desc: "All our insulation work is installed to the highest standard using accredited materials: giving you confidence in every job, from first fix to final finish.",
+      icon: <ShieldCheck size={32} className="text-[var(--brand-gold)]" strokeWidth={1.5} />,
     },
     {
       id: 2,
-      title: "Trained Workers",
-      desc: "Ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor reprehenderit in voluptate velit esse cillum dolore",
-      icon: <HardHat size={32} className="text-[var(--brand-gold)]" strokeWidth={1.5} />,
+      title: "Yorkshire Based Team",
+      desc: "We're a local Yorkshire team: not a national call centre. We know the housing stock, the weather, and what works for homes in this region.",
+      icon: <Users size={32} className="text-[var(--brand-gold)]" strokeWidth={1.5} />,
     },
     {
       id: 3,
-      title: "Quick Response",
-      desc: "Ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor reprehenderit in voluptate velit esse cillum dolore",
-      icon: <Headset size={32} className="text-[var(--brand-gold)]" strokeWidth={1.5} />,
+      title: "Free Surveys & Quotes",
+      desc: "Not sure what insulation you need? We'll come out, assess your property, and give you a straight answer with no obligation and no hard sell.",
+      icon: <ClipboardCheck size={32} className="text-[var(--brand-gold)]" strokeWidth={1.5} />,
     },
   ];
 

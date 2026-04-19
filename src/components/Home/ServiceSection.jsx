@@ -4,146 +4,42 @@ import { Link } from "react-router-dom";
 
 const services = [
   {
-    title: "Window Tinting",
-    desc: "Enhance your vehicle's style, comfort, and privacy with our professional window tinting services. We use premium films to reduce heat, block UV rays, and prevent interior fading while giving your car a sleek, modern look.",
-    before: "tint-b.jpeg",
-    after: "tint-a.jpeg",
-    link: "/Window-Tinting",
+    title: "Loft Insulation",
+    desc: "The most cost-effective way to reduce heat loss in your home. We install loft insulation across Yorkshire quickly and cleanly - with most jobs completed in a single day.",
+    image: "loft-a.jpeg", // Using the 'after' photo as the primary
+    link: "/services/loft-insulation",
   },
   {
-    title: "Headlight Restoration",
-    desc: "Bring clarity back to your headlights with our advanced restoration services. We remove oxidation, yellowing, and scratches to improve night-time visibility and restore headlights to near-new condition.",
-    before: "Headlight Restoration-b.jpeg",
-    after: "Headlight Restoration-a.jpeg",
-    link: "/Headlight-Restoration",
+    title: "Cavity Wall Insulation",
+    desc: "We drill small holes in the outer wall and inject insulation material directly into the cavity - minimal disruption, maximum impact. Ideal for Yorkshire terraces and semis built between 1920 and 1980.",
+    image: "cavity-a.jpeg",
+    link: "/services/cavity-wall-insulation",
   },
   {
-    title: "Headlight Crack Repair",
-    desc: "Avoid unnecessary replacements with our expert headlight crack repair services. We fix cracks to prevent moisture ingress, stop further damage, and extend headlight lifespan.",
-    before: "Crack-b.jpeg",
-    after: "Crack-a .jpeg",
-    link: "/Crack-Repair",
+    title: "Spray Foam Insulation",
+    desc: "A highly effective solution for hard-to-insulate spaces. Spray foam expands to fill every gap, creating an airtight seal that dramatically reduces heat loss and damp.",
+    image: "spray-foam-a.jpeg",
+    link: "/services/spray-foam-insulation",
   },
   {
-    title: "Headlight Condensation Repair",
-    desc: "Moisture inside headlights can reduce visibility and damage electrical components. Our condensation repair services restore clarity and prevent future fogging for safer driving.",
-    before: "Condensation-b.jpeg",
-    after: "Condensation-a.jpeg",
-    link: "/Condensation-Repair",
+    title: "Underfloor Insulation",
+    desc: "Cold floors are a sign of significant heat loss. We install insulation beneath your floorboards to keep warmth in and energy bills down - particularly effective in older Yorkshire properties.",
+    image: "underfloor-a.jpeg",
+    link: "/services/underfloor-insulation",
   },
   {
-    title: "Headlight Lens Replacement",
-    desc: "When restoration isn't enough, we provide professional headlight lens replacement services. Our high-quality replacements ensure optimal light output, improved safety, and a refreshed vehicle appearance.",
-    before: "Crack1-b.jpeg",
-    after: "Crack1-a .jpeg",
-    link: "/Lens-Replacement",
+    title: "External Wall Insulation",
+    desc: "For solid-walled properties with no cavity, external wall insulation is the most effective solution. We clad the outside of your home with insulation boards, improving appearance and performance.",
+    image: "external-wall-a.jpeg",
+    link: "/services/external-wall-insulation",
   },
   {
-    title: "Exterior Enhancement",
-    desc: "From window tinting to headlight maintenance, our exterior vehicle services enhance aesthetics, safety, and functionality. Every project is completed with precision, care, and premium materials.",
-    before: "Exterior-b.jpeg",
-    after: "Exterior-a.jpeg",
-    link: "/Headlight",
-  },
-  {
-    title: "Building Window Tinting",
-    desc: "Upgrade comfort, privacy, and heat protection with professional building window tinting for homes, offices, terraces, and custom spaces. Reduce glare, block UV rays, and create a clean modern finish.",
-    before: "building-b.jpeg",
-    after: "building-a.jpeg",
-    link: "/Building-Window-Tinting",
-  },
-  {
-    title: "Ambient Light Installation",
-    desc: "Transform your vehicle or space with intelligent ambient lighting. We install clean, safe, and professionally wired lighting solutions that improve visibility, enhance mood, and add a premium look.",
-    before: "ambient1.jpeg",
-    after: "ambient2.jpeg",
-    link: "/Intelligent-Ambient-Light-Installation",
-  },
-  {
-    title: "Interior Trims Restoration",
-    desc: "Bring your interior back to life with trim restoration and wrapping. We repair worn or faded trims and apply high-quality wraps for a fresh, modern look—perfect for upgrading panels and interior detailing.",
-    before: "interior.jpeg",
-    after: "interior1.jpeg",
-    link: "/Interior-Trims-Restoration",
+    title: "Solid Wall Insulation",
+    desc: "Pre-1920s stone-built Yorkshire homes require a different approach. Our solid wall insulation solutions are designed specifically for older properties where cavity wall simply isn't an option.",
+    image: "solid-wall-a.jpeg",
+    link: "/services/solid-wall-insulation",
   }
 ];
-
-function BeforeAfterSlider({ before, after }) {
-  const [pos, setPos] = useState(50);
-  const containerRef = useRef(null);
-  const dragging = useRef(false);
-
-  const updateFromClientX = useCallback((clientX) => {
-    const el = containerRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = Math.min(Math.max(clientX - rect.left, 0), rect.width);
-    setPos(Math.round((x / rect.width) * 100));
-  }, []);
-
-  const onMouseDown = (e) => {
-    e.preventDefault();
-    dragging.current = true;
-    updateFromClientX(e.clientX);
-    const move = (ev) => dragging.current && updateFromClientX(ev.clientX);
-    const up = () => {
-      dragging.current = false;
-      window.removeEventListener("mousemove", move);
-      window.removeEventListener("mouseup", up);
-    };
-    window.addEventListener("mousemove", move);
-    window.addEventListener("mouseup", up);
-  };
-
-  const onTouchMove = (e) => {
-    if (e.touches?.[0]) updateFromClientX(e.touches[0].clientX);
-  };
-
-  return (
-    <div
-      ref={containerRef}
-      onMouseDown={onMouseDown}
-      onTouchMove={onTouchMove}
-      className="relative h-full w-full overflow-hidden cursor-ew-resize select-none rounded-xl"
-      style={{ touchAction: "none" }}
-    >
-      <img
-        src={after}
-        className="h-full w-full object-top"
-        draggable="false"
-      />
-
-      <div
-        className="absolute inset-0 overflow-hidden"
-        style={{ width: `${pos}%` }}
-      >
-        <img
-          src={before}
-          className="absolute inset-0 h-full w-full object-top"
-          draggable="false"
-        />
-      </div>
-
-      <div
-        className="absolute top-0 h-full w-[2px] bg-[var(--brand-gold)]"
-        style={{ left: `${pos}%` }}
-      >
-        <div
-          className="
-            absolute left-1/2 top-1/2
-            flex h-10 w-10 -translate-x-1/2 -translate-y-1/2
-            cursor-ew-resize items-center justify-center gap-1 rounded-full
-            bg-[var(--brand-gold)] text-white
-            shadow-lg
-          "
-        >
-          <ChevronLeft size={16} />
-          <ChevronRight size={16} />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function ServiceSection() {
   const [current, setCurrent] = useState(0);
@@ -194,7 +90,7 @@ export default function ServiceSection() {
 
           <div className="flex flex-col justify-between gap-4">
             <p className="max-w-lg text-[var(--brand-muted)]">
-              Professional exterior upgrades designed to improve appearance, safety, and comfort.
+              Practical insulation solutions for Yorkshire homeowners - installed properly, built to last, and chosen to suit your property. 
             </p>
 
             <div className="flex items-center gap-3">
@@ -251,13 +147,13 @@ export default function ServiceSection() {
                   }}
                 >
                   <div className="brand-card group overflow-hidden rounded-2xl bg-[var(--brand-panel)] transition hover:shadow-xl">
-
-                    <div
-                      className="relative m-5 h-[230px] overflow-hidden rounded-xl cursor-ew-resize select-none"
-                    >
-                      <BeforeAfterSlider
-                        before={item.before}
-                        after={item.after}
+                    
+                    {/* Simplified Image Container */}
+                    <div className="relative m-5 h-[230px] overflow-hidden rounded-xl">
+                      <img 
+                        src="/logo.png"
+                        alt={item.title}
+                        className="h-45 w-65 mx-auto object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
 
