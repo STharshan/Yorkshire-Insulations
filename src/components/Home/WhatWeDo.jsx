@@ -238,7 +238,7 @@ export function WhatWeDo() {
                                                     {/* CTA */}
                                                     <div className="absolute top-0 left-1/2 -translate-x-1/2 rounded-b-[16px] bg-white px-6 py-2 shadow-sm">
                                                         <Link
-                                                            to={service.link}
+                                                            //to={service.link}
                                                             className="heading-font flex items-center gap-2 whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--brand-text)] transition-colors hover:text-[var(--brand-blue)]"
                                                         >
                                                             Find Out More
@@ -345,7 +345,7 @@ export function WhatWeDo() {
                                                         />
                                                         <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-30">
                                                             <Link
-                                                                to={service.link}
+                                                                //to={service.link}
                                                                 className="group/btn flex items-center gap-3 rounded-xl w-55 mx-auto bg-white px-8 py-3 pt-9 shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all hover:bg-[var(--brand-offwhite)]"
                                                             >
                                                                 <span className="heading-font text-[12px] font-black uppercase tracking-[0.15em] text-[var(--brand-text)]">
