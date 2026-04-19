@@ -27,15 +27,29 @@ const ServiceWorkflowSection = ({ data }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // --- VALIDATION LOGIC ---
+    // Check if required fields are empty or just whitespace
+    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.service) {
+      alert("Please fill in all required fields (Name, Phone, and Service).");
+      return;
+    }
+
+    // Optional: Basic phone number validation (at least 7 digits)
+    const phoneRegex = /^[0-9\s+]{7,}$/;
+    if (!phoneRegex.test(formData.phone.trim())) {
+      alert("Please enter a valid phone number.");
+      return;
+    }
+
     if (!data.contactForm.whatsappLink) {
       return;
     }
 
     const message = [
       `Hi, I would like a quote for ${formData.service}.`,
-      `Full Name: ${formData.fullName || "Not provided"}`,
-      `Phone: ${formData.phone || "Not provided"}`,
-      `Short Note: ${formData.note || "Not provided"}`,
+      `Full Name: ${formData.fullName.trim()}`,
+      `Phone: ${formData.phone.trim()}`,
+      `Short Note: ${formData.note.trim() || "Not provided"}`,
     ].join("\n");
 
     const separator = data.contactForm.whatsappLink.includes("?") ? "&" : "?";
@@ -242,6 +256,7 @@ const ServiceWorkflowSection = ({ data }) => {
                   <input
                     id="service-full-name"
                     name="fullName"
+                    required
                     type={data.contactForm.fields.fullName.type}
                     value={formData.fullName}
                     onChange={handleChange}
@@ -261,6 +276,7 @@ const ServiceWorkflowSection = ({ data }) => {
                   <input
                     id="service-phone"
                     name="phone"
+                    required
                     type={data.contactForm.fields.phone.type}
                     value={formData.phone}
                     onChange={handleChange}
@@ -280,12 +296,13 @@ const ServiceWorkflowSection = ({ data }) => {
                   <select
                     id="service-select"
                     name="service"
+                    required
                     value={formData.service}
                     onChange={handleChange}
                     className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                   >
                     {data.contactForm.fields.service.options.map((option, index) => (
-                      <option key={index}>{option}</option>
+                      <option key={index} value={option}>{option}</option>
                     ))}
                   </select>
                 </div>

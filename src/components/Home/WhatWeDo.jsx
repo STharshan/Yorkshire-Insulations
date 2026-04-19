@@ -121,7 +121,7 @@ export function WhatWeDo() {
                                                     <img
                                                         src="/logo.png"
                                                         alt={service.title}
-                                                        className="h-[200px] w-full object-cover"
+                                                        className="h-58 w-full object-cover"
                                                     />
                                                     <div className="absolute top-0 left-1/2 -translate-x-1/2 rounded-b-[16px] bg-white px-6 py-2 shadow-sm">
                                                         <Link
