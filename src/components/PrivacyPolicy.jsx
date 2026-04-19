@@ -110,7 +110,7 @@ const PrivacyPolicy = () => {
                     </p>
                     <div className="text-white">
                         <p><strong>Yorkshire Insulations</strong></p>
-                        <p>Email: <a href="mailto:info@yorkshireinsulationsolutions.co.uk" className="text-red-500 hover:underline">info@yorkshireinsulationsolutions.co.uk</a></p>
+                        <p>Email: <a href="mailto:info@yorkshireinsulationsolutions.co.uk" className="text-[#1a2c5b] hover:underline">info@yorkshireinsulationsolutions.co.uk</a></p>
                         <p>Phone: 07590 250 335</p>
                         <p>Address: Yorkshire, United Kingdom</p>
                     </div>
@@ -120,7 +120,7 @@ const PrivacyPolicy = () => {
                             href="https://ico.org.uk/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-red-500 hover:underline"
+                            className="text-[#1a2c5b] hover:underline"
                         >
                             Information Commissioner’s Office (ICO)
                         </a>.
