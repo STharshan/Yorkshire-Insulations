@@ -27,7 +27,7 @@ const FAQSection = () => {
     setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <section id="faq" className="bg-white py-8 sm:py-10 md:py-12">
+    <section id="faq" className="bg-white py-8 sm:py-10 md:py-12 scroll-m-20">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
 
         <div className="lg:sticky lg:top-8 lg:self-start">
