@@ -73,7 +73,10 @@ export default function Navbar() {
   };
 
   return (
-    <header ref={navRef} className="w-full border-b border-gray-800 bg-black fixed top-0 left-0 z-50">
+    <header
+      ref={navRef}
+      className="fixed top-0 left-0 z-50 w-full border-b border-[var(--brand-dark-border)] bg-[var(--brand-navbar-bg)]"
+    >
       <div className="mx-auto flex items-center justify-between py-4 px-4 md:px-10 lg:px-20">
 
         {/* LEFT — LOGO */}
@@ -92,26 +95,28 @@ export default function Navbar() {
                     onClick={() => handleDropdownClick(item.label)}
                     className={`flex items-center gap-1 cursor-pointer transition ${
                       openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) 
-                      ? "text-red-600" : "text-white hover:text-red-500"
+                      ? "text-[var(--brand-accent)]" : "text-white hover:text-[var(--brand-accent)]"
                     }`}
                   >
                     <span className={`h-5 w-[2px] ${
                       openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) 
-                      ? "bg-red-600" : "bg-transparent"
+                      ? "bg-[var(--brand-accent)]" : "bg-transparent"
                     }`}></span>
                     {item.label} <ChevronDown size={14} />
                   </button>
 
                   {/* DROPDOWN MENU */}
                   {openDropdown === item.label && (
-                    <div className="absolute left-0 mt-4 w-48 bg-black border border-gray-800 flex flex-col z-50">
+                    <div className="absolute left-0 z-50 mt-4 flex w-48 flex-col border border-[var(--brand-dark-border)] bg-[var(--brand-dark-surface-strong)]">
                       {item.submenu.map((sub) => (
                         <Link
                           key={sub.label}
                           to={sub.path}
                           onClick={closeMenus}
                           className={`px-4 py-3 text-left text-[12px] transition ${
-                            isActive(sub.path) ? "bg-red-700 text-white" : "text-white hover:bg-red-600"
+                            isActive(sub.path)
+                              ? "bg-[var(--brand-blue)] text-white"
+                              : "text-white hover:bg-[var(--brand-accent)] hover:text-[var(--brand-navy)]"
                           }`}
                         >
                           {sub.label}
@@ -128,8 +133,8 @@ export default function Navbar() {
                   onClick={closeMenus}
                   className="flex items-center gap-1"
                 >
-                  <span className={`h-5 w-[2px] ${isActive(item.path) ? "bg-red-600" : "bg-transparent"}`}></span>
-                  <span className={`transition ${isActive(item.path) ? "text-red-600" : "text-white hover:text-red-500"}`}>
+                  <span className={`h-5 w-[2px] ${isActive(item.path) ? "bg-[var(--brand-accent)]" : "bg-transparent"}`}></span>
+                  <span className={`transition ${isActive(item.path) ? "text-[var(--brand-accent)]" : "text-white hover:text-[var(--brand-accent)]"}`}>
                     {item.label}
                   </span>
                 </HashLink>
@@ -141,7 +146,7 @@ export default function Navbar() {
         {/* RIGHT — CONTACT BUTTON */}
         <a
           href="tel:+447590250335"
-          className="hidden lg:block bg-red-600 text-white font-bold px-5 py-2 tracking-wide hover:bg-red-700 transition"
+          className="hidden bg-[var(--brand-accent)] px-5 py-2 font-bold tracking-wide text-[var(--brand-navy)] transition hover:bg-[var(--brand-accent-hover)] lg:block"
         >
           CONTACT
         </a>
@@ -154,7 +159,7 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="lg:hidden bg-black border-t border-gray-700 px-6 py-4 max-h-[80vh] overflow-y-auto">
+        <div className="max-h-[80vh] overflow-y-auto border-t border-[var(--brand-dark-border)] bg-[var(--brand-navbar-bg)] px-6 py-4 lg:hidden">
           <nav className="flex flex-col gap-4 font-bold text-white tracking-wide">
             {menuItems.map((item) => (
               <div key={item.label}>
@@ -167,22 +172,22 @@ export default function Navbar() {
                       <div className="flex items-center gap-2">
                         <span className={`h-4 w-[2px] ${
                           openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) 
-                          ? "bg-red-600" : "bg-transparent"
+                          ? "bg-[var(--brand-accent)]" : "bg-transparent"
                         }`}></span>
-                        <span className={openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) ? "text-red-600" : "text-white"}>
+                        <span className={openDropdown === item.label || item.submenu.some(sub => isActive(sub.path)) ? "text-[var(--brand-accent)]" : "text-white"}>
                           {item.label}
                         </span>
                       </div>
                       <ChevronDown size={16} className={openDropdown === item.label ? "rotate-180 transition-transform" : "transition-transform"} />
                     </button>
                     {openDropdown === item.label && (
-                      <div className="flex flex-col pl-6 mt-2 gap-3 border-l border-gray-800">
+                      <div className="mt-2 flex flex-col gap-3 border-l border-[var(--brand-dark-border)] pl-6">
                         {item.submenu.map((sub) => (
                           <Link
                             key={sub.label}
                             to={sub.path}
                             onClick={closeMenus}
-                            className={`text-left py-1 ${isActive(sub.path) ? "text-red-500" : "text-gray-400"}`}
+                            className={`py-1 text-left ${isActive(sub.path) ? "text-[var(--brand-accent)]" : "text-[var(--brand-light-muted)]"}`}
                           >
                             {sub.label}
                           </Link>
@@ -197,8 +202,8 @@ export default function Navbar() {
                     onClick={closeMenus}
                     className="flex items-center gap-2 py-2"
                   >
-                    <span className={`h-4 w-[2px] ${isActive(item.path) ? "bg-red-600" : "bg-transparent"}`}></span>
-                    <span className={isActive(item.path) ? "text-red-600" : "text-white"}>
+                    <span className={`h-4 w-[2px] ${isActive(item.path) ? "bg-[var(--brand-accent)]" : "bg-transparent"}`}></span>
+                    <span className={isActive(item.path) ? "text-[var(--brand-accent)]" : "text-white"}>
                       {item.label}
                     </span>
                   </HashLink>

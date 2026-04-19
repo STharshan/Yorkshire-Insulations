@@ -13,6 +13,17 @@
   --brand-text: #1a1a1a;
   --brand-muted: #5a6170;
   --brand-dark: #111827;
+  --brand-dark-surface: #122049;
+  --brand-dark-surface-strong: #0d1734;
+  --brand-dark-border: rgba(255, 255, 255, 0.12);
+  --brand-light-muted: rgba(255, 255, 255, 0.74);
+  --brand-light-soft: rgba(255, 255, 255, 0.52);
+  --brand-accent: var(--brand-gold);
+  --brand-accent-hover: var(--brand-gold-hover);
+  --brand-navbar-bg: var(--brand-dark-surface);
+  --brand-footer-bg: var(--brand-dark-surface-strong);
+  --brand-gdpr-bg: rgba(13, 23, 52, 0.96);
+  --brand-gdpr-icon-bg: var(--brand-blue);
   --brand-success: #2d7a4f;
   --brand-star: #f5a623;
   --brand-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
