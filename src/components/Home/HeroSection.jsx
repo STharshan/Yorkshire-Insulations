@@ -82,7 +82,7 @@ across the region.
                 ))}
             </Swiper>
 
-            <div className="absolute right-6 -mt-35 sm:top-1/2 z-20 flex -translate-y-1/2 flex-col gap-4">
+            <div className="absolute right-6 -mt-35 md:mt-0 md:top-1/2 z-20 flex -translate-y-1/2 flex-col gap-4">
                 <button className="prev-btn rounded-full border border-white/30 bg-white/12 p-3 text-white backdrop-blur transition hover:bg-white hover:text-[var(--brand-navy)]">
                     <ChevronLeft />
                 </button>
