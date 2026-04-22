@@ -17,6 +17,9 @@ export default function Navbar() {
       path: "#", 
       submenu: [
         { label: "Loft Insulation", path: "/services/loft-insulation" },
+        { label: "Cavity Wall Insulation", path: "/services/cavity-wall-insulation" },
+        { label: "Spray Foam Removal", path: "/services/spray-foam-removal" },
+        
       ]
     },
     { 
