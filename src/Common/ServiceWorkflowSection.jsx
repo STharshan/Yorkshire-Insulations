@@ -77,7 +77,9 @@ const ServiceWorkflowSection = ({ data }) => {
               </h2>
 
               <div className="mt-6 space-y-5 text-[15px] leading-8 text-[var(--brand-muted)] md:text-base">
-                <p>{data.aboutService.intro}</p>
+                {data.aboutService.intro.split("\n\n").map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
 
                 <ul className="grid gap-3 md:grid-cols-2">
                   {data.aboutService.features.map((feature, index) => (
@@ -93,6 +95,21 @@ const ServiceWorkflowSection = ({ data }) => {
 
                 <p>{data.aboutService.outro}</p>
               </div>
+
+              {data.aboutService.pricingSignal ? (
+                <div className="mt-8 rounded-[10px] border border-[var(--brand-gold)]/35 bg-[var(--brand-gold)]/10 p-6">
+                  <p className="text-base leading-7 text-[var(--brand-navy)]">
+                    {data.aboutService.pricingSignal.text}
+                  </p>
+                  <a
+                    href={data.aboutService.pricingSignal.ctaHref}
+                    className="mt-5 inline-flex min-h-11 items-center justify-center rounded-[6px] bg-[var(--brand-gold)] px-5 py-3 text-[13px] font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#b8890f]"
+                    style={headingStyle}
+                  >
+                    {data.aboutService.pricingSignal.ctaLabel}
+                  </a>
+                </div>
+              ) : null}
 
               <h3
                 className="pt-8 text-2xl font-bold text-[var(--brand-navy)] md:text-[28px]"
@@ -125,6 +142,45 @@ const ServiceWorkflowSection = ({ data }) => {
               <p className="mt-6 text-[var(--brand-muted)]">
                 {data.aboutService.includedOutro}
               </p>
+
+              {data.aboutService.extras ? (
+                <div className="mt-8 rounded-[10px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] p-6">
+                  <h3
+                    className="text-2xl font-bold text-[var(--brand-navy)]"
+                    style={headingStyle}
+                  >
+                    {data.aboutService.extras.title}
+                  </h3>
+                  <p className="mt-3 text-[var(--brand-muted)]">
+                    {data.aboutService.extras.intro}
+                  </p>
+                  <ul className="mt-5 grid gap-3">
+                    {data.aboutService.extras.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-3 rounded-[8px] border border-[var(--brand-border)] bg-white px-4 py-4"
+                      >
+                        <span className="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-[var(--brand-gold)]" />
+                        <span className="text-[var(--brand-muted)]">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+
+              {data.aboutService.callout ? (
+                <div className="mt-8 rounded-[10px] border border-[var(--brand-blue)]/20 bg-[var(--brand-blue)]/8 p-6">
+                  <h3
+                    className="text-2xl font-bold text-[var(--brand-navy)]"
+                    style={headingStyle}
+                  >
+                    {data.aboutService.callout.title}
+                  </h3>
+                  <p className="mt-3 leading-7 text-[var(--brand-muted)]">
+                    {data.aboutService.callout.text}
+                  </p>
+                </div>
+              ) : null}
             </section>
 
             {data.howWeWork ? (
