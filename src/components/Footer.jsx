@@ -2,7 +2,6 @@ import React from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { servicePaths } from "../Data/services";
 
 export default function Footer() {
@@ -104,25 +103,8 @@ export default function Footer() {
                         Copyright {new Date().getFullYear()} Yorkshire Insulations. All rights reserved.
                     </p>
 
-                    {/* Social Icons */}
-                    <div className="flex items-center gap-4">
-                        <a
-                            //href="https://web.facebook.com/p/AutoPlus-Nottingham-100092195330520"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="rounded-full border border-[var(--brand-dark-border)] p-2 transition hover:bg-[var(--brand-accent)] hover:text-[var(--brand-navy)]"
-                        >
-                            <FaFacebookF size={16} />
-                        </a>
-
-                        <a
-                            //href="https://www.instagram.com/Autoplusnottingham/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="rounded-full border border-[var(--brand-dark-border)] p-2 transition hover:bg-[var(--brand-accent)] hover:text-[var(--brand-navy)]"
-                        >
-                            <FaInstagram size={16} />
-                        </a>
+                    <div className="text-sm text-[var(--brand-light-soft)]">
+                        Serving homeowners and contractors across Yorkshire.
                     </div>
                 </div>
 
