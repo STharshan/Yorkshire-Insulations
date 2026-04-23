@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { HashLink } from "react-router-hash-link";
+import { servicePaths } from "../Data/services";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
