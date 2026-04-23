@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { HashLink } from "react-router-hash-link";
-import { servicePaths } from "../Data/services";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -145,15 +144,6 @@ export default function Navbar() {
         </nav>
 
         {/* RIGHT — CONTACT BUTTON */}
-        <div style={{ display: "none" }} aria-hidden="true">
-          {servicePaths.map((service) => (
-            <a key={service.path} href={service.path}>{service.title}</a>
-          ))}
-          <a href="/locations/leeds">Leeds</a>
-          <a href="/terms">Terms and Conditions</a>
-          <a href="/privacy">Privacy Policy</a>
-        </div>
-
         <a
           href="tel:+447590250335"
           className="hidden bg-[var(--brand-accent)] px-5 py-2 font-bold tracking-wide text-[var(--brand-navy)] transition hover:bg-[var(--brand-accent-hover)] lg:block"

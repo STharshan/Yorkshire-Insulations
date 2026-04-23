@@ -1,6 +1,7 @@
 import { motion as Motion, useScroll, useTransform } from "framer-motion";
 import { Check } from "lucide-react";
 import { useRef } from "react";
+import { HashLink } from "react-router-hash-link";
 
 export default function AboutSection() {
     const ref = useRef(null);
@@ -10,7 +11,6 @@ export default function AboutSection() {
         offset: ["start end", "end start"],
     });
 
-    // Reduce parallax movement on mobile to prevent layout breaking
     const yBack = useTransform(scrollYProgress, [0, 1], [30, -40]);
     const yFront = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
@@ -88,9 +88,9 @@ export default function AboutSection() {
                         ))}
                     </div>
 
-                    <button className="w-full md:w-auto heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-[var(--brand-gold-hover)]">
+                    <HashLink smooth to="/#about" className="block w-full md:w-auto heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-[var(--brand-gold-hover)] text-center">
                         About Us
-                    </button>
+                    </HashLink>
                 </div>
             </div>
 
