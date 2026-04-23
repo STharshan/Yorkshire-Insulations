@@ -22,6 +22,8 @@ const Home = () => {
                     placename: "Yorkshire",
                     position: "53.8;-1.5",
                 }}
+                ogImage="/heroimage.jpeg"
+                ogImageAlt="Yorkshire Insulation - Professional insulation services across Yorkshire"
                 schema={{
                     "@context": "https://schema.org",
                     "@type": "LocalBusiness",
@@ -30,6 +32,7 @@ const Home = () => {
                     telephone: "+44 7590 250335",
                     email: "info@yorkshireinsulationsolutions.co.uk",
                     url: "https://www.yorkshireinsulationsolutions.co.uk/",
+                    image: "https://www.yorkshireinsulationsolutions.co.uk/heroimage.jpeg",
                 }}
             />
             <HeroSection />

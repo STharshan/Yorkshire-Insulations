@@ -14,8 +14,11 @@ const Leeds = () => {
       <Seo
         title={pageData.seo.title}
         description={pageData.seo.description}
+        keywords="leeds insulation, loft insulation leeds, cavity wall insulation leeds, spray foam removal leeds, underfloor insulation leeds, external wall insulation leeds"
         canonical={pageData.seo.canonical}
         geo={pageData.seo.geo}
+        ogImage={pageData.heroBackgroundImage}
+        ogImageAlt="Yorkshire Insulation services in Leeds and West Yorkshire"
         schema={{
           "@context": "https://schema.org",
           "@type": "Service",
@@ -30,6 +33,7 @@ const Leeds = () => {
           },
           serviceType: pageData.services.items.map((item) => item.title),
           url: pageData.seo.canonical,
+          image: `https://www.yorkshireinsulationsolutions.co.uk${pageData.heroBackgroundImage}`,
         }}
       />
       <LocationHeroContact data={pageData} />

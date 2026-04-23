@@ -8,6 +8,9 @@ const Seo = ({
   robots = "index,follow",
   geo,
   schema,
+  ogImage,
+  ogImageAlt,
+  twitterCard = "summary_large_image",
 }) => {
   const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
 
@@ -23,6 +26,14 @@ const Seo = ({
       {description ? <meta property="og:description" content={description} /> : null}
       <meta property="og:type" content="website" />
       {canonical ? <meta property="og:url" content={canonical} /> : null}
+      {ogImage ? <meta property="og:image" content={ogImage} /> : null}
+      {ogImageAlt ? <meta property="og:image:alt" content={ogImageAlt} /> : null}
+
+      <meta name="twitter:card" content={twitterCard} />
+      {title ? <meta name="twitter:title" content={title} /> : null}
+      {description ? <meta name="twitter:description" content={description} /> : null}
+      {ogImage ? <meta name="twitter:image" content={ogImage} /> : null}
+      {ogImageAlt ? <meta name="twitter:image:alt" content={ogImageAlt} /> : null}
 
       {geo?.region ? <meta name="geo.region" content={geo.region} /> : null}
       {geo?.placename ? <meta name="geo.placename" content={geo.placename} /> : null}

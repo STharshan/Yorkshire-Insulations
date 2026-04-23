@@ -4,6 +4,8 @@ import serviceHeaderData from "../Data/serviceData";
 import { serviceWorkflowData } from "../Data/serviceWorkflowData";
 import Seo from "../components/Seo";
 
+const siteUrl = "https://www.yorkshireinsulationsolutions.co.uk";
+
 const ServicePage = ({ serviceKey }) => {
   const headerData = serviceHeaderData[serviceKey];
   const workflowData = serviceWorkflowData[serviceKey];
@@ -16,6 +18,8 @@ const ServicePage = ({ serviceKey }) => {
         keywords={headerData.seo.keywords}
         canonical={headerData.seo.canonical}
         geo={headerData.seo.geo}
+        ogImage={headerData.image}
+        ogImageAlt={headerData.imageAlt}
         schema={{
           "@context": "https://schema.org",
           "@type": "Service",
@@ -29,6 +33,7 @@ const ServicePage = ({ serviceKey }) => {
             name: headerData.seo.schema.areaServed,
           },
           url: headerData.seo.canonical,
+          image: `${siteUrl}${headerData.image}`,
         }}
       />
       <ServiceHeader data={headerData} />
