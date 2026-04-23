@@ -19,7 +19,6 @@ export default defineConfig({
         "/locations/leeds",
         "/terms",
         "/privacy",
-        "/404",
       ],
     }),
   ],

@@ -20,8 +20,7 @@
       "/services/new-build-insulation",
       "/locations/leeds",
       "/terms",
-      "/privacy",
-      "/404"
+      "/privacy"
     ],
     "skipThirdPartyRequests": true
   },

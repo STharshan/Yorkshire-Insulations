@@ -54,6 +54,10 @@ export default function Navbar() {
 
   // Improved Active Logic
   const isActive = (path) => {
+    if (typeof path !== "string" || path.length === 0) {
+      return false;
+    }
+
     // 1. Handle Home Case
     if (path === "/") {
       return location.pathname === "/" && (location.hash === "" || location.hash === "#");
