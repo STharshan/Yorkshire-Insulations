@@ -25,11 +25,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/loft-insulation" element={<LoftInsulation />} />
-        <Route path="/cavity-wall-insulation" element={<CavityWallInsulation />} />
-        <Route path="/spray-foam-removal" element={<SprayFoamRemoval />} />
-        <Route path="/underfloor-insulation" element={<UnderfloorInsulation />} />
-        <Route path="/new-build-insulation" element={<NewBuildInsulation />} />
+        <Route path="/services/loft-insulation" element={<LoftInsulation />} />
+        <Route path="/services/cavity-wall-insulation" element={<CavityWallInsulation />} />
+        <Route path="/services/spray-foam-removal" element={<SprayFoamRemoval />} />
+        <Route path="/services/underfloor-insulation" element={<UnderfloorInsulation />} />
+        <Route path="/services/new-build-insulation" element={<NewBuildInsulation />} />
         <Route path="/locations/leeds" element={<Leeds />} />
         <Route path="/terms" element={<TermsConditions />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />

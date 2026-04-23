@@ -35,7 +35,7 @@ const serviceHeaderData = {
         "Yorkshire Insulation installs loft insulation across Yorkshire. Top-ups from 200mm, full removal and relay, loft boarding and hatch fitting. No VAT on eco installations. Get a quote today.",
       keywords:
         "loft insulation Yorkshire, loft insulation top up, loft insulation removal and relay, loft boarding Yorkshire, loft hatch installation Yorkshire",
-      canonical: `${siteUrl}/loft-insulation`,
+      canonical: `${siteUrl}/services/loft-insulation`,
       geo: baseGeo,
       schema: {
         ...baseSchema,
@@ -59,7 +59,7 @@ const serviceHeaderData = {
         "We install cavity wall insulation across Yorkshire using Superbead 33 - a high-performance EPS bead system. Assessment appointments from £100 + VAT, deducted from your final bill. Get a quote.",
       keywords:
         "cavity wall insulation Yorkshire, cavity wall insulation cost Yorkshire, Superbead 33 installer, cavity wall insulation assessment Yorkshire",
-      canonical: `${siteUrl}/cavity-wall-insulation`,
+      canonical: `${siteUrl}/services/cavity-wall-insulation`,
       geo: baseGeo,
       schema: {
         ...baseSchema,
@@ -83,7 +83,7 @@ const serviceHeaderData = {
         "Yorkshire Insulation removes open and closed cell spray foam across Yorkshire. Essential for mortgage applications - we provide removal certificates and can relay new insulation once done. Get a quote.",
       keywords:
         "spray foam removal Yorkshire, spray foam removal mortgage, open cell spray foam removal Yorkshire, closed cell spray foam removal Yorkshire, spray foam loft Yorkshire",
-      canonical: `${siteUrl}/spray-foam-removal`,
+      canonical: `${siteUrl}/services/spray-foam-removal`,
       geo: baseGeo,
       schema: {
         ...baseSchema,
@@ -107,7 +107,7 @@ const serviceHeaderData = {
         "Yorkshire Insulation installs underfloor insulation across Yorkshire. Rockwool stapled and netted for basements and crawl spaces, or Kingspan board laid prior to underfloor heating. Get a quote.",
       keywords:
         "underfloor insulation Yorkshire, crawl space insulation Yorkshire, basement insulation Yorkshire, underfloor heating insulation Yorkshire, Kingspan underfloor Yorkshire",
-      canonical: `${siteUrl}/underfloor-insulation`,
+      canonical: `${siteUrl}/services/underfloor-insulation`,
       geo: baseGeo,
       schema: {
         ...baseSchema,
@@ -131,7 +131,7 @@ const serviceHeaderData = {
         "Yorkshire Insulation works with contractors and developers across Yorkshire on new build and full renovation projects. Supply and fit or labour only - priced per sqm. Get a trade quote.",
       keywords:
         "new build insulation Yorkshire, first fix insulation Yorkshire, insulation contractors Yorkshire, renovation insulation Yorkshire, Kingspan new build Yorkshire, Rockwool contractor Yorkshire",
-      canonical: `${siteUrl}/new-build-insulation`,
+      canonical: `${siteUrl}/services/new-build-insulation`,
       geo: baseGeo,
       schema: {
         ...baseSchema,

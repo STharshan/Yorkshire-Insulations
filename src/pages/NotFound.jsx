@@ -29,7 +29,7 @@ const NotFound = () => {
               Go Home
             </Link>
             <Link
-              to="/loft-insulation"
+              to="/services/loft-insulation"
               className="inline-flex min-h-11 items-center justify-center rounded-[6px] border border-[var(--brand-border)] px-5 py-3 text-[13px] font-bold uppercase tracking-[0.16em] text-[var(--brand-navy)] transition hover:border-[var(--brand-blue)] hover:text-[var(--brand-blue)]"
             >
               View Services
