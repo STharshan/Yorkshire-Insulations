@@ -1,7 +1,9 @@
 import React from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { HashLink, HashLink as Link } from "react-router-hash-link";
+import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { servicePaths } from "../Data/services";
 
 export default function Footer() {
     // Smooth scroll offset for fixed header
@@ -22,7 +24,7 @@ export default function Footer() {
                             Yorkshire<span className="text-[var(--brand-accent)]"> Insulations</span>
                         </h2>
                         <p className="mt-4 max-w-[260px] text-sm leading-relaxed text-[var(--brand-light-muted)]">
-                            Based in Yorkshire and working nationwide, our experienced team delivers a range of services including loft and garage insulation, new build insulation projects, spray foam removal, and certified pest control packages.
+                            Based in Yorkshire and working across the region, our experienced team delivers loft insulation, cavity wall insulation, spray foam removal, underfloor insulation, and new build insulation.
                         </p>
                     </div>
 
@@ -60,15 +62,13 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg font-semibold mb-5 text-white">Our Service</h4>
                         <ul className="space-y-3 text-sm text-[var(--brand-light-muted)]">
-                            {[
-                                { name: "Loft Insulation", path: "/services/loft-insulation" },
-                            ].map((service) => (
+                            {servicePaths.map((service) => (
                                 <li
-                                    key={service.name}
+                                    key={service.path}
                                     className="cursor-pointer transition-colors hover:text-[var(--brand-accent)]"
                                 >
                                     <Link to={service.path}>
-                                        {service.name}
+                                        {service.title}
                                     </Link>
                                 </li>
                             ))}
@@ -101,7 +101,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="flex flex-col items-center justify-between gap-4 pt-8 text-sm text-[var(--brand-light-soft)] md:flex-row">
                     <p>
-                        © {new Date().getFullYear()} Yorkshire Insulations. All rights reserved.
+                        Copyright {new Date().getFullYear()} Yorkshire Insulations. All rights reserved.
                     </p>
 
                     {/* Social Icons */}

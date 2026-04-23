@@ -1,45 +1,14 @@
 import { useRef, useState, useCallback, useEffect } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { services } from "../../Data/services";
 
-const services = [
-  {
-    title: "Loft Insulation",
-    desc: "The most cost-effective way to reduce heat loss in your home. We install loft insulation across Yorkshire quickly and cleanly - with most jobs completed in a single day.",
-    image: "loft-a.jpeg", // Using the 'after' photo as the primary
-    link: "/services/loft-insulation",
-  },
-  {
-    title: "Cavity Wall Insulation",
-    desc: "We drill small holes in the outer wall and inject insulation material directly into the cavity - minimal disruption, maximum impact. Ideal for Yorkshire terraces and semis built between 1920 and 1980.",
-    image: "cavity-a.jpeg",
-    link: "/services/cavity-wall-insulation",
-  },
-  {
-    title: "Spray Foam Insulation",
-    desc: "A highly effective solution for hard-to-insulate spaces. Spray foam expands to fill every gap, creating an airtight seal that dramatically reduces heat loss and damp.",
-    image: "spray-foam-a.jpeg",
-    link: "/services/spray-foam-insulation",
-  },
-  {
-    title: "Underfloor Insulation",
-    desc: "Cold floors are a sign of significant heat loss. We install insulation beneath your floorboards to keep warmth in and energy bills down - particularly effective in older Yorkshire properties.",
-    image: "underfloor-a.jpeg",
-    link: "/services/underfloor-insulation",
-  },
-  {
-    title: "External Wall Insulation",
-    desc: "For solid-walled properties with no cavity, external wall insulation is the most effective solution. We clad the outside of your home with insulation boards, improving appearance and performance.",
-    image: "external-wall-a.jpeg",
-    link: "/services/external-wall-insulation",
-  },
-  {
-    title: "Solid Wall Insulation",
-    desc: "Pre-1920s stone-built Yorkshire homes require a different approach. Our solid wall insulation solutions are designed specifically for older properties where cavity wall simply isn't an option.",
-    image: "solid-wall-a.jpeg",
-    link: "/services/solid-wall-insulation",
-  }
-];
+const serviceCards = services.map((service) => ({
+  title: service.title,
+  desc: service.description,
+  image: service.image,
+  link: service.path,
+}));
 
 export default function ServiceSection() {
   const [current, setCurrent] = useState(0);
@@ -51,7 +20,7 @@ export default function ServiceSection() {
   const goTo = useCallback((idx) => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrent(Math.max(0, Math.min(idx, services.length - 1)));
+    setCurrent(Math.max(0, Math.min(idx, serviceCards.length - 1)));
     setTimeout(() => setIsAnimating(false), 400);
   }, [isAnimating]);
 
@@ -61,7 +30,7 @@ export default function ServiceSection() {
   const resetAuto = useCallback(() => {
     clearInterval(autoRef.current);
     autoRef.current = setInterval(() => {
-      setCurrent((c) => (c + 1 >= services.length ? 0 : c + 1));
+      setCurrent((c) => (c + 1 >= serviceCards.length ? 0 : c + 1));
     }, 5000);
   }, []);
 
@@ -104,7 +73,7 @@ export default function ServiceSection() {
               </button>
               <button
                 onClick={() => { next(); resetAuto(); }}
-                disabled={current === services.length - 1}
+                disabled={current === serviceCards.length - 1}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--brand-blue)]/30 text-[var(--brand-blue)] transition-all duration-200 hover:border-[var(--brand-blue)] hover:bg-[var(--brand-blue)] hover:text-white disabled:opacity-25"
                 aria-label="Next"
               >
@@ -112,7 +81,7 @@ export default function ServiceSection() {
               </button>
               <span className="font-mono text-sm text-[var(--brand-muted)]">
                 <span className="font-bold text-[var(--brand-text)]">{String(current + 1).padStart(2, "0")}</span>
-                &nbsp;/&nbsp;{String(services.length).padStart(2, "0")}
+                &nbsp;/&nbsp;{String(serviceCards.length).padStart(2, "0")}
               </span>
             </div>
           </div>
@@ -132,7 +101,7 @@ export default function ServiceSection() {
               transform: `translateX(calc(-${current} * (min(360px, 85vw) + 32px)))`,
             }}
           >
-            {services.map((item, i) => {
+            {serviceCards.map((item, i) => {
               const isActive = i === current;
               const isNear = Math.abs(i - current) <= 1;
 
@@ -165,7 +134,7 @@ export default function ServiceSection() {
                       </p>
 
                       <Link
-                        //to={item.link}
+                        to={item.link}
                         className="heading-font mt-4 inline-flex items-center rounded-full bg-white px-4 py-2 text-[13px] font-semibold uppercase tracking-[0.14em] text-[var(--brand-blue)] transition hover:bg-[var(--brand-navy)] hover:text-white"
                       >
                         Learn More
@@ -180,7 +149,7 @@ export default function ServiceSection() {
         </div>
 
         <div className="mt-10 flex items-center justify-center gap-2">
-          {services.map((_, i) => (
+          {serviceCards.map((_, i) => (
             <button
               key={i}
               onClick={() => { goTo(i); resetAuto(); }}

@@ -215,6 +215,12 @@ export const locationData = {
       title: "Home Insulation in Leeds | Yorkshire Insulation",
       description:
         "Professional loft, cavity wall, spray foam, and underfloor insulation across Leeds and the surrounding areas.",
+      canonical: "https://www.yorkshireinsulationsolutions.co.uk/locations/leeds",
+      geo: {
+        region: "GB-LDS",
+        placename: "Leeds",
+        position: "53.8008;-1.5491",
+      },
     },
   },
 };

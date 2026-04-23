@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion as Motion, useScroll, useTransform } from "framer-motion";
 import { Check } from "lucide-react";
 import { useRef } from "react";
 
@@ -29,7 +29,7 @@ export default function AboutSection() {
                         />
 
                         {/* Middle Floating Image */}
-                        <motion.div 
+                        <Motion.div 
                             style={{ y: yBack }} 
                             className="absolute top-5 left-5 z-20 w-[60%] lg:top-10"
                         >
@@ -38,11 +38,11 @@ export default function AboutSection() {
                                 alt="Insulation detail"
                                 className="w-full object-cover"
                             />
-                        </motion.div>
+                        </Motion.div>
                     </div>
 
                     {/* Front Floating Logo/Image */}
-                    <motion.div
+                    <Motion.div
                         style={{ y: yFront }}
                         className="absolute -bottom-10 right-0 z-30 w-[60%] sm:w-[50%] lg:-right-5 lg:w-[85%]"
                     >
@@ -51,7 +51,7 @@ export default function AboutSection() {
                             alt="Yorkshire Insulation Logo"
                             className="w-full rounded-[10px] object-cover"
                         />
-                    </motion.div>
+                    </Motion.div>
                 </div>
 
                 {/* TEXT CONTENT */}

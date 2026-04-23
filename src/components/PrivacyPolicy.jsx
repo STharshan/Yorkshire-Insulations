@@ -1,8 +1,15 @@
 import React from 'react';
+import Seo from "./Seo";
 
 const PrivacyPolicy = () => {
     return (
-        <div className="mx-auto px-4 py-12 sm:px-6 lg:px-16 bg-black text-white">
+        <>
+            <Seo
+                title="Privacy Policy | Yorkshire Insulation"
+                description="Read how Yorkshire Insulation collects, uses, and protects personal information."
+                canonical="https://www.yorkshireinsulationsolutions.co.uk/privacy"
+            />
+            <div className="mx-auto px-4 py-12 sm:px-6 lg:px-16 bg-black text-white">
             <h1 className="text-4xl font-semibold text-center mb-8 mt-40">Privacy Policy</h1>
             <p className="text-center text-white">Last updated: 09/09/25</p>
 
@@ -128,7 +135,8 @@ const PrivacyPolicy = () => {
 
                 </section>
             </div>
-        </div>
+            </div>
+        </>
     );
 };
 

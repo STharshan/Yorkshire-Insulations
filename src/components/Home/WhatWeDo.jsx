@@ -1,71 +1,31 @@
 import { useState } from "react";
 import {
-    HeartHandshake,
-    Bath,
     Home,
-    Users,
-    BedDouble,
-    Brain,
     ChevronLeft,
     ChevronRight,
     ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
+import { services as serviceCatalog } from "../../Data/services";
 
 
 import { Building2, Wind, Layers, Shield, Hammer } from 'lucide-react';
 
-const services = [
-    {
-        icon: Home,
-        title: "Loft Insulation",
-        description:
-            "The most cost-effective way to reduce heat loss in your home. We install loft insulation across Yorkshire quickly and cleanly - with most jobs completed in a single day.",
-        link: "/services/loft-insulation",
-        img: "/loft.webp", // Update path as needed
-    },
-    {
-        icon: Building2,
-        title: "Cavity Wall Insulation",
-        description:
-            "We drill small holes in the outer wall and inject insulation material directly into the cavity - minimal disruption, maximum impact. Ideal for Yorkshire terraces and semis built between 1920 and 1980.",
-        link: "/services/cavity-wall",
-        img: "/cavity.webp",
-    },
-    {
-        icon: Wind,
-        title: "Spray Foam Insulation",
-        description:
-            "A highly effective solution for hard-to-insulate spaces. Spray foam expands to fill every gap, creating an airtight seal that dramatically reduces heat loss and damp.",
-        link: "/services/spray-foam",
-        img: "/spray.webp",
-    },
-    {
-        icon: Layers,
-        title: "Underfloor Insulation",
-        description:
-            "Cold floors are a sign of significant heat loss. We install insulation beneath your floorboards to keep warmth in and energy bills down - particularly effective in older Yorkshire properties.",
-        link: "/services/underfloor-insulation",
-        img: "/underfloor.webp",
-    },
-    {
-        icon: Shield,
-        title: "External Wall Insulation",
-        description:
-            "For solid-walled properties with no cavity, external wall insulation is the most effective solution. We clad the outside of your home with insulation boards, improving appearance and performance.",
-        link: "/services/external-wall",
-        img: "/external.webp",
-    },
-    {
-        icon: Hammer,
-        title: "Solid Wall Insulation",
-        description:
-            "Pre-1920s stone-built Yorkshire homes require a different approach. Our solid wall insulation solutions are designed specifically for older properties where cavity wall simply isn't an option.",
-        link: "/services/solid-wall",
-        img: "/solid-wall.webp",
-    },
-];
+const serviceIcons = {
+    loftInsulation: Home,
+    cavityWallInsulation: Building2,
+    sprayFoamRemoval: Wind,
+    underfloorInsulation: Layers,
+    newBuildInsulation: Hammer,
+};
+
+const services = serviceCatalog.map((service) => ({
+    ...service,
+    icon: serviceIcons[service.key] ?? Shield,
+    link: service.path,
+    img: service.image,
+}));
 
 export function WhatWeDo() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -91,7 +51,7 @@ export function WhatWeDo() {
 
                 <div className="block md:hidden">
                     <div className="relative overflow-hidden">
-                        <motion.div
+                        <Motion.div
                             className="flex"
                             animate={{ x: `-${currentIndex * 100}%` }}
                             transition={{ type: "spring", stiffness: 200, damping: 25 }}
@@ -125,7 +85,7 @@ export function WhatWeDo() {
                                                     />
                                                     <div className="absolute top-0 left-1/2 -translate-x-1/2 rounded-b-[16px] bg-white px-6 py-2 shadow-sm">
                                                         <Link
-                                                            //to={service.link}
+                                                            to={service.link}
                                                             className="heading-font flex items-center gap-2 whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--brand-text)] transition-colors hover:text-[var(--brand-blue)]"
                                                         >
                                                             Find Out More
@@ -138,7 +98,7 @@ export function WhatWeDo() {
                                     </div>
                                 );
                             })}
-                        </motion.div>
+                        </Motion.div>
                     </div>
 
                     <div className="mt-8 flex items-center justify-center gap-5">
@@ -173,7 +133,7 @@ export function WhatWeDo() {
                 </div>
                 <div className="hidden md:block lg:hidden">
                     <div className="relative overflow-hidden px-2">
-                        <motion.div
+                        <Motion.div
                             className="flex gap-4 md:gap-5"
                             animate={{
                                 x: `-${currentIndex * 100}%`,
@@ -238,7 +198,7 @@ export function WhatWeDo() {
                                                     {/* CTA */}
                                                     <div className="absolute top-0 left-1/2 -translate-x-1/2 rounded-b-[16px] bg-white px-6 py-2 shadow-sm">
                                                         <Link
-                                                            //to={service.link}
+                                                            to={service.link}
                                                             className="heading-font flex items-center gap-2 whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--brand-text)] transition-colors hover:text-[var(--brand-blue)]"
                                                         >
                                                             Find Out More
@@ -251,7 +211,7 @@ export function WhatWeDo() {
                                     </div>
                                 );
                             })}
-                        </motion.div>
+                        </Motion.div>
                     </div>
 
                     {/* Controls */}
@@ -291,7 +251,7 @@ export function WhatWeDo() {
                 <div className="hidden lg:block">
                     <div className="relative">
                         <div className="flex items-center justify-center overflow-visible">
-                            <motion.div
+                            <Motion.div
                                 className="flex gap-6"
                                 animate={{
                                     x: `calc(-${currentIndex * 33.333}% - ${currentIndex * 1.5}rem)`,
@@ -345,7 +305,7 @@ export function WhatWeDo() {
                                                         />
                                                         <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-30">
                                                             <Link
-                                                                //to={service.link}
+                                                                to={service.link}
                                                                 className="group/btn flex items-center gap-3 rounded-xl w-55 mx-auto bg-white px-8 py-3 pt-9 shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all hover:bg-[var(--brand-offwhite)]"
                                                             >
                                                                 <span className="heading-font text-[12px] font-black uppercase tracking-[0.15em] text-[var(--brand-text)]">
@@ -362,7 +322,7 @@ export function WhatWeDo() {
                                 })}
 
                                 <div className="min-w-[calc(33.333%-1rem)]" />
-                            </motion.div>
+                            </Motion.div>
                         </div>
 
                         <div className="mt-16 flex items-center justify-center gap-6">

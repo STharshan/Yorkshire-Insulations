@@ -1,9 +1,16 @@
 // src/pages/TermsConditions.js
 import React from "react";
+import Seo from "./Seo";
 
 const TermsConditions = () => {
   return (
-    <section className="bg-black text-white mx-auto px-4 py-8">
+    <>
+      <Seo
+        title="Terms and Conditions | Yorkshire Insulation"
+        description="Read the website terms and conditions for Yorkshire Insulation."
+        canonical="https://www.yorkshireinsulationsolutions.co.uk/terms"
+      />
+      <section className="bg-black text-white mx-auto px-4 py-8">
           <div className="max-w-6xl mx-auto">
               <h1 className="text-3xl font-semibold text-center mb-6 mt-40">Website Terms of Use</h1>
               <p className="text-center text-gray-200">Last updated: 09/09/25</p>
@@ -85,7 +92,8 @@ const TermsConditions = () => {
                   </section>
               </div>
           </div>
-    </section>
+      </section>
+    </>
   );
 };
 
