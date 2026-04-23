@@ -8,6 +8,7 @@ const serviceCards = services.map((service) => ({
   desc: service.description,
   image: service.image,
   link: service.path,
+  cta: `Explore ${service.title}`,
 }));
 
 export default function ServiceSection() {
@@ -135,9 +136,10 @@ export default function ServiceSection() {
 
                       <Link
                         to={item.link}
+                        aria-label={`Explore ${item.title}`}
                         className="heading-font mt-4 inline-flex items-center rounded-full bg-white px-4 py-2 text-[13px] font-semibold uppercase tracking-[0.14em] text-[var(--brand-blue)] transition hover:bg-[var(--brand-navy)] hover:text-white"
                       >
-                        Learn More
+                        {item.cta}
                         <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
                       </Link>
                     </div>
