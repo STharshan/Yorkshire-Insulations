@@ -49,8 +49,8 @@ export const serviceWorkflowData = {
       pricingSignal: {
         text:
           "Loft insulation top-ups are VAT-exempt under the ECO scheme. For full pricing including loft boarding and hatch options, visit our pricing page.",
-        ctaLabel: "View full pricing",
-        ctaHref: "/pricing",
+        ctaLabel: "Request pricing",
+        ctaHref: "/#contact",
       },
       includedTitle: "What is Included?",
       includedIntro: "Our loft insulation service includes:",
@@ -89,6 +89,10 @@ export const serviceWorkflowData = {
       image: "/heroimage.jpeg",
       imageAlt: "Completed loft insulation in a Yorkshire property",
     },
+    relatedServices: [
+      { title: "Spray Foam Removal", href: "/services/spray-foam-removal" },
+      { title: "Underfloor Insulation", href: "/services/underfloor-insulation" },
+    ],
     contactForm: contactForm("Loft Insulation"),
     colors,
   },
@@ -110,8 +114,8 @@ export const serviceWorkflowData = {
       pricingSignal: {
         text:
           "Cavity wall insulation starts from £23 per sqm depending on cavity depth - full pricing and assessment details are available on our pricing page.",
-        ctaLabel: "View full pricing",
-        ctaHref: "/pricing",
+        ctaLabel: "Request pricing",
+        ctaHref: "/#contact",
       },
       includedTitle: "What is Included?",
       includedIntro: "Our cavity wall insulation service includes:",
@@ -142,6 +146,10 @@ export const serviceWorkflowData = {
       image: "/about1.webp",
       imageAlt: "Cavity wall insulation completed on a Yorkshire property",
     },
+    relatedServices: [
+      { title: "Loft Insulation", href: "/services/loft-insulation" },
+      { title: "Underfloor Insulation", href: "/services/underfloor-insulation" },
+    ],
     contactForm: contactForm("Cavity Wall Insulation"),
     colors,
   },
@@ -163,8 +171,8 @@ export const serviceWorkflowData = {
       pricingSignal: {
         text:
           "Spray foam removal starts from £52 per sqm for open cell and from £80 per sqm for closed cell - full pricing is available on our pricing page.",
-        ctaLabel: "View full pricing",
-        ctaHref: "/pricing",
+        ctaLabel: "Request pricing",
+        ctaHref: "/#contact",
       },
       includedTitle: "What is Included?",
       includedIntro: "Our spray foam removal service includes:",
@@ -200,6 +208,10 @@ export const serviceWorkflowData = {
       image: "/about2.webp",
       imageAlt: "Spray foam removed from a Yorkshire loft space",
     },
+    relatedServices: [
+      { title: "Loft Insulation", href: "/services/loft-insulation" },
+      { title: "New Build Insulation", href: "/services/new-build-insulation" },
+    ],
     contactForm: contactForm("Spray Foam Removal"),
     colors,
   },
@@ -247,6 +259,10 @@ export const serviceWorkflowData = {
       image: "/about.png",
       imageAlt: "Underfloor insulation installed beneath a Yorkshire home",
     },
+    relatedServices: [
+      { title: "Loft Insulation", href: "/services/loft-insulation" },
+      { title: "Cavity Wall Insulation", href: "/services/cavity-wall-insulation" },
+    ],
     contactForm: contactForm("Underfloor Insulation"),
     colors,
   },
@@ -295,6 +311,10 @@ export const serviceWorkflowData = {
       image: "/heroimage.jpeg",
       imageAlt: "New build insulation installed on a Yorkshire construction site",
     },
+    relatedServices: [
+      { title: "Cavity Wall Insulation", href: "/services/cavity-wall-insulation" },
+      { title: "Underfloor Insulation", href: "/services/underfloor-insulation" },
+    ],
     contactForm: contactForm("New Build Insulation"),
     colors,
   },

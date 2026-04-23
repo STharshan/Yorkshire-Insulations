@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { HashLink } from "react-router-hash-link";
+import { servicePaths } from "../Data/services";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -15,12 +16,10 @@ export default function Navbar() {
     { 
       label: "SERVICES", 
       path: "#", 
-      submenu: [
-        { label: "Loft Insulation", path: "/services/loft-insulation" },
-        { label: "Cavity Wall Insulation", path: "/services/cavity-wall-insulation" },
-        { label: "Spray Foam Removal", path: "/services/spray-foam-removal" },
-        
-      ]
+      submenu: servicePaths.map((service) => ({
+        label: service.title,
+        path: service.path,
+      }))
     },
     { 
       label: "LOCATION", 
@@ -44,11 +43,6 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Force re-render when location changes to update active states
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [location]);
-
   const handleDropdownClick = (label) => {
     setOpenDropdown(openDropdown === label ? null : label);
   };
@@ -60,6 +54,10 @@ export default function Navbar() {
 
   // Improved Active Logic
   const isActive = (path) => {
+    if (typeof path !== "string" || path.length === 0) {
+      return false;
+    }
+
     // 1. Handle Home Case
     if (path === "/") {
       return location.pathname === "/" && (location.hash === "" || location.hash === "#");

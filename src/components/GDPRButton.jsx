@@ -2,44 +2,41 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function GDPRConsent() {
-  const [visible, setVisible] = useState(false); // Show consent banner
-  const [accepted, setAccepted] = useState(null); // true/false/null
-  const [showIcon, setShowIcon] = useState(false); // Show cookie icon
+  const [consentState, setConsentState] = useState(() => {
+    const consent = localStorage.getItem("gdprConsent");
+
+    if (consent === "true" || consent === "false") {
+      return { visible: false, showIcon: true };
+    }
+
+    return { visible: true, showIcon: false };
+  });
 
   useEffect(() => {
-    const consent = localStorage.getItem("gdprConsent");
-    if (consent === "true" || consent === "false") {
-      setAccepted(consent === "true");
-      setShowIcon(true); // show cookie icon if previously chosen
-    } else {
-      setVisible(true); // no previous choice
-    }
+    document.documentElement.dataset.gdprConsent =
+      localStorage.getItem("gdprConsent") || "unset";
   }, []);
 
   const handleAccept = () => {
     localStorage.setItem("gdprConsent", "true");
-    setAccepted(true);
-    setVisible(false);
-    setShowIcon(true);
+    document.documentElement.dataset.gdprConsent = "true";
+    setConsentState({ visible: false, showIcon: true });
   };
 
   const handleReject = () => {
     localStorage.setItem("gdprConsent", "false");
-    setAccepted(false);
-    setVisible(false);
-    setShowIcon(true);
+    document.documentElement.dataset.gdprConsent = "false";
+    setConsentState({ visible: false, showIcon: true });
   };
 
   const handleIconClick = () => {
-    // Reopen consent banner
-    setVisible(true);
-    setShowIcon(false);
+    setConsentState({ visible: true, showIcon: false });
   };
 
   return (
     <>
       {/* Cookie Banner */}
-      {visible && (
+      {consentState.visible && (
         <div className="fixed bottom-4 left-4 right-4 md:bottom-6 text-center md:right-6 md:left-auto max-w-full md:max-w-xs p-4 rounded-lg 
                          text-[var(--brand-offwhite)] shadow-lg z-50 
                       bg-[var(--brand-gdpr-bg)] transition-colors">
@@ -75,7 +72,7 @@ export default function GDPRConsent() {
       )}
 
       {/* Cookie Icon in Red Circle (smaller size) */}
-      {showIcon && !visible && (
+      {consentState.showIcon && !consentState.visible && (
         <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40">
           <button
             onClick={handleIconClick}

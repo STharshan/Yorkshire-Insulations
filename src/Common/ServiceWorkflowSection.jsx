@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const headingStyle = { fontFamily: "Montserrat, sans-serif" };
 
@@ -275,6 +276,32 @@ const ServiceWorkflowSection = ({ data }) => {
                   className="h-auto w-full rounded-[8px] object-cover transition duration-500 hover:scale-[1.02]"
                 />
               </div>
+
+              {data.relatedServices?.length ? (
+                <div className="mt-8 rounded-[10px] border border-[var(--brand-border)] bg-white p-6">
+                  <h3
+                    className="text-2xl font-bold text-[var(--brand-navy)]"
+                    style={headingStyle}
+                  >
+                    Related Services
+                  </h3>
+                  <p className="mt-3 text-[var(--brand-muted)]">
+                    Explore other insulation services that are often recommended alongside this one.
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    {data.relatedServices.map((service) => (
+                      <Link
+                        key={service.href}
+                        to={service.href}
+                        className="inline-flex min-h-11 items-center justify-center rounded-[6px] border border-[var(--brand-border)] px-5 py-3 text-[13px] font-bold uppercase tracking-[0.16em] text-[var(--brand-navy)] transition hover:border-[var(--brand-blue)] hover:text-[var(--brand-blue)]"
+                        style={headingStyle}
+                      >
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </section>
           </div>
 

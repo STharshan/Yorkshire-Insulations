@@ -1,6 +1,7 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion as Motion, useScroll, useTransform } from "framer-motion";
 import { Check } from "lucide-react";
 import { useRef } from "react";
+import { HashLink } from "react-router-hash-link";
 
 export default function AboutSection() {
     const ref = useRef(null);
@@ -10,7 +11,6 @@ export default function AboutSection() {
         offset: ["start end", "end start"],
     });
 
-    // Reduce parallax movement on mobile to prevent layout breaking
     const yBack = useTransform(scrollYProgress, [0, 1], [30, -40]);
     const yFront = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
@@ -29,7 +29,7 @@ export default function AboutSection() {
                         />
 
                         {/* Middle Floating Image */}
-                        <motion.div 
+                        <Motion.div 
                             style={{ y: yBack }} 
                             className="absolute top-5 left-5 z-20 w-[60%] lg:top-10"
                         >
@@ -38,11 +38,11 @@ export default function AboutSection() {
                                 alt="Insulation detail"
                                 className="w-full object-cover"
                             />
-                        </motion.div>
+                        </Motion.div>
                     </div>
 
                     {/* Front Floating Logo/Image */}
-                    <motion.div
+                    <Motion.div
                         style={{ y: yFront }}
                         className="absolute -bottom-10 right-0 z-30 w-[60%] sm:w-[50%] lg:-right-5 lg:w-[85%]"
                     >
@@ -51,7 +51,7 @@ export default function AboutSection() {
                             alt="Yorkshire Insulation Logo"
                             className="w-full rounded-[10px] object-cover"
                         />
-                    </motion.div>
+                    </Motion.div>
                 </div>
 
                 {/* TEXT CONTENT */}
@@ -88,9 +88,9 @@ export default function AboutSection() {
                         ))}
                     </div>
 
-                    <button className="w-full md:w-auto heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-[var(--brand-gold-hover)]">
+                    <HashLink smooth to="/#about" className="block w-full md:w-auto heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-[var(--brand-gold-hover)] text-center">
                         About Us
-                    </button>
+                    </HashLink>
                 </div>
             </div>
 
