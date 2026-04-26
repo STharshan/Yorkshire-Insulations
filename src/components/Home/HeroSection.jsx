@@ -12,15 +12,15 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const slides = [
     {
         image:
-            "https://muffle.droitlab.com/wp-content/uploads/2022/11/background.webp",
+            "/heroimage-1.jpg",
     },
     {
         image:
-            "https://muffle.droitlab.com/wp-content/uploads/2023/01/iamge_2.png",
+            "/heroimage-2.jpg",
     },
     {
         image:
-            "https://muffle.droitlab.com/wp-content/uploads/2023/01/image_3.png",
+            "/heroimage-3.jpg",
     },
 ];
 
