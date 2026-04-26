@@ -88,8 +88,8 @@ export default function AboutSection() {
                         ))}
                     </div>
 
-                    <HashLink smooth to="/#about" className="block w-full md:w-auto heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-[var(--brand-gold-hover)] text-center">
-                        About Us
+                    <HashLink smooth to="/#contact" className="block w-full md:w-auto heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-[var(--brand-gold-hover)] text-center">
+                        Get a Free Quote
                     </HashLink>
                 </div>
             </div>
