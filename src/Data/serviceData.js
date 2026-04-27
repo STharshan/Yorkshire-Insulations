@@ -120,7 +120,7 @@ const serviceHeaderData = {
     title: "New Build & First Fix Insulation Yorkshire",
     description:
       "Insulation packages for contractors, developers, new builds, and full renovation projects across Yorkshire, priced per square metre on supply and fit or labour-only terms.",
-    image: "/heroimage.jpeg",
+    image: "/Newbuild_insulation.jpeg",
     imageAlt: "New build insulation contractors working on a Yorkshire property",
     contactDetails,
     whatsappLink: "https://wa.me/447590250335",

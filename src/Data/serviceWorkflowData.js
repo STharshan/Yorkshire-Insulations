@@ -308,7 +308,7 @@ export const serviceWorkflowData = {
       ],
       outro:
         "We take the time to do it properly - because on a build programme, one trade done right keeps everything else moving.",
-      image: "/heroimage.jpeg",
+      image: "/Newbuild_insulation.jpeg",
       imageAlt: "New build insulation installed on a Yorkshire construction site",
     },
     relatedServices: [
