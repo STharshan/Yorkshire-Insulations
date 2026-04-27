@@ -29,6 +29,7 @@ export default function Navbar() {
       ]
     },
     { label: "PRICING", path: "/pricing" },
+    { label: "GALLERY", path: "/gallery" },
     { label: "FAQ", path: "/#faq" },
     { label: "CONTACT", path: "/#contact" },
   ];

@@ -3,24 +3,35 @@ import { Mail, Phone } from "lucide-react";
 
 const headingStyle = { fontFamily: "Montserrat, sans-serif" };
 
-const trustPoints = [
+const defaultTrustPoints = [
   "Warmth that lasts",
   "Yorkshire coverage",
   "Clear fixed quotes",
 ];
 
 const ServiceHeader = ({ data }) => {
+  const breadcrumbs = data.breadcrumbs ?? [
+    { label: "Home" },
+    { label: "Services" },
+    { label: data.breadcrumbTitle, current: true },
+  ];
+
+  const trustPoints = data.trustPoints ?? defaultTrustPoints;
+
   return (
     <section className="relative overflow-hidden border-b border-[var(--brand-border)] bg-[linear-gradient(135deg,var(--brand-navy),var(--brand-blue))] text-white">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,160,23,0.22),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.14),transparent_32%)]" />
 
       <header className="relative mx-auto mt-24 max-w-7xl px-6 pt-6 md:px-10">
         <nav className="flex flex-wrap items-center gap-2 text-[11px] pt-10 font-semibold uppercase tracking-[0.24em] text-white/72">
-          <span>Home</span>
-          <span className="text-white/40">/</span>
-          <span>Services</span>
-          <span className="text-white/40">/</span>
-          <span className="text-[var(--brand-gold)]">{data.breadcrumbTitle}</span>
+          {breadcrumbs.map((item, index) => (
+            <React.Fragment key={`${item.label}-${index}`}>
+              {index > 0 ? <span className="text-white/40">/</span> : null}
+              <span className={item.current ? "text-[var(--brand-gold)]" : ""}>
+                {item.label}
+              </span>
+            </React.Fragment>
+          ))}
         </nav>
       </header>
 
