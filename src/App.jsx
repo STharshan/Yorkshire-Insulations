@@ -9,6 +9,7 @@ import SprayFoamRemoval from "./pages/SprayFoamRemoval";
 import UnderfloorInsulation from "./pages/UnderfloorInsulation";
 import NewBuildInsulation from "./pages/NewBuildInsulation";
 import Leeds from "./pages/leeds";
+import Pricing from "./pages/Pricing";
 import ScrollToHash from "./components/ScrollToHash";
 import GDPRConsent from "./components/GDPRButton";
 import ScrollToTop from "./components/ScrollToTop";
@@ -53,6 +54,7 @@ function App() {
           );
         })}
         <Route path="/locations/leeds" element={<Leeds />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/terms" element={<TermsConditions />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/404" element={<NotFound />} />

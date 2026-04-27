@@ -28,6 +28,7 @@ export default function Navbar() {
         { label: "Leeds", path: "/locations/leeds" },
       ]
     },
+    { label: "PRICING", path: "/pricing" },
     { label: "FAQ", path: "/#faq" },
     { label: "CONTACT", path: "/#contact" },
   ];
@@ -82,7 +83,7 @@ export default function Navbar() {
 
         {/* LEFT — LOGO */}
         <Link to="/" className="flex items-center gap-3" onClick={closeMenus}>
-          <img src="/logo1.png" alt="Logo" className="h-25 w-auto" />
+          <img src="/newlogo.png" alt="Logo" className="h-25 w-auto" />
         </Link>
 
         {/* DESKTOP NAV */}
