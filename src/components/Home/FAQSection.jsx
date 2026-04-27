@@ -37,6 +37,13 @@ const FAQSection = () => {
           <h2 className="heading-font text-2xl font-extrabold leading-tight text-[var(--brand-text)] sm:text-3xl md:text-4xl">
             Frequently Asked Questions
           </h2>
+          <div className="brand-media-frame mt-6 h-[260px] overflow-hidden rounded-2xl sm:h-[320px] lg:h-[420px]">
+            <img
+              src="/newimage.jpeg"
+              alt="Frequently asked questions about Yorkshire insulation services"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
 
         <div className="space-y-3 sm:space-y-4">

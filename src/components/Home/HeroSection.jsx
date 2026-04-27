@@ -1,5 +1,6 @@
 "use client";
 
+import { motion as Motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 
@@ -24,6 +25,48 @@ const slides = [
     },
 ];
 
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.14,
+            delayChildren: 0.2,
+        },
+    },
+};
+
+const textRevealVariants = {
+    hidden: {
+        opacity: 0,
+        y: 28,
+        clipPath: "inset(0 0 100% 0)",
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        clipPath: "inset(0 0 0% 0)",
+        transition: {
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+        },
+    },
+};
+
+const fadeUpVariants = {
+    hidden: {
+        opacity: 0,
+        y: 24,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
+        },
+    },
+};
+
 export default function HeroSlider() {
     return (
         <div id="/#" className="relative h-screen w-full">
@@ -47,22 +90,39 @@ export default function HeroSlider() {
                             <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(26,44,91,0.86),rgba(46,79,163,0.62),rgba(28,28,28,0.45))]"></div>
 
                             <div className="relative z-10 flex h-full items-center">
-                                <div className="px-4 sm:px-6 lg:px-14">
-                                    <p className="heading-font mt-30 mb-4 text-[13px] font-bold uppercase tracking-[0.28em] text-[var(--brand-gold)] md:text-sm">
+                                <Motion.div
+                                    className="px-4 sm:px-6 lg:px-14"
+                                    variants={containerVariants}
+                                    initial="hidden"
+                                    animate="visible"
+                                >
+                                    <Motion.p
+                                        variants={textRevealVariants}
+                                        className="heading-font mt-30 mb-4 text-[13px] font-bold uppercase tracking-[0.28em] text-[var(--brand-gold)] md:text-sm"
+                                    >
                                         Yorkshire's Trusted Insulation Specialists
-                                    </p>
+                                    </Motion.p>
 
-                                    <h1 className="heading-font max-w-4xl text-4xl font-bold leading-tight text-white sm:text-5xl md:text-[52px] lg:text-[68px]">
+                                    <Motion.h1
+                                        variants={textRevealVariants}
+                                        className="heading-font max-w-4xl text-4xl font-bold leading-tight text-white sm:text-5xl md:text-[52px] lg:text-[68px]"
+                                    >
                                         Keep Warm. Cut Bills. Live Comfortably.
-                                    </h1>
+                                    </Motion.h1>
 
-                                    <p className="mt-8 mb-10 max-w-2xl text-sm text-white/80 sm:text-lg">
+                                    <Motion.p
+                                        variants={fadeUpVariants}
+                                        className="mt-8 mb-10 max-w-2xl text-sm text-white/80 sm:text-lg"
+                                    >
                                         From loft insulation to cavity wall and spray foam - we help Yorkshire homeowners cut energy
 bills, stay warmer, and add real value to their property. Fully accredited, locally based, and trusted
 across the region.
-                                    </p>
+                                    </Motion.p>
 
-                                    <div className="mt-6 flex flex-wrap gap-4">
+                                    <Motion.div
+                                        variants={fadeUpVariants}
+                                        className="mt-6 flex flex-wrap gap-4"
+                                    >
                                         <a 
                                             href="#contact"
                                             className="heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[var(--brand-gold-hover)]">
@@ -74,8 +134,8 @@ across the region.
                                             className="heading-font rounded-md border border-white px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-[var(--brand-navy)]">
                                             Our Services
                                         </a>
-                                    </div>
-                                </div>
+                                    </Motion.div>
+                                </Motion.div>
                             </div>
                         </div>
                     </SwiperSlide>

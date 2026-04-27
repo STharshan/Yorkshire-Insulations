@@ -1,5 +1,5 @@
 import React from 'react'
-import ServiceSection from '../components/Home/ServiceSection'
+
 import FAQSection from '../components/Home/FAQSection'
 import HeroSection from '../components/Home/HeroSection'
 import AboutSection from '../components/Home/AboutSection'
@@ -39,7 +39,7 @@ const Home = () => {
             <AboutSection />
             <FeatureCards />
             <WhatWeDo />
-            <ServiceSection />
+          
             <RecentProject />
             <FAQSection />
             <ContactSection />

@@ -86,7 +86,7 @@ export const serviceWorkflowData = {
       ],
       outro:
         "We take the time to do it properly - because a well-insulated home makes a real difference to the people living in it.",
-      image: "/heroimage.jpeg",
+      image: "/Loft_insulation_photo.jpeg",
       imageAlt: "Completed loft insulation in a Yorkshire property",
     },
     relatedServices: [
@@ -143,7 +143,7 @@ export const serviceWorkflowData = {
       ],
       outro:
         "We take the time to do it properly - because a well-insulated home makes a real difference to the people living in it.",
-      image: "/about1.webp",
+      image: "/Cavity_walls.jpeg",
       imageAlt: "Cavity wall insulation completed on a Yorkshire property",
     },
     relatedServices: [
@@ -205,7 +205,7 @@ export const serviceWorkflowData = {
       ],
       outro:
         "We take the time to do it properly - because the wrong insulation can cause as many problems as none at all.",
-      image: "/about2.webp",
+      image: "/Spray_foam_removal.jpg",
       imageAlt: "Spray foam removed from a Yorkshire loft space",
     },
     relatedServices: [
@@ -256,7 +256,7 @@ export const serviceWorkflowData = {
       ],
       outro:
         "We take the time to do it properly - because a well-insulated home makes a real difference to the people living in it.",
-      image: "/about1.webp",
+      image: "/Underfloor_insulation.jpeg",
       imageAlt: "Underfloor insulation installed beneath a Yorkshire home",
     },
     relatedServices: [
@@ -308,7 +308,7 @@ export const serviceWorkflowData = {
       ],
       outro:
         "We take the time to do it properly - because on a build programme, one trade done right keeps everything else moving.",
-      image: "/heroimage.jpeg",
+      image: "/Newbuild_insulation.jpeg",
       imageAlt: "New build insulation installed on a Yorkshire construction site",
     },
     relatedServices: [

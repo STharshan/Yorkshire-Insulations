@@ -24,7 +24,7 @@ const serviceHeaderData = {
     title: "Loft Insulation Yorkshire",
     description:
       "Loft insulation top-ups, removal and relay, boarding, and hatch fitting across Yorkshire. We install to current recommended depths using trusted Knauf insulation products.",
-    image: "/heroimage.jpeg",
+    image: "/Loft_insulation_photo.jpeg",
     imageAlt: "Loft insulation installation in a Yorkshire property",
     contactDetails,
     whatsappLink: "https://wa.me/447590250335",
@@ -48,7 +48,7 @@ const serviceHeaderData = {
     title: "Cavity Wall Insulation Yorkshire",
     description:
       "Professional cavity wall insulation across Yorkshire using Superbead 33, a high-performance EPS bead system designed for long-lasting thermal performance.",
-    image: "/about1.webp",
+    image: "/Cavity_walls.jpeg",
     imageAlt: "Cavity wall insulation being installed in a Yorkshire property",
     contactDetails,
     whatsappLink: "https://wa.me/447590250335",
@@ -72,7 +72,7 @@ const serviceHeaderData = {
     title: "Spray Foam Removal Yorkshire",
     description:
       "Safe, thorough open and closed cell spray foam removal across Yorkshire, including certificates for mortgage applications and new insulation relay where needed.",
-    image: "/about2.webp",
+    image: "/Spray_foam_removal.jpg",
     imageAlt: "Spray foam removal from a Yorkshire loft space",
     contactDetails,
     whatsappLink: "https://wa.me/447590250335",
@@ -96,7 +96,7 @@ const serviceHeaderData = {
     title: "Underfloor Insulation Yorkshire",
     description:
       "Underfloor insulation for basements, cellars, crawl spaces, and underfloor heating preparation across Yorkshire using Rockwool or Kingspan systems.",
-    image: "/about1.webp",
+    image: "/Underfloor_insulation.jpeg",
     imageAlt: "Underfloor insulation installed in a Yorkshire property",
     contactDetails,
     whatsappLink: "https://wa.me/447590250335",
@@ -120,7 +120,7 @@ const serviceHeaderData = {
     title: "New Build & First Fix Insulation Yorkshire",
     description:
       "Insulation packages for contractors, developers, new builds, and full renovation projects across Yorkshire, priced per square metre on supply and fit or labour-only terms.",
-    image: "/heroimage.jpeg",
+    image: "/Newbuild_insulation.jpeg",
     imageAlt: "New build insulation contractors working on a Yorkshire property",
     contactDetails,
     whatsappLink: "https://wa.me/447590250335",
