@@ -96,7 +96,7 @@ const serviceHeaderData = {
     title: "Underfloor Insulation Yorkshire",
     description:
       "Underfloor insulation for basements, cellars, crawl spaces, and underfloor heating preparation across Yorkshire using Rockwool or Kingspan systems.",
-    image: "/about1.webp",
+    image: "/Underfloor_insulation.jpeg",
     imageAlt: "Underfloor insulation installed in a Yorkshire property",
     contactDetails,
     whatsappLink: "https://wa.me/447590250335",
