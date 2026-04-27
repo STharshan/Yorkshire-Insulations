@@ -72,7 +72,7 @@ const serviceHeaderData = {
     title: "Spray Foam Removal Yorkshire",
     description:
       "Safe, thorough open and closed cell spray foam removal across Yorkshire, including certificates for mortgage applications and new insulation relay where needed.",
-    image: "/about2.webp",
+    image: "/Spray_foam_removal.jpg",
     imageAlt: "Spray foam removal from a Yorkshire loft space",
     contactDetails,
     whatsappLink: "https://wa.me/447590250335",

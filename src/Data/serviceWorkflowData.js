@@ -205,7 +205,7 @@ export const serviceWorkflowData = {
       ],
       outro:
         "We take the time to do it properly - because the wrong insulation can cause as many problems as none at all.",
-      image: "/about2.webp",
+      image: "/Spray_foam_removal.jpg",
       imageAlt: "Spray foam removed from a Yorkshire loft space",
     },
     relatedServices: [
