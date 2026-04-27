@@ -24,7 +24,7 @@ const serviceHeaderData = {
     title: "Loft Insulation Yorkshire",
     description:
       "Loft insulation top-ups, removal and relay, boarding, and hatch fitting across Yorkshire. We install to current recommended depths using trusted Knauf insulation products.",
-    image: "/heroimage.jpeg",
+    image: "/Loft_insulation_photo.jpeg",
     imageAlt: "Loft insulation installation in a Yorkshire property",
     contactDetails,
     whatsappLink: "https://wa.me/447590250335",
