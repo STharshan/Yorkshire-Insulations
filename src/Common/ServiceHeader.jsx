@@ -1,4 +1,5 @@
 import React from "react";
+import { motion as Motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
 
 const headingStyle = { fontFamily: "Montserrat, sans-serif" };
@@ -8,6 +9,48 @@ const defaultTrustPoints = [
   "Yorkshire coverage",
   "Clear fixed quotes",
 ];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.16,
+    },
+  },
+};
+
+const textRevealVariants = {
+  hidden: {
+    opacity: 0,
+    y: 26,
+    clipPath: "inset(0 0 100% 0)",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    clipPath: "inset(0 0 0% 0)",
+    transition: {
+      duration: 0.78,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const fadeUpVariants = {
+  hidden: {
+    opacity: 0,
+    y: 22,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.68,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 const ServiceHeader = ({ data }) => {
   const breadcrumbs = data.breadcrumbs ?? [
@@ -37,26 +80,39 @@ const ServiceHeader = ({ data }) => {
 
       <main className="relative mx-auto max-w-7xl px-6 pb-[4.5rem] pt-8 md:px-10 md:pb-24 md:pt-10">
         <div className="grid items-end gap-10 lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="max-w-3xl">
-            <span
+          <Motion.div
+            className="max-w-3xl"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <Motion.span
+              variants={textRevealVariants}
               className="inline-flex rounded-md border border-white/18 bg-white/8 px-4 py-2 text-[12px] font-bold uppercase tracking-[0.26em] text-[var(--brand-gold)]"
               style={headingStyle}
             >
               Yorkshire Insulation Solutions
-            </span>
+            </Motion.span>
 
-            <h1
+            <Motion.h1
+              variants={textRevealVariants}
               className="mt-6 max-w-3xl text-5xl font-extrabold tracking-[-0.04em] text-white md:text-[68px] md:leading-[1.02]"
               style={headingStyle}
             >
               {data.title}
-            </h1>
+            </Motion.h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/84 md:text-xl">
+            <Motion.p
+              variants={fadeUpVariants}
+              className="mt-6 max-w-2xl text-lg leading-8 text-white/84 md:text-xl"
+            >
               {data.description}
-            </p>
+            </Motion.p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <Motion.div
+              variants={fadeUpVariants}
+              className="mt-8 flex flex-wrap gap-3"
+            >
               {trustPoints.map((point) => (
                 <span
                   key={point}
@@ -65,9 +121,12 @@ const ServiceHeader = ({ data }) => {
                   {point}
                 </span>
               ))}
-            </div>
+            </Motion.div>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <Motion.div
+              variants={fadeUpVariants}
+              className="mt-10 flex flex-wrap items-center gap-4"
+            >
               <a
                 href={data.whatsappLink}
                 target="_blank"
@@ -80,10 +139,13 @@ const ServiceHeader = ({ data }) => {
               <div className="text-sm text-white/68">
                 Local advice, practical recommendations, and a clean installation.
               </div>
-            </div>
+            </Motion.div>
 
             {data.contactDetails ? (
-              <div className="mt-6 flex flex-wrap gap-3">
+              <Motion.div
+                variants={fadeUpVariants}
+                className="mt-6 flex flex-wrap gap-3"
+              >
                 <a
                   href={data.contactDetails.phoneHref}
                   className="inline-flex items-center gap-3 rounded-md border border-white/14 bg-white/8 px-4 py-3 text-sm text-white/86 transition hover:bg-white/12"
@@ -99,11 +161,16 @@ const ServiceHeader = ({ data }) => {
                   <Mail className="h-4 w-4 text-[var(--brand-gold)]" />
                   <span>{data.contactDetails.emailLabel}</span>
                 </a>
-              </div>
+              </Motion.div>
             ) : null}
-          </div>
+          </Motion.div>
 
-          <div className="relative">
+          <Motion.div
+            className="relative"
+            initial={{ opacity: 0, y: 28, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="absolute -left-6 -top-6 hidden h-32 w-32 rounded-md border border-white/12 bg-white/6 lg:block" />
             <div className="absolute -bottom-6 -right-6 hidden h-24 w-24 rounded-md bg-[var(--brand-gold)]/18 lg:block" />
 
@@ -117,7 +184,7 @@ const ServiceHeader = ({ data }) => {
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,24,54,0)_15%,rgba(12,24,54,0.18)_100%)]" />
               </div>
             </div>
-          </div>
+          </Motion.div>
         </div>
       </main>
     </section>
