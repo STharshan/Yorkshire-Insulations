@@ -143,7 +143,7 @@ export const serviceWorkflowData = {
       ],
       outro:
         "We take the time to do it properly - because a well-insulated home makes a real difference to the people living in it.",
-      image: "/about1.webp",
+      image: "/Cavity_walls.jpeg",
       imageAlt: "Cavity wall insulation completed on a Yorkshire property",
     },
     relatedServices: [

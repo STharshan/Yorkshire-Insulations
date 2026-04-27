@@ -48,7 +48,7 @@ const serviceHeaderData = {
     title: "Cavity Wall Insulation Yorkshire",
     description:
       "Professional cavity wall insulation across Yorkshire using Superbead 33, a high-performance EPS bead system designed for long-lasting thermal performance.",
-    image: "/about1.webp",
+    image: "/Cavity_walls.jpeg",
     imageAlt: "Cavity wall insulation being installed in a Yorkshire property",
     contactDetails,
     whatsappLink: "https://wa.me/447590250335",
