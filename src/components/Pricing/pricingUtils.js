@@ -89,6 +89,14 @@ export const formatRange = (min, max) => {
   return `${formatCurrency(min)} - ${formatCurrency(max)}`;
 };
 
+export const formatFrom = (value, suffix = "") => {
+  if (!Number.isFinite(value)) {
+    return "Enter details above";
+  }
+
+  return `From ${formatCurrency(value)}${suffix}`;
+};
+
 export const parsePositive = (value) => {
   const parsed = Number(value);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;

@@ -94,9 +94,9 @@ const Gallery = () => {
         }}
       />
 
-      <ServiceHeader data={galleryHero} />
+      
 
-      <section className="px-4 py-16 md:px-6 md:py-20">
+      <section className="px-4 py-36 md:px-6 md:py-40">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <h2 className="heading-font text-4xl font-extrabold tracking-[-0.03em] text-[var(--brand-navy)] md:text-5xl">
