@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import Sitemap from "vite-plugin-sitemap";
+import { sitemapRoutes } from "./src/Data/siteRoutes";
 
 export default defineConfig({
   plugins: [
@@ -9,17 +10,7 @@ export default defineConfig({
     tailwindcss(),
     Sitemap({
       hostname: "https://www.yorkshireinsulationsolutions.co.uk",
-      dynamicRoutes: [
-        "/",
-        "/services/loft-insulation",
-        "/services/cavity-wall-insulation",
-        "/services/spray-foam-removal",
-        "/services/underfloor-insulation",
-        "/services/new-build-insulation",
-        "/locations/leeds",
-        "/terms",
-        "/privacy",
-      ],
+      dynamicRoutes: sitemapRoutes.filter((route) => route !== "/"),
     }),
   ],
   build: {
