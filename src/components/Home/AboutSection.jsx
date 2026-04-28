@@ -12,7 +12,7 @@ export default function AboutSection() {
     });
 
     const yBack = useTransform(scrollYProgress, [0, 1], [30, -40]);
-    const yFront = useTransform(scrollYProgress, [0, 1], [40, -40]);
+    const yFront = useTransform(scrollYProgress, [0, 1], [20, -60]);
 
     return (
         <section id="about" ref={ref} className="overflow-hidden bg-white py-1 md:py-10 scroll-m-20">
@@ -21,30 +21,18 @@ export default function AboutSection() {
                 {/* IMAGE COMPOSITION */}
                 <div className="relative order-1 lg:order-none">
                     {/* Main Background Image */}
-                    <div className="relative z-10 w-[90%] lg:w-[80%]">
+                    <div className="relative z-10 w-[90%] lg:w-[80%] mx-auto">
                         <img
-                            src="/about2.webp"
+                            src="/about.jpeg"
                             alt="Roofing background"
                             className="w-full rounded-[10px] object-cover shadow-xl"
                         />
-
-                        {/* Middle Floating Image */}
-                        <Motion.div 
-                            style={{ y: yBack }} 
-                            className="absolute top-5 left-5 z-20 w-[60%] lg:top-10"
-                        >
-                            <img
-                                src="/about.png"
-                                alt="Insulation detail"
-                                className="w-full object-cover"
-                            />
-                        </Motion.div>
                     </div>
 
                     {/* Front Floating Logo/Image */}
                     <Motion.div
                         style={{ y: yFront }}
-                        className="absolute -bottom-10 right-0 z-30 w-[60%] sm:w-[50%] lg:-right-5 lg:w-[85%]"
+                        className="absolute -bottom-10 right-0 z-30 w-[60%] sm:w-[50%] sm:right-10"
                     >
                         <img
                             src="/logo.png"

@@ -10,9 +10,7 @@ const SectionBadge = ({ children }) => (
 );
 
 const LocationAreasCovered = ({ data }) => {
-  if (!data) {
-    return null;
-  }
+  if (!data) return null;
 
   return (
     <section className="relative overflow-hidden border-b border-[var(--brand-border)] bg-[var(--brand-navy)] text-white">
@@ -32,6 +30,7 @@ const LocationAreasCovered = ({ data }) => {
           {data.intro}
         </p>
 
+        {/* Main Leeds Items */}
         <div className="mt-12 flex flex-wrap gap-4">
           {data.items.map((item) => (
             <span
@@ -43,8 +42,50 @@ const LocationAreasCovered = ({ data }) => {
           ))}
         </div>
 
-        <div className="mt-12 rounded-[10px] border border-white/12 bg-black/10 px-6 py-6 text-sm leading-7 text-white/74 md:max-w-3xl">
-          We cover the full Leeds area with practical recommendations based on the age, build type, and condition of the property.
+        {/* Visual Separator & Secondary Sections */}
+        <div className="mt-20 flex items-center gap-6">
+          <div className="h-[1px] flex-1 bg-gradient-to-r from-white/20 to-transparent" />
+          <span className="whitespace-nowrap text-xs font-bold uppercase tracking-[0.3em] text-white/40" style={headingStyle}>
+            We also cover across Yorkshire & beyond
+          </span>
+          <div className="h-[1px] flex-1 bg-gradient-to-l from-white/20 to-transparent" />
+        </div>
+
+        <div className="mt-12 space-y-10">
+          {data.additionalRegions?.map((region) => (
+            <div key={region.label}>
+              <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-[var(--brand-gold)]" style={headingStyle}>
+                {region.label}
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {region.locations.map((loc) => (
+                  <span
+                    key={loc}
+                    className="inline-flex items-center rounded-[999px] border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 transition-colors hover:border-white/30"
+                  >
+                    {loc}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Footer Box */}
+        <div className="mt-16 flex flex-col items-start gap-6 rounded-[10px] border border-white/12 bg-black/10 px-6 py-6 text-sm leading-7 text-white/74 md:max-w-3xl md:flex-row md:items-center md:justify-between">
+          <p>
+            We cover Leeds, Yorkshire, and surrounding regions - with practical
+            recommendations based on the age, build type, and condition of your
+            property. Not sure if we cover your area?
+          </p>
+          
+          <a
+            href="#home" 
+            className="whitespace-nowrap rounded-md border border-[var(--brand-gold)]/30 bg-[var(--brand-gold)]/10 px-6 py-3 text-[13px] font-bold uppercase tracking-wider text-[var(--brand-gold)] transition-all hover:bg-[var(--brand-gold)] hover:text-white"
+            style={headingStyle}
+          >
+            Get in touch
+          </a>
         </div>
       </div>
     </section>

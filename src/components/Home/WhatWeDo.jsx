@@ -79,7 +79,7 @@ export function WhatWeDo() {
                                             <div className="relative mt-2 p-3">
                                                 <div className="relative overflow-hidden rounded-[20px]">
                                                     <img
-                                                        src="/logo.png"
+                                                        src={service.image}
                                                         alt={service.title}
                                                         className="h-58 w-full object-cover"
                                                     />
@@ -190,7 +190,7 @@ export function WhatWeDo() {
                                             <div className="relative mt-auto p-3">
                                                 <div className="relative overflow-hidden rounded-[20px]">
                                                     <img
-                                                        src="/logo.png"
+                                                        src={service.image}
                                                         alt={service.title}
                                                         className="h-[200px] w-full object-cover"
                                                     />
@@ -299,7 +299,7 @@ export function WhatWeDo() {
                                                 <div className="relative mt-auto p-4">
                                                     <div className="relative overflow-hidden rounded-[24px]">
                                                         <img
-                                                            src="/logo.png"
+                                                            src={service.image}
                                                             alt={service.title}
                                                             className="h-65 w-full object-cover"
                                                         />

@@ -4,7 +4,6 @@ import Seo from "../components/Seo";
 import { galleryMedia } from "../Data/gallery";
 
 
-
 const Gallery = () => {
   return (
     <div className="bg-[var(--brand-offwhite)]">

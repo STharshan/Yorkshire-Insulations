@@ -62,7 +62,7 @@ const ServiceHeader = ({ data }) => {
   const trustPoints = data.trustPoints ?? defaultTrustPoints;
 
   return (
-    <section className="relative overflow-hidden border-b border-[var(--brand-border)] bg-[linear-gradient(135deg,var(--brand-navy),var(--brand-blue))] text-white">
+    <section id="home" className="relative overflow-hidden border-b border-[var(--brand-border)] bg-[linear-gradient(135deg,var(--brand-navy),var(--brand-blue))] text-white">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,160,23,0.22),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.14),transparent_32%)]" />
 
       <header className="relative mx-auto mt-24 max-w-7xl px-6 pt-6 md:px-10">

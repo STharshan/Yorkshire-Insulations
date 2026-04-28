@@ -23,10 +23,7 @@ export default function Navbar() {
     },
     { 
       label: "LOCATION", 
-      path: "#", 
-      submenu: [
-        { label: "Leeds", path: "/locations/leeds" },
-      ]
+      path: "/locations/leeds", 
     },
     { label: "PRICING", path: "/pricing" },
     { label: "GALLERY", path: "/gallery" },
@@ -148,7 +145,7 @@ export default function Navbar() {
 
         {/* RIGHT — CONTACT BUTTON */}
         <a
-          href="tel:+447590250335"
+          href="tel:+447526322379"
           className="hidden bg-[var(--brand-accent)] px-5 py-2 font-bold tracking-wide text-[var(--brand-navy)] transition hover:bg-[var(--brand-accent-hover)] lg:block"
         >
           CONTACT

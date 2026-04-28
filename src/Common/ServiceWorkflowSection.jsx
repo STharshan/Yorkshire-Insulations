@@ -28,14 +28,11 @@ const ServiceWorkflowSection = ({ data }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // --- VALIDATION LOGIC ---
-    // Check if required fields are empty or just whitespace
     if (!formData.fullName.trim() || !formData.phone.trim() || !formData.service) {
       alert("Please fill in all required fields (Name, Phone, and Service).");
       return;
     }
 
-    // Optional: Basic phone number validation (at least 7 digits)
     const phoneRegex = /^[0-9\s+]{7,}$/;
     if (!phoneRegex.test(formData.phone.trim())) {
       alert("Please enter a valid phone number.");
@@ -307,65 +304,57 @@ const ServiceWorkflowSection = ({ data }) => {
 
           <aside className="lg:sticky lg:top-28">
             <div className="overflow-hidden rounded-[10px] border border-[var(--brand-border)] bg-white shadow-[0_6px_24px_rgba(26,44,91,0.13)]">
-              <div className="border-b border-[var(--brand-border)] bg-[linear-gradient(135deg,var(--brand-navy),var(--brand-blue))] px-8 py-8 text-white md:px-10">
-                <p
-                  className="text-[12px] font-bold uppercase tracking-[0.24em] text-[var(--brand-gold)]"
-                  style={headingStyle}
-                >
-                  Quote Request
-                </p>
-
+              <div className="border-b border-[var(--brand-border)] bg-[linear-gradient(135deg,var(--brand-navy),var(--brand-blue))] px-8 py-1 text-white md:px-10">
                 <h3
-                  className="mt-3 text-3xl font-bold md:text-[34px]"
+                  className="mt-2 mb-2 text-3xl font-bold md:text-[34px]"
                   style={headingStyle}
                 >
                   {data.contactForm.title}
                 </h3>
-
-                <p className="mt-3 text-sm leading-7 text-white/78">
-                  Tell us about your property and we will prepare a practical recommendation.
-                </p>
               </div>
 
               <form className="space-y-5 p-8 md:p-10" onSubmit={handleSubmit}>
-                <div>
-                  <label
-                    htmlFor="service-full-name"
-                    className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
-                    style={headingStyle}
-                  >
-                    {data.contactForm.fields.fullName.label}
-                  </label>
-                  <input
-                    id="service-full-name"
-                    name="fullName"
-                    required
-                    type={data.contactForm.fields.fullName.type}
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    placeholder={data.contactForm.fields.fullName.placeholder}
-                    className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
-                  />
-                </div>
+                {/* Full Name and Phone in one line */}
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="service-full-name"
+                      className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
+                      style={headingStyle}
+                    >
+                      {data.contactForm.fields.fullName.label}
+                    </label>
+                    <input
+                      id="service-full-name"
+                      name="fullName"
+                      required
+                      type={data.contactForm.fields.fullName.type}
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      placeholder={data.contactForm.fields.fullName.placeholder}
+                      className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
+                    />
+                  </div>
 
-                <div>
-                  <label
-                    htmlFor="service-phone"
-                    className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
-                    style={headingStyle}
-                  >
-                    {data.contactForm.fields.phone.label}
-                  </label>
-                  <input
-                    id="service-phone"
-                    name="phone"
-                    required
-                    type={data.contactForm.fields.phone.type}
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder={data.contactForm.fields.phone.placeholder}
-                    className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
-                  />
+                  <div>
+                    <label
+                      htmlFor="service-phone"
+                      className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
+                      style={headingStyle}
+                    >
+                      {data.contactForm.fields.phone.label}
+                    </label>
+                    <input
+                      id="service-phone"
+                      name="phone"
+                      required
+                      type={data.contactForm.fields.phone.type}
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder={data.contactForm.fields.phone.placeholder}
+                      className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
+                    />
+                  </div>
                 </div>
 
                 <div>

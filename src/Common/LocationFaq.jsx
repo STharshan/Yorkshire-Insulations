@@ -13,7 +13,8 @@ const LocationFaq = ({ data }) => {
   return (
     <section className="bg-[var(--brand-panel)] text-[var(--brand-text)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-[4.5rem] md:px-10 md:py-24 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
+        {/* Left Column */}
+        <div className="flex flex-col">
           <p
             className="text-[12px] font-bold uppercase tracking-[0.22em] text-[var(--brand-blue)]"
             style={headingStyle}
@@ -31,8 +32,18 @@ const LocationFaq = ({ data }) => {
           <p className="mt-6 max-w-md text-lg leading-8 text-[var(--brand-muted)]">
             Straight answers, clear expectations, and practical guidance for Leeds homeowners.
           </p>
+
+          {/* Inserted Image Area */}
+          <div className="mt-12">
+            <img 
+              src="/newimage.jpeg"
+              alt="Insulation Illustration" 
+              className="h-80 sm:h-100 lg:h-auto w-full object-contain"
+            />
+          </div>
         </div>
 
+        {/* Right Column (FAQ Items) */}
         <div className="space-y-6">
           {data.items.map((item, index) => {
             const isOpen = openIndex === index;
@@ -66,14 +77,14 @@ const LocationFaq = ({ data }) => {
                   </span>
                 </button>
 
-                {isOpen ? (
+                {isOpen && (
                   <div
                     id={answerId}
                     className="px-6 pb-6 text-base leading-8 text-[var(--brand-muted)] md:px-8 md:pb-8 md:text-lg"
                   >
                     {item.answer}
                   </div>
-                ) : null}
+                )}
               </article>
             );
           })}
