@@ -1,47 +1,9 @@
 
 import GalleryGrid from "../components/GalleryGrid";
 import Seo from "../components/Seo";
+import { galleryMedia } from "../Data/gallery";
 
 
-const galleryMedia = [
-  { type: "image", src: "/Gallery/494216041_122120393828840476_1646075693740168417_n.jpeg", alt: "Insulation project in Yorkshire" },
-  { type: "image", src: "/Gallery/494216041_122120393828840476_1646075693740168417_n-1.jpeg", alt: "Yorkshire Insulation Solutions project" },
-  { type: "image", src: "/Gallery/494727950_122120393768840476_7028384134860948190_n.jpeg", alt: "Loft insulation installation" },
-  { type: "image", src: "/Gallery/495461924_122118086612840476_7762738871496875635_n.jpeg", alt: "Cavity wall insulation project" },
-  { type: "image", src: "/Gallery/496983192_122118094256840476_4920689214992367810_n.jpeg", alt: "Insulation work completion" },
-  { type: "image", src: "/Gallery/503456647_122120393912840476_934357578574735165_n.jpeg", alt: "Professional insulation services" },
-  
-  { type: "image", src: "/Gallery/AdobeStock_1251899663-2048x1117.jpeg", alt: "External wall insulation" },
-  { type: "image", src: "/Gallery/WhatsApp Image 2026-04-28 at 18.19.15.jpeg", alt: "Recent insulation project photo" },
-  { type: "image", src: "/Gallery/WhatsApp Image 2026-04-28 at 18.19.17.jpeg", alt: "Recent Yorkshire insulation work" },
-  { type: "image", src: "/Gallery/WhatsApp Image 2026-04-28 at 18.19.19.jpeg", alt: "Insulation install detail" },
-  { type: "image", src: "/Gallery/WhatsApp Image 2026-04-28 at 18.19.20 (1).jpeg", alt: "Recent job progress" },
-  { type: "image", src: "/Gallery/WhatsApp Image 2026-04-28 at 18.19.20 (2).jpeg", alt: "Insulation work in progress" },
-  { type: "image", src: "/Gallery/WhatsApp Image 2026-04-28 at 18.19.20.jpeg", alt: "Site installation photo" },
-  { type: "image", src: "/Gallery/WhatsApp Image 2026-04-28 at 18.19.21 (1).jpeg", alt: "Completed job finish" },
-  { type: "image", src: "/Gallery/WhatsApp Image 2026-04-28 at 18.19.21.jpeg", alt: "Yorkshire insulation result" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.11.53.jpeg", alt: "Insulation project showcase" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.11.56.jpeg", alt: "Yorkshire Insulation work" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.11.56-1.jpeg", alt: "Professional installation" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.11.58-3.jpeg", alt: "Insulation services in Yorkshire" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.11.59-2.jpeg", alt: "Project completion" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.11.59-3.jpeg", alt: "Quality insulation work" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.11.59-4.jpeg", alt: "Yorkshire Insulation Solutions" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.00-2.jpeg", alt: "Insulation project photo" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.00-3.jpeg", alt: "Professional work showcase" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.00-5.jpeg", alt: "Installation completed" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.01-1.jpeg", alt: "Yorkshire project details" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.01-2.jpeg", alt: "Insulation installation" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.01-3.jpeg", alt: "Work quality showcase" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.02-2.jpeg", alt: "Professional services" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.02-3.jpeg", alt: "Yorkshire Insulation project" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.03-1.jpeg", alt: "Insulation completed work" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.03-2.jpeg", alt: "Project showcase" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.03-3.jpeg", alt: "Yorkshire work quality" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.03-4.jpeg", alt: "Installation project" },
-  { type: "image", src: "/Gallery/WhatsApp-Image-2025-06-17-at-17.12.03-5.jpeg", alt: "Professional insulation" },
-  
-];
 
 const Gallery = () => {
   return (
