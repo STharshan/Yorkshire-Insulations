@@ -28,6 +28,51 @@ export const foamRates = {
   closed: 80,
 };
 
+export const additionalServices = [
+  {
+    title: "Solid Wall Insulation",
+    description: "Improve thermal efficiency of solid brick walls",
+    priceRange: "£800 - £1,500+",
+    note: "Price varies based on property size and wall condition",
+  },
+  {
+    title: "Room in Roof Insulation",
+    description: "Perfect for conversions and rooms in the roof",
+    priceRange: "£500 - £800",
+    note: "Price depends on roof size and complexity",
+  },
+  {
+    title: "External Wall Insulation",
+    description: "Enhance appearance and thermal performance",
+    priceRange: "£1,200 - £2,500",
+    note: "Price varies based on property size and finish type",
+  },
+  {
+    title: "Internal Wall Insulation",
+    description: "Internal solutions where external options aren't suitable",
+    priceRange: "£600 - £1,200",
+    note: "Price depends on room size and preparation required",
+  },
+  {
+    title: "Floor Insulation",
+    description: "Reduce heat loss through solid and suspended timber floors",
+    priceRange: "£350 - £600",
+    note: "Price depends on floor area and access",
+  },
+  {
+    title: "Solar Panel Installation",
+    description: "Generate your own electricity and reduce energy bills",
+    priceRange: "£3,000 - £6,000+",
+    note: "Price depends on system size and roof orientation",
+  },
+  {
+    title: "Boiler Installation",
+    description: "Energy-efficient boiler installation and replacement",
+    priceRange: "£2,000 - £4,000+",
+    note: "Price depends on boiler type and installation complexity",
+  },
+];
+
 export const formatCurrency = (value) =>
   new Intl.NumberFormat("en-GB", {
     style: "currency",
@@ -42,6 +87,14 @@ export const formatRange = (min, max) => {
   }
 
   return `${formatCurrency(min)} - ${formatCurrency(max)}`;
+};
+
+export const formatFrom = (value, suffix = "") => {
+  if (!Number.isFinite(value)) {
+    return "Enter details above";
+  }
+
+  return `From ${formatCurrency(value)}${suffix}`;
 };
 
 export const parsePositive = (value) => {

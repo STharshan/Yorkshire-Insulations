@@ -1,3 +1,7 @@
+import { PackagePlus } from "lucide-react";
+
+import PricingCardShell from "./PricingCardShell";
+
 const LoftExtrasCard = ({
   boardingArea,
   setBoardingArea,
@@ -6,26 +10,20 @@ const LoftExtrasCard = ({
   extrasEstimate,
 }) => {
   return (
-    <section className="overflow-hidden rounded-[12px] border border-[#E5E7EB] bg-[#F7F8FA] shadow-[0_16px_40px_rgba(17,24,39,0.04)]">
-      <div className="flex h-full flex-col p-6">
-        <span className="mb-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#C8962E]">
-          Additional Extras
-        </span>
-        <h2 className="text-[18px] font-semibold text-[#1B2A6B]">
-          Loft Extras
-        </h2>
-        <p className="mt-1 text-[13px] text-[#6B7280]">
-          Boarding, hatches and ladders - build your own package
-        </p>
-        <div className="my-4 h-px bg-[#F0F0F0]" />
-
+    <PricingCardShell
+      eyebrow="ADDITIONAL EXTRAS"
+      title="Loft Extras"
+      subtitle="Boarding, hatches and ladders - build your own package"
+      icon={PackagePlus}
+    >
+      <div className="flex h-full flex-col">
         <div className="flex items-center justify-between py-3">
           <div className="pr-4">
             <p className="text-[14px] font-semibold text-[#1B2A6B]">
               Loft boarding
             </p>
             <p className="text-[12px] text-[#6B7280]">
-              £50 + VAT per sqm - includes boards, batons, screws and fixings
+              {"\u00A350 + VAT per sqm - includes boards, batons, screws and fixings"}
             </p>
           </div>
           <input
@@ -46,7 +44,7 @@ const LoftExtrasCard = ({
               Loft hatch installation
             </p>
             <p className="text-[12px] text-[#6B7280]">
-              From £250 + VAT installed
+              {"From \u00A3250 + VAT installed"}
             </p>
           </div>
           <input
@@ -76,19 +74,24 @@ const LoftExtrasCard = ({
         </div>
 
         <div className="flex-1" />
-      </div>
 
-      <div className="flex items-center justify-between rounded-b-[12px] bg-[#1B2A6B] px-5 py-[14px]">
-        <span className="text-[13px] text-white">Extras estimate</span>
-        <span className="text-[18px] font-semibold text-white">
-          {extrasEstimate === "Add items above" ? (
-            <span className="text-[#8FA0D4]">{extrasEstimate}</span>
-          ) : (
-            extrasEstimate
-          )}
-        </span>
+        <div className="mt-4 flex items-center justify-between rounded-[8px] bg-[#1B2A6B] px-5 py-[14px]">
+          <div>
+            <span className="text-[13px] text-white">Estimated from</span>
+            <p className="text-[11px] text-white/72">
+              Final price confirmed after assessment.
+            </p>
+          </div>
+          <span className="text-right text-[18px] font-semibold text-white">
+            {extrasEstimate === "Add items above" ? (
+              <span className="text-[#8FA0D4]">{extrasEstimate}</span>
+            ) : (
+              extrasEstimate
+            )}
+          </span>
+        </div>
       </div>
-    </section>
+    </PricingCardShell>
   );
 };
 

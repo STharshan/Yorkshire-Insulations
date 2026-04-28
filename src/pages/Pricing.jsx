@@ -8,6 +8,7 @@ import {
   cavityRates,
   foamRates,
   formatCurrency,
+  formatFrom,
   formatRange,
   loftModes,
   parsePositive,
@@ -17,9 +18,9 @@ import Seo from "../components/Seo";
 const Pricing = () => {
   const [loftMode, setLoftMode] = useState("topup");
   const [loftLength, setLoftLength] = useState("10");
-  const [loftWidth, setLoftWidth] = useState("1");
+  const [loftWidth, setLoftWidth] = useState("");
 
-  const [cavityArea, setCavityArea] = useState("1");
+  const [cavityArea, setCavityArea] = useState("");
   const [cavityDepth, setCavityDepth] = useState("40mm");
 
   const [foamType, setFoamType] = useState("closed");
@@ -49,7 +50,7 @@ const Pricing = () => {
       return "Enter details above";
     }
 
-    return formatCurrency(area * cavityRates[cavityDepth]);
+    return formatFrom(area * cavityRates[cavityDepth]);
   }, [cavityArea, cavityDepth]);
 
   const foamEstimate = useMemo(() => {
@@ -60,42 +61,53 @@ const Pricing = () => {
 
     const base = area * foamRates[foamType];
     const relayTotal = foamRelay === "yes" ? area * 10 : 0;
-    return formatCurrency(base + relayTotal);
+    return formatFrom(base + relayTotal);
   }, [foamArea, foamRelay, foamType]);
 
   const extrasEstimate = useMemo(() => {
     const total = parsePositive(boardingArea) * 50 + (loftHatch ? 250 : 0);
-    return total ? `${formatCurrency(total)} + VAT` : "Add items above";
+    return total ? formatFrom(total, " + VAT") : "Add items above";
   }, [boardingArea, loftHatch]);
 
   return (
-    <main className="min-h-screen bg-white px-4 py-8 pt-36 md:px-6">
+    <main className="min-h-screen bg-white">
       <Seo
-        title="Pricing | Yorkshire Insulation"
-        description="Estimate loft insulation, cavity wall insulation, spray foam removal and loft extras pricing across Yorkshire."
-        keywords="insulation pricing Yorkshire, loft insulation cost Yorkshire, cavity wall insulation price, spray foam removal cost"
+        title="Insulation Pricing Yorkshire | Transparent Costs & Estimators | Yorkshire Insulation"
+        description="Clear, upfront insulation pricing across Yorkshire. Use our online estimators for loft, cavity wall, and spray foam removal costs. Every price includes labour, product and clean-up."
+        keywords="insulation cost Yorkshire, loft insulation price Yorkshire, cavity wall insulation cost, spray foam removal cost, insulation estimator Yorkshire"
         canonical="https://www.yorkshireinsulationsolutions.co.uk/pricing"
         geo={{
           region: "GB-YOR",
           placename: "Yorkshire",
           position: "53.8;-1.5",
         }}
-        ogImage="/heroimage.jpeg"
+        ogImage="/newlogo.png"
         ogImageAlt="Yorkshire Insulation pricing page"
         schema={{
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          name: "Pricing",
+          "@type": "Service",
+          name: "Insulation Pricing",
+          provider: {
+            "@type": "Organization",
+            name: "Yorkshire Insulation",
+          },
+          areaServed: {
+            "@type": "AdministrativeArea",
+            name: "Yorkshire",
+          },
           url: "https://www.yorkshireinsulationsolutions.co.uk/pricing",
           description:
-            "Estimate loft insulation, cavity wall insulation, spray foam removal and loft extras pricing across Yorkshire.",
+            "Clear, upfront insulation pricing across Yorkshire. Use our online estimators for loft, cavity wall, and spray foam removal costs. Every price includes labour, product and clean-up.",
         }}
       />
 
-      <div className="mx-auto max-w-[1100px]">
-        <PricingHero />
+      <PricingHero />
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div
+        id="pricing-tools"
+        className="mx-auto max-w-[1100px] px-4 py-8 md:px-6 md:py-12"
+      >
+        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2">
           <LoftPricingCard
             loftMode={loftMode}
             setLoftMode={setLoftMode}
@@ -133,7 +145,29 @@ const Pricing = () => {
             extrasEstimate={extrasEstimate}
           />
         </div>
+
       </div>
+
+      <section className="mt-6 w-full bg-[#1B2A6B]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-10 md:px-10 md:py-12 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-white md:text-[40px]">
+              Not sure what you need?
+            </h2>
+            <p className="mt-3 text-base leading-8 text-white/82 md:text-lg">
+              Get in touch and we will assess your property and give you an
+              accurate price - no obligation.
+            </p>
+          </div>
+
+          <a
+            href="/#contact"
+            className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C8962E] px-7 py-3 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[#b8890f]"
+          >
+            Get a free assessment
+          </a>
+        </div>
+      </section>
     </main>
   );
 };

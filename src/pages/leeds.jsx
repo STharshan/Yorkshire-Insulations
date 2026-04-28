@@ -14,7 +14,7 @@ const Leeds = () => {
       <Seo
         title={pageData.seo.title}
         description={pageData.seo.description}
-        keywords="leeds insulation, loft insulation leeds, cavity wall insulation leeds, spray foam removal leeds, underfloor insulation leeds, external wall insulation leeds"
+        keywords={pageData.seo.keywords}
         canonical={pageData.seo.canonical}
         geo={pageData.seo.geo}
         ogImage={pageData.heroBackgroundImage}
@@ -23,10 +23,20 @@ const Leeds = () => {
           "@context": "https://schema.org",
           "@type": "Service",
           name: pageData.title,
-          areaServed: {
-            "@type": "City",
-            name: "Leeds",
-          },
+          areaServed: [
+            { "@type": "AdministrativeArea", name: "Yorkshire" },
+            { "@type": "City", name: "Leeds" },
+            { "@type": "City", name: "Sheffield" },
+            { "@type": "City", name: "Bradford" },
+            { "@type": "City", name: "Hull" },
+            { "@type": "City", name: "Harrogate" },
+            { "@type": "City", name: "Wakefield" },
+            { "@type": "City", name: "Huddersfield" },
+            { "@type": "City", name: "Doncaster" },
+            { "@type": "City", name: "Middlesbrough" },
+            { "@type": "City", name: "Nottingham" },
+            { "@type": "AdministrativeArea", name: "Lancashire" },
+          ],
           provider: {
             "@type": "Organization",
             name: "Yorkshire Insulation Solutions Ltd",
