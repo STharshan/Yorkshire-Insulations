@@ -183,51 +183,36 @@ export const locationData = {
         },
       ],
     },
-    areasCovered: {
-      badge: "Areas Covered",
-      title: "Leeds Areas We Cover",
-      intro: "We work across Leeds and the surrounding areas including:",
-      items: [
-        "Leeds City Centre",
-        "Headingley",
-        "Hyde Park",
-        "Woodhouse",
-        "Meanwood",
-        "Chapel Allerton",
-        "Roundhay",
-        "Moortown",
-        "Alwoodley",
-        "Wetherby",
-        "Garforth",
-        "Rothwell",
-        "Beeston",
-        "Holbeck",
-        "Hunslet",
-        "Burley",
-        "Kirkstall",
-        "Bramley",
-        "Armley",
-        "Stanningley",
-        "Pudsey",
-        "Morley",
-        "Birstall",
-        "Dewsbury",
-        "Batley",
-        "Heckmondwike",
-        "Mirfield",
-        "Castleford",
-        "Pontefract",
-        "Normanton",
-        "Wakefield",
-        "Huddersfield",
-        "Halifax",
-        "Bradford",
-        "Horsforth",
-        "Seacroft",
-        "Otley",
-        "LS1 - LS29",
-      ],
+areasCovered: {
+  badge: "Areas Covered",
+  title: "Leeds Areas We Cover",
+  intro: "We work across Leeds and the surrounding areas including:",
+  // Keep the original Leeds items
+  items: [
+    "Leeds City Centre", "Headingley", "Hyde Park", "Woodhouse", "Meanwood",
+    "Chapel Allerton", "Roundhay", "Moortown", "Alwoodley", "Wetherby",
+    "Garforth", "Rothwell", "Beeston", "Holbeck", "Hunslet", "Burley",
+    "Kirkstall", "Bramley", "Armley", "Stanningley", "Pudsey", "Morley",
+    "Birstall", "Dewsbury", "Batley", "Heckmondwike", "Mirfield",
+    "Castleford", "Pontefract", "Normanton", "Wakefield", "Huddersfield",
+    "Halifax", "Bradford", "Horsforth", "Seacroft", "Otley", "LS1 - LS29",
+  ],
+  // New secondary regions
+  additionalRegions: [
+    {
+      label: "Yorkshire",
+      locations: ["York", "Harrogate", "Ripon", "Hull", "Sheffield", "Rotherham", "Barnsley", "Doncaster", "Wakefield", "Huddersfield", "Bradford", "Middlesbrough"]
     },
+    {
+      label: "Midlands",
+      locations: ["Nottingham", "Mansfield"]
+    },
+    {
+      label: "Lancashire",
+      locations: ["Lancashire", "Burnley", "Blackburn", "Preston", "Birkenhead"]
+    }
+  ]
+},
     faq: {
       badge: "FAQ",
       title: "Frequently Asked Questions",

@@ -2,33 +2,6 @@ import ServiceHeader from "../Common/ServiceHeader";
 import GalleryGrid from "../components/GalleryGrid";
 import Seo from "../components/Seo";
 
-const galleryHero = {
-  breadcrumbTitle: "Gallery",
-  breadcrumbs: [
-    { label: "Home" },
-    { label: "Gallery", current: true },
-  ],
-  title: "Our Work Across Yorkshire",
-  description:
-    "We don't just talk about quality; we show it. Browse through our recent insulation projects completed across Yorkshire. From quick loft installs to full external wall work, every job is finished to the same high standard.",
-  image: "/heroimage.jpeg",
-  imageAlt: "Yorkshire Insulation Solutions project showcase",
-  whatsappLink: "https://wa.me/447526322379",
-  contactDetails: {
-    phoneLabel: "07526322379",
-    phoneHref: "tel:+447526322379",
-    emailLabel: "info@yorkshireinsulationsolutions.co.uk",
-    emailHref: "mailto:info@yorkshireinsulationsolutions.co.uk",
-  },
-  trustPoints: [
-    "Loft Insulation",
-    "Cavity Wall",
-    "Spray Foam Removal",
-    "Underfloor",
-    "New Build",
-  ],
-};
-
 const galleryMedia = [
   { type: "image", src: "/Gallery/494216041_122120393828840476_1646075693740168417_n.jpeg", alt: "Insulation project in Yorkshire" },
   { type: "image", src: "/Gallery/494216041_122120393828840476_1646075693740168417_n-1.jpeg", alt: "Yorkshire Insulation Solutions project" },
@@ -87,12 +60,10 @@ const Gallery = () => {
         }}
       />
 
-      <ServiceHeader data={galleryHero} />
-
       <section className="px-4 py-16 md:px-6 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <h2 className="heading-font text-4xl font-extrabold tracking-[-0.03em] text-[var(--brand-navy)] md:text-5xl">
+            <h2 className="heading-font pt-20 text-4xl font-extrabold tracking-[-0.03em] text-[var(--brand-navy)] md:text-5xl">
               Gallery
             </h2>
             <p className="mt-4 text-lg leading-8 text-[var(--brand-muted)]">
