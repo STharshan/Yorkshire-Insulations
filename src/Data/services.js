@@ -6,7 +6,7 @@ export const services = [
     legacyPath: "/services/loft-insulation",
     description:
       "The most cost-effective way to reduce heat loss in your home. We install loft insulation across Yorkshire quickly and cleanly, with most jobs completed in a single day.",
-    image: "/loft.jpeg",
+    image: "/Loft_insulation_photo.jpeg",
   },
   {
     key: "cavityWallInsulation",
@@ -15,7 +15,7 @@ export const services = [
     legacyPath: "/services/cavity-wall-insulation",
     description:
       "We drill small holes in the outer wall and inject insulation material directly into the cavity with minimal disruption and maximum impact.",
-    image: "/Cavity.jpeg",
+    image: "/Cavity_walls.jpeg",
   },
   {
     key: "sprayFoamRemoval",
@@ -24,7 +24,7 @@ export const services = [
     legacyPath: "/services/spray-foam-removal",
     description:
       "We remove open and closed cell spray foam from loft spaces, issue completion certificates for lenders, and prepare the area for fresh insulation.",
-    image: "/service.jpg",
+    image: "/Spray_foam_removal.jpg",
   },
   {
     key: "underfloorInsulation",
@@ -33,7 +33,7 @@ export const services = [
     legacyPath: "/services/underfloor-insulation",
     description:
       "Cold floors are a sign of significant heat loss. We install insulation beneath your floorboards to keep warmth in and energy bills down.",
-    image: "/under.jpeg",
+    image: "/Underfloor_insulation.jpeg",
   },
   {
     key: "newBuildInsulation",
@@ -42,7 +42,7 @@ export const services = [
     legacyPath: "/services/new-build-insulation",
     description:
       "We support contractors and developers with insulation packages for new build and renovation projects, delivered to programme across Yorkshire.",
-    image: "/service.jpg",
+    image: "/Newbuild_insulation.jpeg",
   },
 ];
 

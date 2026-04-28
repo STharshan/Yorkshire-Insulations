@@ -32,7 +32,7 @@ export default function AboutSection() {
                     {/* Front Floating Logo/Image */}
                     <Motion.div
                         style={{ y: yFront }}
-                        className="absolute -bottom-10 right-0 z-30 w-[60%] sm:w-[50%] sm:right-10"
+                        className="absolute -bottom-10 right-0 z-30 w-[60%] sm:w-[50%] sm:right-0"
                     >
                         <img
                             src="/logo.png"
@@ -76,7 +76,7 @@ export default function AboutSection() {
                         ))}
                     </div>
 
-                    <HashLink smooth to="/#contact" className="block w-full md:w-auto heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-[var(--brand-gold-hover)] text-center">
+                    <HashLink smooth to="/#contact" className="block w-full md:w-auto heading-font bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-[var(--brand-gold-hover)] text-center">
                         Get a Free Quote
                     </HashLink>
                 </div>

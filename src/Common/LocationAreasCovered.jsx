@@ -61,7 +61,7 @@ const LocationAreasCovered = ({ data }) => {
                 {region.locations.map((loc) => (
                   <span
                     key={loc}
-                    className="inline-flex items-center rounded-[999px] border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 transition-colors hover:border-white/30"
+                    className="inline-flex items-center rounded-[999px] text-sm font-medium text-white/86 border border-white/10 bg-white/5 px-4 py-2 transition-colors hover:border-white/30"
                   >
                     {loc}
                   </span>
@@ -81,7 +81,7 @@ const LocationAreasCovered = ({ data }) => {
           
           <a
             href="#home" 
-            className="whitespace-nowrap rounded-md border border-[var(--brand-gold)]/30 bg-[var(--brand-gold)]/10 px-6 py-3 text-[13px] font-bold uppercase tracking-wider text-[var(--brand-gold)] transition-all hover:bg-[var(--brand-gold)] hover:text-white"
+            className="whitespace-nowrap border border-[var(--brand-gold)]/30 bg-[var(--brand-gold)]/10 px-6 py-3 text-[13px] font-bold uppercase tracking-wider text-[var(--brand-gold)] transition-all hover:bg-[var(--brand-gold)] hover:text-white"
             style={headingStyle}
           >
             Get in touch

@@ -129,7 +129,7 @@ const ContactSection = () => {
 
                 <button
                   type="submit"
-                  className="heading-font mt-4 w-full rounded-md bg-[var(--brand-blue)] py-5 text-[15px] font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition hover:bg-[var(--brand-navy)]"
+                  className="heading-font mt-4 w-full bg-[var(--brand-blue)] py-5 text-[15px] font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition hover:bg-[var(--brand-navy)]"
                 >
                   Send My Enquiry
                 </button>
