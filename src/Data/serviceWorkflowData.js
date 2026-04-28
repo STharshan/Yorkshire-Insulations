@@ -1,6 +1,6 @@
 const contactForm = (service) => ({
   title: "Get In Touch",
-  whatsappLink: "https://wa.me/447590250335",
+  whatsappLink: "https://wa.me/447526322379",
   fields: {
     fullName: {
       label: "Full Name",
@@ -14,17 +14,23 @@ const contactForm = (service) => ({
     },
     service: {
       label: "Select a Service",
-      options: [service],
+      options: [
+        service, 
+        "Loft Insulation",
+        "Cavity Wall Insulation",
+        "Spray Foam Removal",
+        "Underfloor Insulation",
+        "New Build Insulation"
+      ].filter((item, index, self) => self.indexOf(item) === index), // Removes duplicate of the current service
     },
     note: {
       label: "Short Note",
       placeholder: "Tell us about your property",
-      rows: 4,
+      rows: 3,
     },
   },
   submitButton: "Get a Quote Today",
 });
-
 const colors = {
   primary: "#F21B23",
   secondary: "#404143",

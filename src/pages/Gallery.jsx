@@ -13,10 +13,10 @@ const galleryHero = {
     "We don't just talk about quality; we show it. Browse through our recent insulation projects completed across Yorkshire. From quick loft installs to full external wall work, every job is finished to the same high standard.",
   image: "/heroimage.jpeg",
   imageAlt: "Yorkshire Insulation Solutions project showcase",
-  whatsappLink: "https://wa.me/447590250335",
+  whatsappLink: "https://wa.me/447526322379",
   contactDetails: {
-    phoneLabel: "07590 250 335",
-    phoneHref: "tel:07590250335",
+    phoneLabel: "07526322379",
+    phoneHref: "tel:+447526322379",
     emailLabel: "info@yorkshireinsulationsolutions.co.uk",
     emailHref: "mailto:info@yorkshireinsulationsolutions.co.uk",
   },

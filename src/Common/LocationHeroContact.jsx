@@ -2,11 +2,8 @@ import { useState } from "react";
 import {
   ChevronDown,
   ChevronRight,
-  Mail,
   MessageCircle,
-  Phone,
   ShieldCheck,
-  Star,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -22,7 +19,6 @@ const getInitialFormState = (fields = {}) =>
   );
 
 const buildWhatsAppMessage = (title, fields, values) => {
-  // Start with a friendly intro
   let message = `*New Enquiry for ${title || "Yorkshire Insulation"}*\n\n`;
 
   Object.entries(fields).forEach(([key, config]) => {
@@ -58,18 +54,14 @@ const LocationHeroContact = ({ data, onSubmit }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // 1. If a custom onSubmit prop is provided, use that
     if (typeof onSubmit === "function") {
       onSubmit(formState, data);
       return;
     }
 
-    // 2. Otherwise, generate WhatsApp link from form data
-    const phoneNumber = data.whatsappNumber || "447590250335"; // Ensure you have a number
+    const phoneNumber = data.whatsappNumber || "447526322379";
     const message = buildWhatsAppMessage(data.title, formFields, formState);
     const encodedMessage = encodeURIComponent(message);
-    
-    // Construct the direct WhatsApp API URL
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
@@ -77,6 +69,7 @@ const LocationHeroContact = ({ data, onSubmit }) => {
 
   return (
     <section
+      id="home"
       className="relative overflow-hidden border-b border-[var(--brand-border)] bg-[linear-gradient(135deg,var(--brand-navy),var(--brand-blue))] text-white"
       style={{
         backgroundImage: data.heroBackgroundImage
@@ -128,7 +121,6 @@ const LocationHeroContact = ({ data, onSubmit }) => {
               ))}
             </div>
 
-            {/* Trust Signals */}
             <div className="mt-8 flex flex-wrap gap-3">
               {trustSignals.map((signal) => (
                 <div key={signal} className="inline-flex items-center gap-2 rounded-md border border-white/12 bg-black/12 px-4 py-2 text-sm text-white/82 backdrop-blur">
@@ -140,82 +132,90 @@ const LocationHeroContact = ({ data, onSubmit }) => {
           </div>
 
           {/* RIGHT SIDE: THE FORM */}
-          <aside className="overflow-hidden rounded-[10px] border border-[var(--brand-border)] bg-white text-[var(--brand-text)] shadow-[0_12px_36px_rgba(26,44,91,0.18)] lg:sticky lg:top-28">
-            <div className="border-b border-[var(--brand-border)] bg-[var(--brand-panel)] px-6 py-6 md:px-8">
-              <p className="text-[12px] font-bold uppercase tracking-[0.22em] text-[var(--brand-blue)]" style={headingStyle}>
-                Local Enquiry
-              </p>
-              <h2 className="mt-3 text-4xl font-bold text-[var(--brand-navy)]" style={headingStyle}>
+          <aside className="overflow-hidden rounded-[10px] bg-white text-[var(--brand-text)] shadow-[0_12px_36px_rgba(26,44,91,0.18)] lg:sticky lg:top-28">
+            <div className="bg-[var(--brand-navy)] px-6 py-1 md:px-8">
+              <h2 className="mt-2 mb-2 text-4xl font-bold text-[var(--brand-panel)]" style={headingStyle}>
                 {data.form?.title || "Get a Quote"}
               </h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--brand-muted)]">
-                Fill in the details below to send your enquiry directly to our team via WhatsApp.
-              </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-5 p-6 md:p-8">
-              {Object.entries(formFields).map(([key, config]) => {
-                const fieldName = config.name || key;
-                const labelText = config.label || fieldName;
+            <form onSubmit={handleSubmit} className="p-6 md:p-8">
+              {/* Added grid layout to the field container */}
+              <div className="grid grid-cols-1 gap-x-4 gap-y-5 md:grid-cols-2">
+                {Object.entries(formFields).map(([key, config]) => {
+                  const fieldName = config.name || key;
+                  const labelText = config.label || fieldName;
 
-                return (
-                  <div key={fieldName}>
-                    <label htmlFor={fieldName} className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]" style={headingStyle}>
-                      {labelText}
-                    </label>
+                  // Logic to detect if field should be half-width
+                  const isHalfWidth = 
+                    fieldName.toLowerCase().includes("name") || 
+                    fieldName.toLowerCase().includes("phone");
 
-                    {config.options?.length ? (
-                      <div className="relative">
-                        <select
+                  return (
+                    <div 
+                      key={fieldName} 
+                      className={isHalfWidth ? "col-span-1" : "col-span-1 md:col-span-2"}
+                    >
+                      <label htmlFor={fieldName} className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]" style={headingStyle}>
+                        {labelText}
+                      </label>
+
+                      {config.options?.length ? (
+                        <div className="relative">
+                          <select
+                            id={fieldName}
+                            name={fieldName}
+                            required
+                            value={formState[fieldName] || ""}
+                            onChange={handleChange}
+                            className="w-full appearance-none rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 pr-12 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
+                          >
+                            <option value="">Select an option...</option>
+                            {config.options.map((option) => (
+                              <option key={option} value={option}>{option}</option>
+                            ))}
+                          </select>
+                          <ChevronDown className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--brand-muted)]" />
+                        </div>
+                      ) : config.type === "textarea" ? (
+                        <textarea
                           id={fieldName}
                           name={fieldName}
                           required
+                          rows={config.rows || 4}
                           value={formState[fieldName] || ""}
                           onChange={handleChange}
-                          className="w-full appearance-none rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 pr-12 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
-                        >
-                          <option value="">Select an option...</option>
-                          {config.options.map((option) => (
-                            <option key={option} value={option}>{option}</option>
-                          ))}
-                        </select>
-                        <ChevronDown className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--brand-muted)]" />
-                      </div>
-                    ) : config.type === "textarea" ? (
-                      <textarea
-                        id={fieldName}
-                        name={fieldName}
-                        required
-                        rows={config.rows || 4}
-                        value={formState[fieldName] || ""}
-                        onChange={handleChange}
-                        placeholder={config.placeholder}
-                        className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
-                      />
-                    ) : (
-                      <input
-                        id={fieldName}
-                        name={fieldName}
-                        required
-                        type={config.type || "text"}
-                        value={formState[fieldName] || ""}
-                        onChange={handleChange}
-                        placeholder={config.placeholder}
-                        className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
-                      />
-                    )}
-                  </div>
-                );
-              })}
+                          placeholder={config.placeholder}
+                          className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
+                        />
+                      ) : (
+                        <input
+                          id={fieldName}
+                          name={fieldName}
+                          required
+                          type={config.type || "text"}
+                          value={formState[fieldName] || ""}
+                          onChange={handleChange}
+                          placeholder={config.placeholder}
+                          className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
+                        />
+                      )}
+                    </div>
+                  );
+                })}
 
-              <button
-                type="submit"
-                className="flex min-h-12 w-full items-center justify-center gap-3 rounded-[6px] bg-[var(--brand-blue)] px-6 py-4 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[var(--brand-navy)]"
-                style={headingStyle}
-              >
-                <MessageCircle className="h-5 w-5" />
-                {data.form?.submitLabel || "Send Enquiry via WhatsApp"}
-              </button>
+                {/* Submit button spans both columns */}
+                <div className="md:col-span-2 pt-2">
+                  <button
+                    type="submit"
+                    className="flex min-h-12 w-full items-center justify-center gap-3 rounded-[6px] bg-[var(--brand-blue)] px-6 py-4 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[var(--brand-navy)]"
+                    style={headingStyle}
+                  >
+                    <MessageCircle className="h-5 w-5" />
+                    {data.form?.submitLabel || "Send Enquiry via WhatsApp"}
+                  </button>
+                </div>
+              </div>
             </form>
           </aside>
         </div>

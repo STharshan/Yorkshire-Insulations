@@ -115,7 +115,6 @@ const ContactSection = () => {
                       type="time"
                       name="time"
                       className="brand-input cursor-pointer w-full"
-                      defaultValue="09:00"
                       onChange={handleChange}
                     />
                   </div>

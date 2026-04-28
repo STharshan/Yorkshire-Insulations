@@ -33,7 +33,7 @@ export default function Footer() {
                         <ul className="space-y-3 text-sm text-[var(--brand-light-muted)]">
                             <li className="flex items-center gap-3 transition-colors hover:text-[var(--brand-accent)]">
                                 <Phone size={18} className="text-[var(--brand-accent)]" />
-                                <a href="tel:+447590250335">07590 250 335</a>
+                                <a href="tel:+447526322379">07526322379</a>
                             </li>
                             <li className="flex items-start gap-3 text-sm text-[var(--brand-light-muted)]">
                                 <Mail

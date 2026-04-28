@@ -43,8 +43,21 @@ const LocationAreasCovered = ({ data }) => {
           ))}
         </div>
 
-        <div className="mt-12 rounded-[10px] border border-white/12 bg-black/10 px-6 py-6 text-sm leading-7 text-white/74 md:max-w-3xl">
-          We cover the full Leeds area with practical recommendations based on the age, build type, and condition of the property.
+        {/* Updated Footer Box with Button */}
+        <div className="mt-12 flex flex-col items-start gap-6 rounded-[10px] border border-white/12 bg-black/10 px-6 py-6 text-sm leading-7 text-white/74 md:max-w-3xl md:flex-row md:items-center md:justify-between">
+          <p>
+            We cover Leeds, Yorkshire, and surrounding regions - with practical
+            recommendations based on the age, build type, and condition of your
+            property. Not sure if we cover your area?
+          </p>
+          
+          <a
+            href="#home" 
+            className="whitespace-nowrap rounded-md border border-[var(--brand-gold)]/30 bg-[var(--brand-gold)]/10 px-6 py-3 text-[13px] font-bold uppercase tracking-wider text-[var(--brand-gold)] transition-all hover:bg-[var(--brand-gold)] hover:text-white"
+            style={headingStyle}
+          >
+            Get in touch
+          </a>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 const contactDetails = {
-  phoneLabel: "07590 250 335",
-  phoneHref: "tel:07590250335",
+  phoneLabel: "07526322379",
+  phoneHref: "tel:+447526322379",
   emailLabel: "info@yorkshireinsulationsolutions.co.uk",
   emailHref: "mailto:info@yorkshireinsulationsolutions.co.uk",
 };
@@ -27,7 +27,7 @@ const serviceHeaderData = {
     image: "/Loft_insulation_photo.jpeg",
     imageAlt: "Loft insulation installation in a Yorkshire property",
     contactDetails,
-    whatsappLink: "https://wa.me/447590250335",
+    whatsappLink: "https://wa.me/447526322379",
     seo: {
       metaTitle:
         "Loft Insulation Yorkshire | Top-Ups, Removal & Relay | Yorkshire Insulation",
@@ -51,7 +51,7 @@ const serviceHeaderData = {
     image: "/Cavity_walls.jpeg",
     imageAlt: "Cavity wall insulation being installed in a Yorkshire property",
     contactDetails,
-    whatsappLink: "https://wa.me/447590250335",
+    whatsappLink: "https://wa.me/447526322379",
     seo: {
       metaTitle:
         "Cavity Wall Insulation Yorkshire | Superbead 33 Specialists | Yorkshire Insulation",
@@ -75,7 +75,7 @@ const serviceHeaderData = {
     image: "/Spray_foam_removal.jpg",
     imageAlt: "Spray foam removal from a Yorkshire loft space",
     contactDetails,
-    whatsappLink: "https://wa.me/447590250335",
+    whatsappLink: "https://wa.me/447526322379",
     seo: {
       metaTitle:
         "Spray Foam Removal Yorkshire | Mortgage-Approved Removal | Yorkshire Insulation",
@@ -99,7 +99,7 @@ const serviceHeaderData = {
     image: "/Underfloor_insulation.jpeg",
     imageAlt: "Underfloor insulation installed in a Yorkshire property",
     contactDetails,
-    whatsappLink: "https://wa.me/447590250335",
+    whatsappLink: "https://wa.me/447526322379",
     seo: {
       metaTitle:
         "Underfloor Insulation Yorkshire | Basement, Crawl Space & UFH Prep | Yorkshire Insulation",
@@ -123,7 +123,7 @@ const serviceHeaderData = {
     image: "/Newbuild_insulation.jpeg",
     imageAlt: "New build insulation contractors working on a Yorkshire property",
     contactDetails,
-    whatsappLink: "https://wa.me/447590250335",
+    whatsappLink: "https://wa.me/447526322379",
     seo: {
       metaTitle:
         "New Build Insulation Yorkshire | First Fix Contractors | Yorkshire Insulation",
