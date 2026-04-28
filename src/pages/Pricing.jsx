@@ -72,9 +72,9 @@ const Pricing = () => {
   return (
     <main className="min-h-screen bg-white">
       <Seo
-        title="Insulation Pricing | Loft, Cavity Wall & Spray Foam Costs"
-        description="Transparent insulation pricing across Yorkshire. Get competitive quotes for loft insulation, cavity wall insulation, solid wall insulation, room in roof, and spray foam services."
-        keywords="insulation pricing Yorkshire, loft insulation cost, cavity wall insulation price, spray foam removal cost, solid wall insulation price, room in roof insulation cost"
+        title="Insulation Pricing Yorkshire | Transparent Costs & Estimators | Yorkshire Insulation"
+        description="Clear, upfront insulation pricing across Yorkshire. Use our online estimators for loft, cavity wall, and spray foam removal costs. Every price includes labour, product and clean-up."
+        keywords="insulation cost Yorkshire, loft insulation price Yorkshire, cavity wall insulation cost, spray foam removal cost, insulation estimator Yorkshire"
         canonical="https://www.yorkshireinsulationsolutions.co.uk/pricing"
         geo={{
           region: "GB-YOR",
@@ -85,11 +85,19 @@ const Pricing = () => {
         ogImageAlt="Yorkshire Insulation pricing page"
         schema={{
           "@context": "https://schema.org",
-          "@type": "WebPage",
+          "@type": "Service",
           name: "Insulation Pricing",
+          provider: {
+            "@type": "Organization",
+            name: "Yorkshire Insulation",
+          },
+          areaServed: {
+            "@type": "AdministrativeArea",
+            name: "Yorkshire",
+          },
           url: "https://www.yorkshireinsulationsolutions.co.uk/pricing",
           description:
-            "Transparent insulation pricing across Yorkshire. Get competitive quotes for loft insulation, cavity wall insulation, solid wall insulation, room in roof, and spray foam services.",
+            "Clear, upfront insulation pricing across Yorkshire. Use our online estimators for loft, cavity wall, and spray foam removal costs. Every price includes labour, product and clean-up.",
         }}
       />
 
