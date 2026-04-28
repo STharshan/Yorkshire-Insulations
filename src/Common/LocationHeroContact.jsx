@@ -208,7 +208,7 @@ const LocationHeroContact = ({ data, onSubmit }) => {
                 <div className="md:col-span-2 pt-2">
                   <button
                     type="submit"
-                    className="flex min-h-12 w-full items-center justify-center gap-3 rounded-[6px] bg-[var(--brand-blue)] px-6 py-4 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[var(--brand-navy)]"
+                    className="flex min-h-12 w-full items-center justify-center gap-3  bg-[var(--brand-blue)] px-6 py-4 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[var(--brand-navy)]"
                     style={headingStyle}
                   >
                     <MessageCircle className="h-5 w-5" />

@@ -131,7 +131,7 @@ const ServiceHeader = ({ data }) => {
                 href={data.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center justify-center rounded-md bg-[var(--brand-gold)] px-7 py-3 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[#b8890f]"
+                className="inline-flex min-h-12 items-center justify-center bg-[var(--brand-gold)] px-7 py-3 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[#b8890f]"
                 style={headingStyle}
               >
                 Get a Quote

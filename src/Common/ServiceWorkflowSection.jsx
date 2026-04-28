@@ -101,7 +101,7 @@ const ServiceWorkflowSection = ({ data }) => {
                   </p>
                   <a
                     href={data.aboutService.pricingSignal.ctaHref}
-                    className="mt-5 inline-flex min-h-11 items-center justify-center rounded-[6px] bg-[var(--brand-gold)] px-5 py-3 text-[13px] font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#b8890f]"
+                    className="mt-5 inline-flex min-h-11 items-center justify-center bg-[var(--brand-gold)] px-5 py-3 text-[13px] font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#b8890f]"
                     style={headingStyle}
                   >
                     {data.aboutService.pricingSignal.ctaLabel}
@@ -290,7 +290,7 @@ const ServiceWorkflowSection = ({ data }) => {
                       <Link
                         key={service.href}
                         to={service.href}
-                        className="inline-flex min-h-11 items-center justify-center rounded-[6px] border border-[var(--brand-border)] px-5 py-3 text-[13px] font-bold uppercase tracking-[0.16em] text-[var(--brand-navy)] transition hover:border-[var(--brand-blue)] hover:text-[var(--brand-blue)]"
+                        className="inline-flex min-h-11 items-center justify-center  border border-[var(--brand-border)] px-5 py-3 text-[13px] font-bold uppercase tracking-[0.16em] text-[var(--brand-navy)] transition hover:border-[var(--brand-blue)] hover:text-[var(--brand-blue)]"
                         style={headingStyle}
                       >
                         {service.title}
@@ -400,7 +400,7 @@ const ServiceWorkflowSection = ({ data }) => {
 
                 <button
                   type="submit"
-                  className="flex min-h-12 w-full items-center justify-center rounded-[6px] bg-[var(--brand-blue)] px-6 py-4 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[var(--brand-navy)]"
+                  className="flex min-h-12 w-full items-center justify-center bg-[var(--brand-blue)] px-6 py-4 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[var(--brand-navy)]"
                   style={headingStyle}
                 >
                   {data.contactForm.submitButton}

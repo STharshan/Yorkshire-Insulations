@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef } from "react";
 import { motion as Motion, useScroll, useTransform } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -49,13 +47,9 @@ const fadeUpVariants = {
 export default function HeroSlider() {
     const containerRef = useRef(null);
     
-    // ஸ்க்ரோல் அளவைக் கணக்கிடுதல்
     const { scrollY } = useScroll();
-
-    // படம் மெதுவாக நகர (Parallax) -0px லிருந்து -150px வரை நகரும்
     const yBg = useTransform(scrollY, [0, 500], [0, -150]);
     
-    // டெக்ஸ்ட் வேகமாக நகர 0px லிருந்து -300px வரை நகரும்
     const yText = useTransform(scrollY, [0, 500], [0, -300]);
 
     return (
@@ -76,19 +70,17 @@ export default function HeroSlider() {
                     <SwiperSlide key={index} className="overflow-hidden">
                         {({ isActive }) => (
                             <div className="relative h-full w-full">
-                                {/* BACKGROUND IMAGE: மெதுவாக மேலே நகரும் */}
                                 <Motion.div
                                     style={{ 
                                         backgroundImage: `url(${slide.image})`,
                                         y: yBg 
                                     }}
-                                    className="absolute inset-0 bg-cover bg-center h-[120%]" // அனிமேஷனுக்காக உயரம் அதிகம் வைக்கப்பட்டுள்ளது
+                                    className="absolute inset-0 bg-cover bg-center h-[120%]"
                                 />
 
                                 {/* Overlay */}
                                 <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(26,44,91,0.86),rgba(46,79,163,0.62),rgba(28,28,28,0.45))]"></div>
 
-                                {/* CONTENT: வேகமாக மேலே நகரும் */}
                                 <Motion.div 
                                     style={{ y: yText }}
                                     className="relative z-10 flex h-full items-center"
@@ -122,10 +114,10 @@ export default function HeroSlider() {
                                         </Motion.p>
 
                                         <Motion.div variants={fadeUpVariants} className="mt-6 flex flex-wrap gap-4">
-                                            <a href="#contact" className="heading-font rounded-md bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[var(--brand-gold-hover)]">
+                                            <a href="#contact" className="heading-font bg-[var(--brand-gold)] px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[var(--brand-gold-hover)]">
                                                 Get a Free Quote
                                             </a>
-                                            <a href="#services" className="heading-font rounded-md border border-white px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-[var(--brand-navy)]">
+                                            <a href="#services" className="heading-font border border-white px-7 py-3.5 text-[15px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-[var(--brand-navy)]">
                                                 Our Services
                                             </a>
                                         </Motion.div>

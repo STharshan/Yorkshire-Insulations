@@ -3,6 +3,8 @@ import { ShieldCheck, Users, ClipboardCheck } from "lucide-react";
 
 const FeatureCards = () => {
 
+  import { ShieldCheck, MapPin, BadgePoundAsterisk } from "lucide-react";
+
   const features = [
     {
       id: 1,
@@ -14,13 +16,13 @@ const FeatureCards = () => {
       id: 2,
       title: "Yorkshire Based Team",
       desc: "We're a local Yorkshire team: not a national call centre. We know the housing stock, the weather, and what works for homes in this region.",
-      icon: <Users size={32} className="text-[var(--brand-gold)]" strokeWidth={1.5} />,
+      icon: <MapPin size={32} className="text-[var(--brand-gold)]" strokeWidth={1.5} />,
     },
     {
       id: 3,
       title: "Free Surveys & Quotes",
       desc: "Not sure what insulation you need? We'll come out, assess your property, and give you a straight answer with no obligation and no hard sell.",
-      icon: <ClipboardCheck size={32} className="text-[var(--brand-gold)]" strokeWidth={1.5} />,
+      icon: <BadgePoundAsterisk size={32} className="text-[var(--brand-gold)]" strokeWidth={1.5} />,
     },
   ];
 
