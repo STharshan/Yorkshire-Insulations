@@ -248,9 +248,9 @@ export const locationData = {
             "That depends on the construction of the property. Older Leeds terraces often benefit from loft, underfloor, or solid wall insulation, while many semis are ideal for cavity wall insulation.",
         },
         {
-          question: "Do you cover all parts of Leeds and nearby areas?",
+          question: "Do you cover areas outside Leeds?",
           answer:
-            "Yes. We work across Leeds and surrounding areas including suburbs, villages, and postcode districts throughout the city region.",
+            "Yes - we cover Leeds and the full Yorkshire region including Sheffield, Bradford, York, Hull, Harrogate, Wakefield, Huddersfield, Doncaster, Middlesbrough, Rotherham, Barnsley, and Ripon. We also cover parts of the Midlands including Nottingham and Mansfield, and Lancashire including Burnley, Blackburn, Preston, and Birkenhead. Get in touch and we will confirm coverage for your area.",
         },
         {
           question: "Can you recommend the right insulation for my property?",
