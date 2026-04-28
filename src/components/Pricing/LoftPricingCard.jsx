@@ -1,4 +1,7 @@
-import { cardClass, inputClass, tabClass } from "./pricingStyles";
+import { House } from "lucide-react";
+
+import PricingCardShell from "./PricingCardShell";
+import { inputClass, tabClass } from "./pricingStyles";
 import { loftModes } from "./pricingUtils";
 
 const LoftPricingCard = ({
@@ -14,18 +17,12 @@ const LoftPricingCard = ({
   const loftModeConfig = loftModes[loftMode];
 
   return (
-    <section className={`${cardClass} flex flex-col`}>
-      <span className="mb-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#C8962E]">
-        Loft Insulation
-      </span>
-      <h2 className="text-[18px] font-semibold text-[#1B2A6B]">
-        Loft Insulation
-      </h2>
-      <p className="mt-1 text-[13px] text-[#6B7280]">
-        Top-ups from £8/sqm - no VAT on eco installations
-      </p>
-      <div className="my-4 h-px bg-[#F0F0F0]" />
-
+    <PricingCardShell
+      eyebrow="LOFT INSULATION"
+      title="Loft Insulation"
+      subtitle={"Top-ups from \u00A38/sqm - no VAT on eco installations"}
+      icon={House}
+    >
       <div className="mb-4 flex gap-2">
         <button
           type="button"
@@ -79,8 +76,10 @@ const LoftPricingCard = ({
 
       <div className="flex items-center justify-between rounded-[8px] border border-[#E5E7EB] bg-white px-4 py-[14px]">
         <div>
-          <p className="text-[13px] text-[#6B7280]">Estimated cost</p>
-          <p className="text-[11px] text-[#6B7280]">{loftModeConfig.note}</p>
+          <p className="text-[13px] text-[#6B7280]">Estimated range</p>
+          <p className="text-[11px] text-[#6B7280]">
+            Final price confirmed after assessment.
+          </p>
         </div>
         <div className="text-[20px] font-semibold text-[#1B2A6B]">
           {loftEstimate}
@@ -92,7 +91,7 @@ const LoftPricingCard = ({
       >
         <p className="text-[12px]">{loftModeConfig.helper}</p>
       </div>
-    </section>
+    </PricingCardShell>
   );
 };
 

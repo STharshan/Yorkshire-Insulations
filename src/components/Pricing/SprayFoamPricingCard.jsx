@@ -1,4 +1,7 @@
-import { cardClass, inputClass, tabClass } from "./pricingStyles";
+import { ShieldAlert } from "lucide-react";
+
+import PricingCardShell from "./PricingCardShell";
+import { inputClass, tabClass } from "./pricingStyles";
 
 const SprayFoamPricingCard = ({
   foamType,
@@ -10,32 +13,26 @@ const SprayFoamPricingCard = ({
   foamEstimate,
 }) => {
   return (
-    <section className={`${cardClass} flex flex-col`}>
-      <span className="mb-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#C8962E]">
-        Spray Foam Removal
-      </span>
-      <h2 className="text-[18px] font-semibold text-[#1B2A6B]">
-        Spray Foam Removal
-      </h2>
-      <p className="mt-1 text-[13px] text-[#6B7280]">
-        Open cell from £52/sqm - closed cell from £80/sqm
-      </p>
-      <div className="my-4 h-px bg-[#F0F0F0]" />
-
+    <PricingCardShell
+      eyebrow="SPRAY FOAM REMOVAL"
+      title="Spray Foam Removal"
+      subtitle={"Open cell from \u00A352/sqm - closed cell from \u00A380/sqm"}
+      icon={ShieldAlert}
+    >
       <div className="mb-4 flex flex-wrap gap-2">
         <button
           type="button"
           className={tabClass(foamType === "open")}
           onClick={() => setFoamType("open")}
         >
-          Open cell - from £52/sqm
+          {"Open cell - from \u00A352/sqm"}
         </button>
         <button
           type="button"
           className={tabClass(foamType === "closed")}
           onClick={() => setFoamType("closed")}
         >
-          Closed cell - from £80/sqm
+          {"Closed cell - from \u00A380/sqm"}
         </button>
       </div>
 
@@ -63,16 +60,16 @@ const SprayFoamPricingCard = ({
           onChange={(event) => setFoamRelay(event.target.value)}
         >
           <option value="no">No thanks</option>
-          <option value="yes">Yes - add relay (approx £10/sqm)</option>
+          <option value="yes">{"Yes - add relay (approx \u00A310/sqm)"}</option>
         </select>
       </div>
 
       <div className="flex-1" />
       <div className="flex items-center justify-between rounded-[8px] border border-[#E5E7EB] bg-white px-4 py-[14px]">
         <div>
-          <p className="text-[13px] text-[#6B7280]">Estimated cost</p>
+          <p className="text-[13px] text-[#6B7280]">Estimated from</p>
           <p className="text-[11px] text-[#6B7280]">
-            Confirmed after surveyor assessment
+            Final price confirmed after assessment.
           </p>
         </div>
         <div className="text-[20px] font-semibold text-[#1B2A6B]">
@@ -86,7 +83,7 @@ const SprayFoamPricingCard = ({
           assessment before booking
         </p>
       </div>
-    </section>
+    </PricingCardShell>
   );
 };
 

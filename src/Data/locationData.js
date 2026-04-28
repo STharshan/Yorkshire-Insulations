@@ -255,14 +255,16 @@ areasCovered: {
       ],
     },
     seo: {
-      title: "Loft Insulation Leeds | Professional Insulation Services | Yorkshire Insulations",
+      title: "Home Insulation in Leeds & Yorkshire | Yorkshire Insulation",
       description:
-        "Professional loft insulation services in Leeds. Save energy and reduce bills with our expert cavity wall, solid wall, and room in roof insulation solutions. Free survey and quotation.",
+        "Yorkshire Insulation installs loft, cavity wall, spray foam, and underfloor insulation across Leeds, Yorkshire, and beyond - including Sheffield, Bradford, Hull, Harrogate, Nottingham, and Lancashire. Local team, every job done properly.",
+      keywords:
+        "Leeds insulation, loft insulation Leeds, cavity wall Leeds, insulation Yorkshire, loft insulation Sheffield, cavity wall Bradford, insulation Hull, insulation Harrogate, insulation Nottingham, insulation Lancashire",
       canonical: "https://www.yorkshireinsulationsolutions.co.uk/locations/leeds",
       geo: {
-        region: "GB-LDS",
-        placename: "Leeds",
-        position: "53.8008;-1.5491",
+        region: "GB-YOR",
+        placename: "Yorkshire",
+        position: "53.8;-1.5",
       },
     },
   },
