@@ -81,7 +81,7 @@ const Pricing = () => {
           placename: "Yorkshire",
           position: "53.8;-1.5",
         }}
-        ogImage="/heroimage.jpeg"
+        ogImage="/newlogo.png"
         ogImageAlt="Yorkshire Insulation pricing page"
         schema={{
           "@context": "https://schema.org",
