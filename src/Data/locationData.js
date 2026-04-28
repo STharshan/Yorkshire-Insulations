@@ -6,10 +6,10 @@ export const locationData = {
       { label: "Leeds" },
     ],
     badge: "Leeds & West Yorkshire",
-    title: "Home Insulation in Leeds",
+    title: "Professional Loft Insulation Services in Leeds",
     intro: [
-      "Yorkshire Insulation provides professional loft, cavity wall, spray foam, and underfloor insulation across Leeds and the surrounding areas. We know Leeds housing inside out - from Victorian back-to-backs in Headingley to 1960s semis in Morley and new builds in Seacroft.",
-      "Local team, local knowledge, and every job done properly.",
+      "Yorkshire Insulations offers professional loft insulation services in Leeds, helping homeowners save energy and reduce their utility bills. Our expert team provides cavity wall insulation, solid wall insulation, room in roof insulation, and more across Leeds and the surrounding areas.",
+      "We know Leeds housing inside out - from Victorian back-to-backs in Headingley to 1960s semis in Morley and new builds in Seacroft. Get your free survey and quotation today.",
     ],
     heroBackgroundImage: "/heroimage.jpeg",
     whatsappLabel: "Get a Quote via WhatsApp",
@@ -45,8 +45,14 @@ export const locationData = {
           options: [
             "Loft Insulation",
             "Cavity Wall Insulation",
+            "Solid Wall Insulation",
+            "Room in Roof Insulation",
+            "External Wall Insulation",
+            "Internal Wall Insulation",
+            "Floor Insulation",
             "Spray Foam Insulation",
-            "Underfloor Insulation",
+            "Solar Panel Installation",
+            "Boiler Installation",
           ],
         },
         note: {
@@ -133,12 +139,37 @@ export const locationData = {
         {
           title: "Loft Insulation",
           description:
-            "The fastest win for most Leeds homes. Most jobs done in a day.",
+            "The fastest win for most Leeds homes. Most jobs done in a day. Save energy and reduce bills with professional loft insulation.",
         },
         {
           title: "Cavity Wall Insulation",
           description:
-            "Ideal for the high volume of 1930-1980 semis and terraces across Leeds.",
+            "Ideal for the high volume of 1930-1980 semis and terraces across Leeds. Reduce heat loss through your walls.",
+        },
+        {
+          title: "Solid Wall Insulation",
+          description:
+            "Essential for pre-1919 Leeds housing with no cavity to fill. Improve thermal efficiency of solid brick walls.",
+        },
+        {
+          title: "Room in Roof Insulation",
+          description:
+            "Perfect for conversions and rooms in the roof. Maximise comfort in your attic space.",
+        },
+        {
+          title: "External Wall Insulation",
+          description:
+            "For properties where internal or cavity solutions aren't viable. Enhance appearance and thermal performance.",
+        },
+        {
+          title: "Internal Wall Insulation",
+          description:
+            "Internal wall insulation solutions for properties where external options aren't suitable.",
+        },
+        {
+          title: "Floor Insulation",
+          description:
+            "Reduce heat loss through solid and suspended timber floors in your Leeds property.",
         },
         {
           title: "Spray Foam Insulation",
@@ -146,42 +177,59 @@ export const locationData = {
             "Fills every gap. Effective for older and irregular roof spaces.",
         },
         {
-          title: "Underfloor Insulation",
+          title: "Solar Panel Installation",
           description:
-            "Common in older Leeds properties with suspended timber floors.",
+            "Generate your own electricity and reduce energy bills with professional solar panel installation.",
         },
         {
-          title: "External Wall Insulation",
+          title: "Boiler Installation",
           description:
-            "For properties where internal or cavity solutions aren't viable.",
-        },
-        {
-          title: "Solid Wall Insulation",
-          description:
-            "Essential for pre-1919 Leeds housing with no cavity to fill.",
+            "Energy-efficient boiler installation and replacement services across Leeds.",
         },
       ],
     },
     areasCovered: {
       badge: "Areas Covered",
       title: "Leeds Areas We Cover",
-      intro: "We work across the full Leeds postcode area including:",
+      intro: "We work across Leeds and the surrounding areas including:",
       items: [
+        "Leeds City Centre",
         "Headingley",
-        "Morley",
-        "Seacroft",
-        "Horsforth",
-        "Roundhay",
-        "Chapel Allerton",
+        "Hyde Park",
+        "Woodhouse",
         "Meanwood",
-        "Pudsey",
-        "Garforth",
+        "Chapel Allerton",
+        "Roundhay",
+        "Moortown",
+        "Alwoodley",
         "Wetherby",
-        "Otley",
+        "Garforth",
         "Rothwell",
         "Beeston",
+        "Holbeck",
+        "Hunslet",
+        "Burley",
         "Kirkstall",
+        "Bramley",
         "Armley",
+        "Stanningley",
+        "Pudsey",
+        "Morley",
+        "Birstall",
+        "Dewsbury",
+        "Batley",
+        "Heckmondwike",
+        "Mirfield",
+        "Castleford",
+        "Pontefract",
+        "Normanton",
+        "Wakefield",
+        "Huddersfield",
+        "Halifax",
+        "Bradford",
+        "Horsforth",
+        "Seacroft",
+        "Otley",
         "LS1 - LS29",
       ],
     },
@@ -200,21 +248,36 @@ export const locationData = {
             "That depends on the construction of the property. Older Leeds terraces often benefit from loft, underfloor, or solid wall insulation, while many semis are ideal for cavity wall insulation.",
         },
         {
-          question: "Do you cover all parts of Leeds and nearby areas?",
+          question: "Do you cover areas outside Leeds?",
           answer:
-            "Yes. We work across Leeds and surrounding areas including suburbs, villages, and postcode districts throughout the city region.",
+            "Yes - we cover Leeds and the full Yorkshire region including Sheffield, Bradford, York, Hull, Harrogate, Wakefield, Huddersfield, Doncaster, Middlesbrough, Rotherham, Barnsley, and Ripon. We also cover parts of the Midlands including Nottingham and Mansfield, and Lancashire including Burnley, Blackburn, Preston, and Birkenhead. Get in touch and we will confirm coverage for your area.",
         },
         {
           question: "Can you recommend the right insulation for my property?",
           answer:
             "Yes. We look at the age, layout, existing insulation, and construction type of your property before recommending the most suitable option.",
         },
+        {
+          question: "Are there government grants available for insulation in Leeds?",
+          answer:
+            "Yes, there are various government grants and schemes available for home insulation in Leeds, including the Energy Company Obligation (ECO) scheme and local authority grants. Our team can help you check if you qualify for free or subsidised insulation.",
+        },
+        {
+          question: "How much can I save on my energy bills with insulation?",
+          answer:
+            "Proper insulation can significantly reduce your energy bills. Loft insulation alone can save you up to £250 per year on heating costs, while cavity wall and solid wall insulation can save even more depending on your property type.",
+        },
+        {
+          question: "Do you offer free surveys in Leeds?",
+          answer:
+            "Yes, we offer free, no-obligation surveys across Leeds and the surrounding areas. Our qualified surveyors will assess your property and recommend the best insulation solutions for your needs.",
+        },
       ],
     },
     seo: {
-      title: "Home Insulation in Leeds | Yorkshire Insulation",
+      title: "Loft Insulation Leeds | Professional Insulation Services | Yorkshire Insulations",
       description:
-        "Professional loft, cavity wall, spray foam, and underfloor insulation across Leeds and the surrounding areas.",
+        "Professional loft insulation services in Leeds. Save energy and reduce bills with our expert cavity wall, solid wall, and room in roof insulation solutions. Free survey and quotation.",
       canonical: "https://www.yorkshireinsulationsolutions.co.uk/locations/leeds",
       geo: {
         region: "GB-LDS",
