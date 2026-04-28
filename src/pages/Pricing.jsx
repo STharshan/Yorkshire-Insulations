@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import AdditionalServicesCard from "../components/Pricing/AdditionalServicesCard";
 import CavityPricingCard from "../components/Pricing/CavityPricingCard";
 import LoftExtrasCard from "../components/Pricing/LoftExtrasCard";
 import LoftPricingCard from "../components/Pricing/LoftPricingCard";
@@ -71,9 +72,9 @@ const Pricing = () => {
   return (
     <main className="min-h-screen bg-white px-4 py-8 pt-36 md:px-6">
       <Seo
-        title="Pricing | Yorkshire Insulation"
-        description="Estimate loft insulation, cavity wall insulation, spray foam removal and loft extras pricing across Yorkshire."
-        keywords="insulation pricing Yorkshire, loft insulation cost Yorkshire, cavity wall insulation price, spray foam removal cost"
+        title="Insulation Pricing | Loft, Cavity Wall & Spray Foam Costs"
+        description="Transparent insulation pricing across Yorkshire. Get competitive quotes for loft insulation, cavity wall insulation, solid wall insulation, room in roof, and spray foam services."
+        keywords="insulation pricing Yorkshire, loft insulation cost, cavity wall insulation price, spray foam removal cost, solid wall insulation price, room in roof insulation cost"
         canonical="https://www.yorkshireinsulationsolutions.co.uk/pricing"
         geo={{
           region: "GB-YOR",
@@ -85,10 +86,10 @@ const Pricing = () => {
         schema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: "Pricing",
+          name: "Insulation Pricing",
           url: "https://www.yorkshireinsulationsolutions.co.uk/pricing",
           description:
-            "Estimate loft insulation, cavity wall insulation, spray foam removal and loft extras pricing across Yorkshire.",
+            "Transparent insulation pricing across Yorkshire. Get competitive quotes for loft insulation, cavity wall insulation, solid wall insulation, room in roof, and spray foam services.",
         }}
       />
 
@@ -132,6 +133,8 @@ const Pricing = () => {
             setLoftHatch={setLoftHatch}
             extrasEstimate={extrasEstimate}
           />
+
+          <AdditionalServicesCard />
         </div>
       </div>
     </main>

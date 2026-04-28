@@ -5,11 +5,16 @@ const PricingHero = () => {
         Pricing Guide
       </span>
       <h1 className="heading-font text-[32px] font-semibold leading-tight text-[#1B2A6B] md:text-[44px]">
-        Pricing page
+        Transparent Pricing for Quality Insulation
       </h1>
       <p className="mt-3 max-w-[640px] text-[15px] leading-7 text-[#6B7280]">
-        Use these live estimates to get a rough idea before booking a visit.
-        Final prices are confirmed after assessment where required.
+        At Yorkshire Insulations, we believe in transparent and competitive
+        pricing for all our insulation services. Use our interactive pricing
+        calculators to get an estimate for your project. Our team is ready to
+        provide you with a free, no-obligation quote tailored to your specific
+        needs. Whether you're looking for loft insulation, cavity wall
+        insulation, solid wall insulation, or spray foam services, we have
+        competitive rates across Yorkshire.
       </p>
     </div>
   );
