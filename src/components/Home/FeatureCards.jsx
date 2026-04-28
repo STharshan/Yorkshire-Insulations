@@ -1,9 +1,7 @@
 import React from 'react';
-import { ShieldCheck, Users, ClipboardCheck } from "lucide-react";
+import { ShieldCheck, MapPin, BadgePoundAsterisk } from "lucide-react";
 
 const FeatureCards = () => {
-
-  import { ShieldCheck, MapPin, BadgePoundAsterisk } from "lucide-react";
 
   const features = [
     {
