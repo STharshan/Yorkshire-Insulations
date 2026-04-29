@@ -21,78 +21,9 @@ const Leeds = () => {
       "@type": "ListItem",
       position: 2,
       name: "Locations",
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Leeds",
       item: pageUrl,
     },
   ];
-  const serviceOffers = [
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Loft Insulation",
-        description:
-          "Professional loft insulation installation across Yorkshire. Most jobs completed in a single day.",
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Cavity Wall Insulation",
-        description:
-          "Cavity wall insulation for Yorkshire terraces and semis built between 1920 and 1980.",
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Spray Foam Insulation",
-        description:
-          "Spray foam insulation for hard to insulate spaces and older irregular roof structures.",
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Underfloor Insulation",
-        description:
-          "Underfloor insulation for solid and suspended timber floors across Yorkshire properties.",
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "External Wall Insulation",
-        description:
-          "External wall insulation for properties where cavity or internal solutions are not viable.",
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Solid Wall Insulation",
-        description:
-          "Solid wall insulation for pre-1919 stone built Yorkshire properties with no wall cavity.",
-      },
-    },
-  ];
-  const faqEntities = pageData.faq.items.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  }));
 
   return (
     <>
@@ -101,9 +32,15 @@ const Leeds = () => {
         description={pageData.seo.description}
         keywords={pageData.seo.keywords}
         canonical={pageData.seo.canonical}
+        ogSiteName="Yorkshire Insulation"
+        ogTitle="Areas We Cover - Yorkshire Insulation"
+        ogDescription="Yorkshire Insulation covers West Yorkshire, South Yorkshire, North Yorkshire, Lancashire and the Midlands. Get in touch to confirm your area."
         geo={pageData.seo.geo}
-        ogImage={pageData.heroBackgroundImage}
-        ogImageAlt="Yorkshire Insulation services in Leeds and West Yorkshire"
+        ogImage="https://insulateyorkshire.co.uk/og-image.jpg"
+        ogImageAlt="Yorkshire Insulation areas covered across Yorkshire and beyond"
+        twitterTitle="Areas We Cover - Yorkshire Insulation"
+        twitterDescription="Yorkshire Insulation covers West Yorkshire, South Yorkshire, North Yorkshire, Lancashire and the Midlands. Get in touch to confirm your area."
+        twitterImage="https://insulateyorkshire.co.uk/og-image.jpg"
         schema={{
           "@context": "https://schema.org",
           "@graph": [
@@ -111,9 +48,10 @@ const Leeds = () => {
               "@type": "LocalBusiness",
               name: "Yorkshire Insulation",
               description:
-                "Professional insulation installation across Yorkshire and beyond including loft, cavity wall, spray foam, underfloor, external wall and solid wall insulation.",
+                "Professional insulation installation across Yorkshire and beyond.",
               url: siteUrl,
-              telephone: "+44 7526 322379",
+              telephone: "07526322379",
+              email: "info@yorkshireinsulationsolutions.co.uk",
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "Yorkshire",
@@ -145,11 +83,6 @@ const Leeds = () => {
                   name: "Nottinghamshire",
                 },
               ],
-              hasOfferCatalog: {
-                "@type": "OfferCatalog",
-                name: "Insulation Services",
-                itemListElement: serviceOffers,
-              },
             },
             {
               "@type": "BreadcrumbList",
@@ -157,18 +90,47 @@ const Leeds = () => {
             },
             {
               "@type": "FAQPage",
-              mainEntity: faqEntities,
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "How long does insulation installation take?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Most loft and cavity wall installations are completed in a single day. Larger jobs such as external wall insulation may take longer - we will give you a clear timeframe before any work begins.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "What areas do you cover?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "We are based in Yorkshire and cover West Yorkshire, South Yorkshire, North Yorkshire, and East Yorkshire. We also work across parts of Lancashire and the Midlands.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Are there government grants available for insulation?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "There are various government schemes that may help including the Great British Insulation Scheme and ECO4. Eligibility varies - we recommend checking the government website or speaking to us.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "How do I get started?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Get in touch via the form on this page, by phone, or on WhatsApp. Tell us about your property and we will take it from there.",
+                  },
+                },
+              ],
             },
             {
               "@type": "WebPage",
               name: "Areas We Cover - Yorkshire Insulation",
               description:
-                "Yorkshire Insulation covers West Yorkshire, South Yorkshire, North Yorkshire, Lancashire and the Midlands. Loft, cavity wall, spray foam and more - get in touch to confirm your area.",
+                "Yorkshire Insulation covers West Yorkshire, South Yorkshire, North Yorkshire, Lancashire and the Midlands. Loft, cavity wall, spray foam and more.",
               url: pageUrl,
-              breadcrumb: {
-                "@type": "BreadcrumbList",
-                itemListElement: breadcrumbItems,
-              },
             },
           ],
         }}
