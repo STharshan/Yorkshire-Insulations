@@ -266,14 +266,107 @@ const serviceHeaderData = {
       metaTitle:
         "Spray Foam Removal Yorkshire | Mortgage-Approved Removal | Yorkshire Insulation",
       metaDescription:
-        "Yorkshire Insulation removes open and closed cell spray foam across Yorkshire. Essential for mortgage applications - we provide removal certificates and can relay new insulation once done. Get a quote.",
+        "Safe spray foam removal across Yorkshire. Open and closed cell removal with mortgage certificates issued on completion. From 52 pounds per sqm.",
       keywords:
         "spray foam removal Yorkshire, spray foam removal mortgage, open cell spray foam removal Yorkshire, closed cell spray foam removal Yorkshire, spray foam loft Yorkshire",
       canonical: `${siteUrl}/services/spray-foam-removal`,
+      ogSiteName: "Yorkshire Insulation",
+      ogTitle:
+        "Spray Foam Removal Yorkshire | Mortgage-Approved Removal | Yorkshire Insulation",
+      ogDescription:
+        "Safe spray foam removal across Yorkshire. Open and closed cell removal with mortgage certificates issued on completion. From 52 pounds per sqm.",
+      ogImage: `${siteUrl}/og-image.jpg`,
+      twitterTitle:
+        "Spray Foam Removal Yorkshire | Mortgage-Approved Removal | Yorkshire Insulation",
+      twitterDescription:
+        "Safe spray foam removal across Yorkshire. Open and closed cell removal with mortgage certificates issued on completion. From 52 pounds per sqm.",
+      twitterImage: `${siteUrl}/og-image.jpg`,
       geo: baseGeo,
       schema: {
-        ...baseSchema,
-        name: "Spray Foam Removal",
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            name: "Spray Foam Removal",
+            description:
+              "Safe, thorough open and closed cell spray foam removal across Yorkshire. Includes mortgage certificates and new insulation relay.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Yorkshire Insulation",
+              telephone: "07526322379",
+              email: "info@yorkshireinsulationsolutions.co.uk",
+              address: {
+                "@type": "PostalAddress",
+                addressRegion: "Yorkshire",
+                addressCountry: "GB",
+              },
+            },
+            areaServed: {
+              "@type": "AdministrativeArea",
+              name: "Yorkshire",
+            },
+            serviceType: "Spray Foam Removal",
+          },
+          {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: siteUrl,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: `${siteUrl}/#services`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Spray Foam Removal",
+                item: `${siteUrl}/services/spray-foam-removal`,
+              },
+            ],
+          },
+          {
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Why does spray foam insulation cause mortgage problems?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Around a quarter of major UK lenders currently refuse to lend on properties with spray foam insulation installed. This can block sales, remortgages, and equity releases. Professional removal with a certificate resolves this.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Do you provide a certificate after spray foam removal?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes - we provide a removal certificate on completion, accepted by major UK mortgage lenders.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How much does spray foam removal cost?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Spray foam removal starts from 52 pounds per sqm for open cell and from 80 pounds per sqm for closed cell.",
+                },
+              },
+            ],
+          },
+          {
+            "@type": "WebPage",
+            name: "Spray Foam Removal Yorkshire | Mortgage-Approved Removal | Yorkshire Insulation",
+            description:
+              "Safe spray foam removal across Yorkshire. Open and closed cell removal, mortgage certificates, and new insulation relay available.",
+            url: `${siteUrl}/services/spray-foam-removal`,
+          },
+        ],
       },
     },
   },
