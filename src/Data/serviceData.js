@@ -32,14 +32,107 @@ const serviceHeaderData = {
       metaTitle:
         "Loft Insulation Yorkshire | Top-Ups, Removal & Relay | Yorkshire Insulation",
       metaDescription:
-        "Yorkshire Insulation installs loft insulation across Yorkshire. Top-ups from 200mm, full removal and relay, loft boarding and hatch fitting. No VAT on eco installations. Get a quote today.",
+        "Professional loft insulation across Yorkshire using Knauf products. Top-ups, removal and relay, boarding and hatch fitting. Get in touch for a quote.",
       keywords:
         "loft insulation Yorkshire, loft insulation top up, loft insulation removal and relay, loft boarding Yorkshire, loft hatch installation Yorkshire",
       canonical: `${siteUrl}/services/loft-insulation`,
+      ogSiteName: "Yorkshire Insulation",
+      ogTitle:
+        "Loft Insulation Yorkshire | Top-Ups, Removal & Relay | Yorkshire Insulation",
+      ogDescription:
+        "Professional loft insulation across Yorkshire using Knauf products. Top-ups, removal and relay, boarding and hatch fitting. Get in touch for a quote.",
+      ogImage: `${siteUrl}/og-image.jpg`,
+      twitterTitle:
+        "Loft Insulation Yorkshire | Top-Ups, Removal & Relay | Yorkshire Insulation",
+      twitterDescription:
+        "Professional loft insulation across Yorkshire using Knauf products. Top-ups, removal and relay, boarding and hatch fitting. Get in touch for a quote.",
+      twitterImage: `${siteUrl}/og-image.jpg`,
       geo: baseGeo,
       schema: {
-        ...baseSchema,
-        name: "Loft Insulation",
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            name: "Loft Insulation",
+            description:
+              "Professional loft insulation across Yorkshire. Top-ups, removal and relay, boarding and hatch fitting using Knauf products.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Yorkshire Insulation",
+              telephone: "07526322379",
+              email: "info@yorkshireinsulationsolutions.co.uk",
+              address: {
+                "@type": "PostalAddress",
+                addressRegion: "Yorkshire",
+                addressCountry: "GB",
+              },
+            },
+            areaServed: {
+              "@type": "AdministrativeArea",
+              name: "Yorkshire",
+            },
+            serviceType: "Loft Insulation",
+          },
+          {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: siteUrl,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: `${siteUrl}/#services`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Loft Insulation",
+                item: `${siteUrl}/services/loft-insulation`,
+              },
+            ],
+          },
+          {
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "How long does loft insulation take to install?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Most loft insulation installations are completed in a single day. The exact time depends on the size of your loft and whether any existing insulation needs clearing first.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What insulation products do you use for loft insulation?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "We use Knauf Loft Roll 44 and Knauf Combi Cut insulation, installed to the recommended depth of between 270mm and 450mm.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Is loft insulation VAT exempt?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Loft insulation top-ups are VAT exempt under the ECO scheme. Full pricing including loft boarding and hatch options is available on our pricing page.",
+                },
+              },
+            ],
+          },
+          {
+            "@type": "WebPage",
+            name: "Loft Insulation Yorkshire | Top-Ups, Removal & Relay | Yorkshire Insulation",
+            description:
+              "Professional loft insulation across Yorkshire using Knauf products. Top-ups, removal and relay, boarding and hatch fitting. Get in touch for a quote.",
+            url: `${siteUrl}/services/loft-insulation`,
+          },
+        ],
       },
     },
   },
