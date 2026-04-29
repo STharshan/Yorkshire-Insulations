@@ -4,7 +4,7 @@ import serviceHeaderData from "../Data/serviceData";
 import { serviceWorkflowData } from "../Data/serviceWorkflowData";
 import Seo from "../components/Seo";
 
-const siteUrl = "https://www.yorkshireinsulationsolutions.co.uk";
+const siteUrl = "https://insulateyorkshire.co.uk";
 
 const ServicePage = ({ serviceKey }) => {
   const headerData = serviceHeaderData[serviceKey];

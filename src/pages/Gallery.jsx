@@ -11,7 +11,7 @@ const Gallery = () => {
         title="Gallery | Yorkshire Insulation Solutions"
         description="Browse recent loft insulation, cavity wall, spray foam removal, underfloor and new build projects completed across Yorkshire."
         keywords="Yorkshire insulation gallery, loft insulation projects Yorkshire, cavity wall insulation gallery, spray foam removal photos"
-        canonical="https://www.yorkshireinsulationsolutions.co.uk/gallery"
+        canonical="https://insulateyorkshire.co.uk/gallery"
         geo={{
           region: "GB-YOR",
           placename: "Yorkshire",
@@ -23,7 +23,7 @@ const Gallery = () => {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "Gallery",
-          url: "https://www.yorkshireinsulationsolutions.co.uk/gallery",
+          url: "https://insulateyorkshire.co.uk/gallery",
           description:
             "Recent insulation projects completed by Yorkshire Insulation Solutions across Yorkshire.",
         }}

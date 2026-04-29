@@ -54,7 +54,8 @@ function App() {
             />
           );
         })}
-        <Route path="/locations/leeds" element={<Leeds />} />
+        <Route path="/locations" element={<Leeds />} />
+        <Route path="/locations/leeds" element={<Navigate to="/locations" replace />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/terms" element={<TermsConditions />} />

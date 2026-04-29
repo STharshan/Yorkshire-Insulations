@@ -23,7 +23,7 @@ export default function Navbar() {
     },
     { 
       label: "LOCATION", 
-      path: "/locations/leeds", 
+      path: "/locations", 
     },
     { label: "PRICING", path: "/pricing" },
     { label: "GALLERY", path: "/gallery" },

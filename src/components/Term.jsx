@@ -8,7 +8,7 @@ const TermsConditions = () => {
       <Seo
         title="Terms and Conditions | Yorkshire Insulation"
         description="Read the website terms and conditions for Yorkshire Insulation."
-        canonical="https://www.yorkshireinsulationsolutions.co.uk/terms"
+        canonical="https://insulateyorkshire.co.uk/terms"
       />
       <section className="bg-black text-white mx-auto px-4 py-8">
           <div className="max-w-6xl mx-auto">
