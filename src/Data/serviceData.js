@@ -149,14 +149,107 @@ const serviceHeaderData = {
       metaTitle:
         "Cavity Wall Insulation Yorkshire | Superbead 33 Specialists | Yorkshire Insulation",
       metaDescription:
-        "We install cavity wall insulation across Yorkshire using Superbead 33 - a high-performance EPS bead system. Assessment appointments from £100 + VAT, deducted from your final bill. Get a quote.",
+        "Professional cavity wall insulation across Yorkshire using Superbead 33. All work done externally with no disruption inside your home. From 23 pounds per sqm.",
       keywords:
         "cavity wall insulation Yorkshire, cavity wall insulation cost Yorkshire, Superbead 33 installer, cavity wall insulation assessment Yorkshire",
       canonical: `${siteUrl}/services/cavity-wall-insulation`,
+      ogSiteName: "Yorkshire Insulation",
+      ogTitle:
+        "Cavity Wall Insulation Yorkshire | Superbead 33 Specialists | Yorkshire Insulation",
+      ogDescription:
+        "Professional cavity wall insulation across Yorkshire using Superbead 33. All work done externally with no disruption inside your home. From 23 pounds per sqm.",
+      ogImage: `${siteUrl}/og-image.jpg`,
+      twitterTitle:
+        "Cavity Wall Insulation Yorkshire | Superbead 33 Specialists | Yorkshire Insulation",
+      twitterDescription:
+        "Professional cavity wall insulation across Yorkshire using Superbead 33. All work done externally with no disruption inside your home. From 23 pounds per sqm.",
+      twitterImage: `${siteUrl}/og-image.jpg`,
       geo: baseGeo,
       schema: {
-        ...baseSchema,
-        name: "Cavity Wall Insulation",
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            name: "Cavity Wall Insulation",
+            description:
+              "Professional cavity wall insulation across Yorkshire using Superbead 33.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Yorkshire Insulation",
+              telephone: "07526322379",
+              email: "info@yorkshireinsulationsolutions.co.uk",
+              address: {
+                "@type": "PostalAddress",
+                addressRegion: "Yorkshire",
+                addressCountry: "GB",
+              },
+            },
+            areaServed: {
+              "@type": "AdministrativeArea",
+              name: "Yorkshire",
+            },
+            serviceType: "Cavity Wall Insulation",
+          },
+          {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: siteUrl,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: `${siteUrl}/#services`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Cavity Wall Insulation",
+                item: `${siteUrl}/services/cavity-wall-insulation`,
+              },
+            ],
+          },
+          {
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Is my home suitable for cavity wall insulation?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Most Yorkshire homes built between 1920 and 1980 have an unfilled cavity and are suitable. We carry out an assessment to check cavity depth and suitability before any work begins.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How much does cavity wall insulation cost?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Cavity wall insulation starts from 23 pounds per sqm depending on cavity depth. An assessment appointment is charged at 100 pounds plus VAT, which is deducted from your final bill.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Will cavity wall insulation cause disruption inside my home?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "No - all work is carried out externally. We drill small holes into the outer wall, inject the insulation, and seal the holes with mortar. There is no internal disruption and no decorating required.",
+                },
+              },
+            ],
+          },
+          {
+            "@type": "WebPage",
+            name: "Cavity Wall Insulation Yorkshire | Superbead 33 Specialists | Yorkshire Insulation",
+            description:
+              "Professional cavity wall insulation across Yorkshire using Superbead 33. All work done externally with no disruption inside your home.",
+            url: `${siteUrl}/services/cavity-wall-insulation`,
+          },
+        ],
       },
     },
   },
