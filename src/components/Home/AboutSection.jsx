@@ -63,7 +63,7 @@ export default function AboutSection() {
                         {[
                             "Fully accredited installers - trusted across Yorkshire",
                             "All major insulation types covered under one roof",
-                            "Free surveys with no obligation and no hard sell"
+                            
                         ].map((text, index) => (
                             <div key={index} className="flex items-start gap-4">
                                 <div className="mt-1 shrink-0 rounded-full border border-[var(--brand-success)] p-0.5">

@@ -100,7 +100,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="flex flex-col items-center justify-between gap-4 pt-8 text-sm text-[var(--brand-light-soft)] md:flex-row">
                     <p>
-                        Copyright {new Date().getFullYear()} Yorkshire Insulations. All rights reserved.
+                        Copyright {new Date().getFullYear()} Yorkshire Insulation. All rights reserved.
                     </p>
 
                     <div className="text-sm text-[var(--brand-light-soft)]">
