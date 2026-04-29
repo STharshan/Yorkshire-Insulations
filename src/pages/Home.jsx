@@ -15,8 +15,8 @@ const Home = () => {
     return (
         <div>
             <Seo
-                title="Yorkshire Insulation | Loft, Cavity Wall, Spray Foam Removal & More"
-                description="Yorkshire Insulation provides loft insulation, cavity wall insulation, spray foam removal, underfloor insulation, and new build insulation across Yorkshire."
+                title="Yorkshire Insulation | Loft, Cavity Wall & Spray Foam Experts"
+                description="Yorkshire's trusted insulation specialists. Loft, cavity wall, spray foam removal, underfloor and new build insulation across Yorkshire and beyond."
                 keywords="Yorkshire insulation, loft insulation Yorkshire, cavity wall insulation Yorkshire, spray foam removal Yorkshire, underfloor insulation Yorkshire, new build insulation Yorkshire"
                 canonical="https://insulateyorkshire.co.uk/"
                 ogSiteName="Yorkshire Insulation"
