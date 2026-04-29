@@ -5,11 +5,11 @@ export const locationData = {
       { label: "Locations" },
       { label: "Leeds" },
     ],
-    badge: "Leeds & West Yorkshire",
-    title: "Professional Loft Insulation Services in Leeds",
+    badge: "YORKSHIRE & BEYOND",
+    title: "Home Insulation Across Yorkshire",
     intro: [
-      "Yorkshire Insulations offers professional loft insulation services in Leeds, helping homeowners save energy and reduce their utility bills. Our expert team provides cavity wall insulation, solid wall insulation, room in roof insulation, and more across Leeds and the surrounding areas.",
-      "We know Leeds housing inside out - from Victorian back-to-backs in Headingley to 1960s semis in Morley and new builds in Seacroft. Get your free survey and quotation today.",
+      "Yorkshire Insulation provides loft, cavity wall, spray foam, solid wall, and underfloor insulation across Yorkshire and the surrounding regions. We help homeowners reduce heat loss, lower energy bills, and improve comfort - whatever the property type.",
+      "We know Yorkshire housing inside out - from Victorian terraces in Leeds and Bradford to stone cottages in the Dales and modern estates across Sheffield and Wakefield. Get in touch and we'll advise on the best option for your property.",
     ],
     heroBackgroundImage: "/heroimage.jpeg",
     whatsappLabel: "Get a Quote via WhatsApp",
@@ -36,7 +36,7 @@ export const locationData = {
         },
         address: {
           label: "Property address",
-          placeholder: "Property address, Leeds",
+          placeholder: "Your property address",
           type: "text",
         },
         service: {
@@ -58,10 +58,10 @@ export const locationData = {
       },
     },
     housingTypes: {
-      badge: "Leeds Housing",
-      title: "Insulation for Every Leeds Property Type",
+      badge: "YORKSHIRE HOUSING",
+      title: "Insulation for Every Yorkshire Property Type",
       intro:
-        "Leeds has one of the most varied housing stocks in Yorkshire. The right insulation depends on your property - its age, construction type, and how it was built. We work across all of them.",
+        "Yorkshire has one of the most varied housing stocks in the country. The right insulation depends on your property - its age, construction type, and how it was built. We work across all of them.",
       items: [
         {
           icon: "terrace",
@@ -126,10 +126,10 @@ export const locationData = {
       ],
     },
     services: {
-      badge: "Our Services in Leeds",
-      title: "What We Install in Leeds",
+      badge: "OUR SERVICES",
+      title: "What We Install Across Yorkshire",
       intro:
-        "We cover every major insulation type across the city and surrounding areas.",
+        "We cover every major insulation type across Yorkshire and the surrounding regions.",
       items: [
         {
           title: "Loft Insulation",
@@ -170,87 +170,108 @@ export const locationData = {
           title: "Spray Foam Insulation",
           description:
             "Fills every gap. Effective for older and irregular roof spaces.",
-        },
-        {
-          title: "Solar Panel Installation",
-          description:
-            "Generate your own electricity and reduce energy bills with professional solar panel installation.",
-        },
-        {
-          title: "Boiler Installation",
-          description:
-            "Energy-efficient boiler installation and replacement services across Leeds.",
-        },
+        }
       ],
     },
-areasCovered: {
-  badge: "Areas Covered",
-  title: "Leeds Areas We Cover",
-  intro: "We work across Leeds and the surrounding areas including:",
-  // Keep the original Leeds items
-  items: [
-    "Leeds City Centre", "Headingley", "Hyde Park", "Woodhouse", "Meanwood",
-    "Chapel Allerton", "Roundhay", "Moortown", "Alwoodley", "Wetherby",
-    "Garforth", "Rothwell", "Beeston", "Holbeck", "Hunslet", "Burley",
-    "Kirkstall", "Bramley", "Armley", "Stanningley", "Pudsey", "Morley",
-    "Birstall", "Dewsbury", "Batley", "Heckmondwike", "Mirfield",
-    "Castleford", "Pontefract", "Normanton", "Wakefield", "Huddersfield",
-    "Halifax", "Bradford", "Horsforth", "Seacroft", "Otley", "LS1 - LS29",
-  ],
-  // New secondary regions
-  additionalRegions: [
-    {
-      label: "Yorkshire",
-      locations: ["York", "Harrogate", "Ripon", "Hull", "Sheffield", "Rotherham", "Barnsley", "Doncaster", "Wakefield", "Huddersfield", "Bradford", "Middlesbrough"]
+    areasCovered: {
+      badge: "Areas Covered",
+      title: "Areas We Cover",
+      intro: " Based in Yorkshire, we work across the region and into Lancashire and the Midlands. Not sure if we cover your area? Get in touch and we'll confirm.",
+      city: "West Yorkshire",
+      items: [
+        "Leeds City Centre",
+        "Headingley",
+        "Hyde Park",
+        "Woodhouse",
+        "Meanwood",
+        "Chapel Allerton",
+        "Roundhay",
+        "Moortown",
+        "Alwoodley",
+        "Wetherby",
+        "Garforth",
+        "Rothwell",
+        "Beeston",
+        "Holbeck",
+        "Hunslet",
+        "Burley",
+        "Kirkstall",
+        "Bramley",
+        "Armley",
+        "Stanningley",
+        "Pudsey",
+        "Morley",
+        "Horsforth",
+        "Seacroft",
+        "Otley",
+        "LS1 - LS29"
+      ],
+      // New secondary regions
+      additionalRegions: [
+        {
+          label: "Yorkshire",
+          locations: ["York",
+            "Harrogate",
+            "Ripon",
+            "Hull",
+            "Sheffield",
+            "Rotherham",
+            "Barnsley",
+            "Doncaster",
+            "Wakefield",
+            "Huddersfield",
+            "Halifax",
+            "Bradford",
+            "Middlesbrough"]
+        },
+        {
+          label: "Lancashire & The Midlands",
+          locations: ["Burnley",
+            "Blackburn",
+            "Preston",
+            "Nottingham",
+            "Mansfield"]
+        }
+      ]
     },
-    {
-      label: "Midlands",
-      locations: ["Nottingham", "Mansfield"]
-    },
-    {
-      label: "Lancashire",
-      locations: ["Lancashire", "Burnley", "Blackburn", "Preston", "Birkenhead"]
-    }
-  ]
-},
     faq: {
       badge: "FAQ",
       title: "Frequently Asked Questions",
       items: [
         {
-          question: "How long does insulation installation take in Leeds?",
+          question: "How long does insulation installation take?",
           answer:
-            "Many loft insulation jobs are completed within a single day. Larger projects such as external or solid wall insulation can take longer depending on the property and access.",
+            "That depends on the type of insulation and the size of your property. Most loft and cavity wall installations are completed in a single day. Larger jobs such as external wall insulation may take longer - we'll give you a clear timeframe before any work begins.",
         },
         {
-          question: "Which insulation is best for older Leeds homes?",
+          question: "Which insulation is best for older properties?",
           answer:
-            "That depends on the construction of the property. Older Leeds terraces often benefit from loft, underfloor, or solid wall insulation, while many semis are ideal for cavity wall insulation.",
+            "That depends on how the property was built. Pre-1919 solid brick properties typically suit loft, underfloor, or solid wall insulation. Post-1920s semis and terraces with an unfilled cavity are usually ideal for cavity wall insulation. We'll assess your property and recommend the right solution.",
         },
         {
-          question: "Do you cover areas outside Leeds?",
+          question: "What areas do you cover?",
           answer:
-            "Yes - we cover Leeds and the full Yorkshire region including Sheffield, Bradford, York, Hull, Harrogate, Wakefield, Huddersfield, Doncaster, Middlesbrough, Rotherham, Barnsley, and Ripon. We also cover parts of the Midlands including Nottingham and Mansfield, and Lancashire including Burnley, Blackburn, Preston, and Birkenhead. Get in touch and we will confirm coverage for your area.",
+            "We're based in Yorkshire and cover the wider region including West Yorkshire, South Yorkshire, North Yorkshire, and East Yorkshire. We also work across parts of Lancashire and the Midlands. If you're unsure whether we cover your area, get in touch and we'll confirm.",
         },
         {
-          question: "Can you recommend the right insulation for my property?",
+          question: "How do I know which insulation is right for my property?",
           answer:
-            "Yes. We look at the age, layout, existing insulation, and construction type of your property before recommending the most suitable option.",
+            "We assess every property individually. The right solution depends on your property's age, construction type, wall type, and current insulation levels. Get in touch and we'll talk you through the options before any work is booked.",
         },
         {
-          question: "Are there government grants available for insulation in Leeds?",
+          question: "Are there government grants available for insulation?",
           answer:
-            "Yes, there are various government grants and schemes available for home insulation in Leeds, including the Energy Company Obligation (ECO) scheme and local authority grants. Our team can help you check if you qualify for free or subsidised insulation.",
+            "There are various government schemes that may help with the cost of insulation depending on your circumstances, including the Great British Insulation Scheme and ECO4. Eligibility varies - we'd recommend checking the government website or speaking to us and we can point you in the right direction.",
         },
         {
-          question: "How much can I save on my energy bills with insulation?",
+          question: "How much could insulation save on my energy bills?",
           answer:
-            "Proper insulation can significantly reduce your energy bills. Loft insulation alone can save you up to £250 per year on heating costs, while cavity wall and solid wall insulation can save even more depending on your property type.",
+            "Savings vary depending on your property type, current insulation levels, and energy usage. Insulation can significantly reduce the amount of heat lost through walls, roofs, and floors - which directly impacts what you spend on heating. We'll give you an honest assessment based on your specific property.",
         },
         {
-          question: "Do you offer free surveys in Leeds?",
+          question: "How do I get started?",
           answer:
-            "Yes, we offer free, no-obligation surveys across Leeds and the surrounding areas. Our qualified surveyors will assess your property and recommend the best insulation solutions for your needs.",
+            "Get in touch via the form on this page, by phone, or on WhatsApp. Tell us about your property and we'll take it from there.",
         },
       ],
     },

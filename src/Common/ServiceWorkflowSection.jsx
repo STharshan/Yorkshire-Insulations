@@ -313,9 +313,9 @@ const ServiceWorkflowSection = ({ data }) => {
                 </h3>
               </div>
 
-              <form className="space-y-5 p-8 md:p-10" onSubmit={handleSubmit}>
+              <form className="space-y-5 p-8" onSubmit={handleSubmit}>
                 {/* Full Name and Phone in one line */}
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                <div className="grid grid-cols-1  gap-5 md:grid-cols-2">
                   <div>
                     <label
                       htmlFor="service-full-name"
@@ -332,7 +332,7 @@ const ServiceWorkflowSection = ({ data }) => {
                       value={formData.fullName}
                       onChange={handleChange}
                       placeholder={data.contactForm.fields.fullName.placeholder}
-                      className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
+                      className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-2 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                     />
                   </div>
 
@@ -352,7 +352,7 @@ const ServiceWorkflowSection = ({ data }) => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder={data.contactForm.fields.phone.placeholder}
-                      className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
+                      className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-2 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                     />
                   </div>
                 </div>
@@ -371,7 +371,7 @@ const ServiceWorkflowSection = ({ data }) => {
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
+                    className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-2 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                   >
                     {data.contactForm.fields.service.options.map((option, index) => (
                       <option key={index} value={option}>{option}</option>
@@ -394,7 +394,7 @@ const ServiceWorkflowSection = ({ data }) => {
                     value={formData.note}
                     onChange={handleChange}
                     placeholder={data.contactForm.fields.note.placeholder}
-                    className="w-full resize-none rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-4 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
+                    className="w-full resize-none rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-2 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                   />
                 </div>
 
@@ -407,7 +407,7 @@ const ServiceWorkflowSection = ({ data }) => {
                 </button>
               </form>
 
-              <div className="border-t border-[var(--brand-border)] bg-[var(--brand-panel)] px-8 py-5 text-sm text-[var(--brand-muted)] md:px-10">
+              <div className="border-t text-center border-[var(--brand-border)] bg-[var(--brand-panel)] px-8 py-5 text-sm text-[var(--brand-muted)] md:px-10">
                 Trusted, no-nonsense advice with workmanship that is built to last.
               </div>
             </div>

@@ -32,10 +32,10 @@ export default function AboutSection() {
                     {/* Front Floating Logo/Image */}
                     <Motion.div
                         style={{ y: yFront }}
-                        className="absolute -bottom-10 right-0 z-30 w-[60%] sm:w-[50%] sm:right-0"
+                        className="absolute -bottom-8 z-30 w-[60%] -right-10"
                     >
                         <img
-                            src="/logo.png"
+                            src="/newlogo.png"
                             alt="Yorkshire Insulation Logo"
                             className="w-full rounded-[10px] object-cover"
                         />

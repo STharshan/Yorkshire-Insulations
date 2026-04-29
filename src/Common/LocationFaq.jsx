@@ -30,7 +30,7 @@ const LocationFaq = ({ data }) => {
           </h2>
 
           <p className="mt-6 max-w-md text-lg leading-8 text-[var(--brand-muted)]">
-            Straight answers, clear expectations, and practical guidance for Leeds homeowners.
+            Straight answers and practical guidance - whatever your property, wherever you are in Yorkshire.
           </p>
 
           {/* Inserted Image Area */}

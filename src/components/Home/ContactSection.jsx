@@ -1,39 +1,52 @@
 import React, { useState } from 'react';
-import { Phone, Clock, Calendar } from 'lucide-react';
+import { ChevronDown, Phone } from 'lucide-react';
+
+export const services = [
+  { title: "Loft Insulation" },
+  { title: "Cavity Wall Insulation" },
+  { title: "Spray Foam Removal" },
+  { title: "Underfloor Insulation" },
+  { title: "New Build Insulation" },
+];
 
 const ContactSection = () => {
-  // 1. Create a state to hold form data
-  const [formData, setFormData] = useState({
+  // Define initial state in a variable for easy reuse
+  const initialState = {
     fullName: '',
     phone: '',
     email: '',
     address: '',
+    service: '',
     time: '09:00',
     date: ''
-  });
+  };
 
-  const whatsappNumber = "447526322379"; // International format (UK +44)
+  const [formData, setFormData] = useState(initialState);
 
-  // 2. Handle input changes
+  const whatsappNumber = "447526322379";
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // 3. Handle Form Submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Create the formatted message
+    // 1. Construct the WhatsApp message
     const message = `*New Inquiry*%0a` +
       `Name: ${formData.fullName}%0a` +
+      `Service: ${formData.service}%0a` +
       `Phone: ${formData.phone}%0a` +
       `Email: ${formData.email}%0a` +
       `Address: ${formData.address}%0a` +
       `Preferred Time: ${formData.time}%0a` +
-      `Preferred Date: ${formData.date}%0a` +
+      `Preferred Date: ${formData.date}%0a`;
 
-    // Open WhatsApp
+    // 2. Open WhatsApp
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+
+    // 3. CLEAR FORM DATA - Reset state to initial values
+    setFormData(initialState);
   };
 
   return (
@@ -56,10 +69,10 @@ const ContactSection = () => {
               <div className="rounded-full bg-[var(--brand-gold)] p-4 transition-transform group-hover:scale-110">
                 <Phone className="text-white" size={24} fill="currentColor" />
               </div>
-              <a 
+              <a
                 href="tel:+447526322379"
                 className="heading-font text-2xl font-bold tracking-tight text-[var(--brand-text)]"
-                >
+              >
                 07526322379
               </a>
             </div>
@@ -77,6 +90,7 @@ const ContactSection = () => {
                     required
                     type="text"
                     name="fullName"
+                    value={formData.fullName} // Added value binding
                     placeholder="Your full name"
                     className="brand-input"
                     onChange={handleChange}
@@ -85,6 +99,7 @@ const ContactSection = () => {
                     required
                     type="tel"
                     name="phone"
+                    value={formData.phone} // Added value binding
                     placeholder="Phone number"
                     className="brand-input"
                     onChange={handleChange}
@@ -95,15 +110,37 @@ const ContactSection = () => {
                   required
                   type="email"
                   name="email"
+                  value={formData.email} // Added value binding
                   placeholder="Email address"
                   className="brand-input"
                   onChange={handleChange}
                 />
 
+                <div className="relative">
+                  <select
+                    required
+                    name="service"
+                    value={formData.service}
+                    className="brand-input w-full appearance-none bg-white pr-10"
+                    onChange={handleChange}
+                  >
+                    <option value="" disabled>Select a Service</option>
+                    {services.map((service) => (
+                      <option key={service.title} value={service.title}>
+                        {service.title}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[var(--brand-muted)]">
+                    <ChevronDown size={20} />
+                  </div>
+                </div>
+
                 <input
                   required
                   type="text"
                   name="address"
+                  value={formData.address} // Added value binding
                   placeholder="Property address"
                   className="brand-input"
                   onChange={handleChange}
@@ -114,6 +151,7 @@ const ContactSection = () => {
                     <input
                       type="time"
                       name="time"
+                      value={formData.time} // Added value binding
                       className="brand-input cursor-pointer w-full"
                       onChange={handleChange}
                     />
@@ -122,6 +160,7 @@ const ContactSection = () => {
                     required
                     type="date"
                     name="date"
+                    value={formData.date} // Added value binding
                     className="brand-input cursor-pointer"
                     onChange={handleChange}
                   />
@@ -136,7 +175,6 @@ const ContactSection = () => {
               </form>
             </div>
           </div>
-
         </div>
       </div>
     </section>
