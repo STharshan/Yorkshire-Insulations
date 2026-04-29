@@ -8,7 +8,7 @@ import Seo from "../components/Seo";
 
 const Leeds = () => {
   const pageData = locationData.leeds;
-  const siteUrl = "https://www.yorkshireinsulationsolutions.co.uk";
+  const siteUrl = "https://insulateyorkshire.co.uk";
   const pageUrl = pageData.seo.canonical;
   const breadcrumbItems = [
     {

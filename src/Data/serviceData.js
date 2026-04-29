@@ -16,7 +16,7 @@ const baseGeo = {
   position: "53.8;-1.5",
 };
 
-const siteUrl = "https://www.yorkshireinsulationsolutions.co.uk";
+const siteUrl = "https://insulateyorkshire.co.uk";
 
 const serviceHeaderData = {
   loftInsulation: {
