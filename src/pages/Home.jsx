@@ -17,13 +17,19 @@ const Home = () => {
                 description="Yorkshire Insulation provides loft insulation, cavity wall insulation, spray foam removal, underfloor insulation, and new build insulation across Yorkshire."
                 keywords="Yorkshire insulation, loft insulation Yorkshire, cavity wall insulation Yorkshire, spray foam removal Yorkshire, underfloor insulation Yorkshire, new build insulation Yorkshire"
                 canonical="https://insulateyorkshire.co.uk/"
+                ogSiteName="Yorkshire Insulation"
+                ogTitle="Yorkshire Insulation | Loft, Cavity Wall & Spray Foam Experts"
+                ogDescription="Yorkshire's trusted insulation specialists. Loft, cavity wall, spray foam removal, underfloor and new build insulation across Yorkshire and beyond."
                 geo={{
                     region: "GB-YOR",
                     placename: "Yorkshire",
                     position: "53.8;-1.5",
                 }}
-                ogImage="/heroimage.jpeg"
+                ogImage="https://insulateyorkshire.co.uk/og-image.jpg"
                 ogImageAlt="Yorkshire Insulation - Professional insulation services across Yorkshire"
+                twitterTitle="Yorkshire Insulation | Loft, Cavity Wall & Spray Foam Experts"
+                twitterDescription="Yorkshire's trusted insulation specialists. Loft, cavity wall, spray foam removal, underfloor and new build insulation across Yorkshire and beyond."
+                twitterImage="https://insulateyorkshire.co.uk/og-image.jpg"
                 schema={{
                     "@context": "https://schema.org",
                     "@type": "LocalBusiness",
