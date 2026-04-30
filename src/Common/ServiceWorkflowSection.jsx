@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Check } from "lucide-react";
 
 const headingStyle = { fontFamily: "Montserrat, sans-serif" };
 
@@ -16,7 +17,7 @@ const ServiceWorkflowSection = ({ data }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
-    service: data.contactForm.fields.service.options[0] || "",
+    service: [], // Array to hold multiple selections
     note: "",
   });
 
@@ -25,11 +26,22 @@ const ServiceWorkflowSection = ({ data }) => {
     setFormData((current) => ({ ...current, [name]: value }));
   };
 
+  const handleServiceToggle = (option) => {
+    setFormData((current) => {
+      const isSelected = current.service.includes(option);
+      const updatedServices = isSelected
+        ? current.service.filter((item) => item !== option)
+        : [...current.service, option];
+      
+      return { ...current, service: updatedServices };
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.service) {
-      alert("Please fill in all required fields (Name, Phone, and Service).");
+    if (!formData.fullName.trim() || !formData.phone.trim() || formData.service.length === 0) {
+      alert("Please fill in all required fields (Name, Phone, and at least one Service).");
       return;
     }
 
@@ -39,12 +51,12 @@ const ServiceWorkflowSection = ({ data }) => {
       return;
     }
 
-    if (!data.contactForm.whatsappLink) {
-      return;
-    }
+    if (!data.contactForm.whatsappLink) return;
+
+    const servicesSelected = formData.service.join(", ");
 
     const message = [
-      `Hi, I would like a quote for ${formData.service}.`,
+      `Hi, I would like a quote for: ${servicesSelected}.`,
       `Full Name: ${formData.fullName.trim()}`,
       `Phone: ${formData.phone.trim()}`,
       `Short Note: ${formData.note.trim() || "Not provided"}`,
@@ -54,6 +66,14 @@ const ServiceWorkflowSection = ({ data }) => {
     const url = `${data.contactForm.whatsappLink}${separator}text=${encodeURIComponent(message)}`;
 
     window.open(url, "_blank", "noopener,noreferrer");
+
+    // --- RESET LOGIC ADDED HERE ---
+    setFormData({
+      fullName: "",
+      phone: "",
+      service: [],
+      note: "",
+    });
   };
 
   return (
@@ -184,7 +204,7 @@ const ServiceWorkflowSection = ({ data }) => {
             {data.howWeWork ? (
               <section
                 id="how-we-work"
-                className="rounded-[10px] border border-[var(--brand-border)] bg-white p-8 shadow-[0_2px_12px_rgba(0,0,0,0.07)] md:p-10"
+                className="rounded-[10px] border border-[var(--brand-border)] bg-white p-8 shadow-[0_2px_12_rgba(0,0,0,0.07)] md:p-10"
               >
                 <SectionBadge>{data.howWeWork.badge}</SectionBadge>
 
@@ -203,7 +223,7 @@ const ServiceWorkflowSection = ({ data }) => {
                   {data.howWeWork.steps.map((step, index) => (
                     <div
                       key={step.id}
-                      className="rounded-[10px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] p-7 transition duration-200 hover:-translate-y-1 hover:shadow-[0_6px_24px_rgba(26,44,91,0.13)]"
+                      className="rounded-[10px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] p-7 transition duration-200 hover:-translate-y-1 hover:shadow-[0_6px_24_rgba(26,44,91,0.13)]"
                     >
                       <div
                         className="mb-6 flex h-12 w-12 items-center justify-center rounded-md bg-[var(--brand-blue)] text-base font-bold text-white"
@@ -290,7 +310,7 @@ const ServiceWorkflowSection = ({ data }) => {
                       <Link
                         key={service.href}
                         to={service.href}
-                        className="inline-flex min-h-11 items-center justify-center  border border-[var(--brand-border)] px-5 py-3 text-[13px] font-bold uppercase tracking-[0.16em] text-[var(--brand-navy)] transition hover:border-[var(--brand-blue)] hover:text-[var(--brand-blue)]"
+                        className="inline-flex min-h-11 items-center justify-center border border-[var(--brand-border)] px-5 py-3 text-[13px] font-bold uppercase tracking-[0.16em] text-[var(--brand-navy)] transition hover:border-[var(--brand-blue)] hover:text-[var(--brand-blue)]"
                         style={headingStyle}
                       >
                         {service.title}
@@ -313,9 +333,8 @@ const ServiceWorkflowSection = ({ data }) => {
                 </h3>
               </div>
 
-              <form className="space-y-5 p-8" onSubmit={handleSubmit}>
-                {/* Full Name and Phone in one line */}
-                <div className="grid grid-cols-1  gap-5 md:grid-cols-2">
+              <form className="space-y-3 p-5" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                   <div>
                     <label
                       htmlFor="service-full-name"
@@ -328,11 +347,11 @@ const ServiceWorkflowSection = ({ data }) => {
                       id="service-full-name"
                       name="fullName"
                       required
-                      type={data.contactForm.fields.fullName.type}
+                      type="text"
                       value={formData.fullName}
                       onChange={handleChange}
                       placeholder={data.contactForm.fields.fullName.placeholder}
-                      className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-2 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
+                      className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-1 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                     />
                   </div>
 
@@ -348,35 +367,48 @@ const ServiceWorkflowSection = ({ data }) => {
                       id="service-phone"
                       name="phone"
                       required
-                      type={data.contactForm.fields.phone.type}
+                      type="tel"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder={data.contactForm.fields.phone.placeholder}
-                      className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-2 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
+                      className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-1 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
                     />
                   </div>
                 </div>
 
                 <div>
                   <label
-                    htmlFor="service-select"
-                    className="mb-2 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
+                    className="mb-3 block text-[12px] font-bold uppercase tracking-[0.18em] text-[var(--brand-navy)]"
                     style={headingStyle}
                   >
                     {data.contactForm.fields.service.label}
                   </label>
-                  <select
-                    id="service-select"
-                    name="service"
-                    required
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full rounded-[8px] border border-[var(--brand-border)] bg-[var(--brand-offwhite)] px-4 py-2 text-[15px] text-[var(--brand-text)] outline-none transition focus:border-[var(--brand-blue)] focus:bg-white"
-                  >
-                    {data.contactForm.fields.service.options.map((option, index) => (
-                      <option key={index} value={option}>{option}</option>
-                    ))}
-                  </select>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    {data.contactForm.fields.service.options.map((option, index) => {
+                      const isSelected = formData.service.includes(option);
+                      return (
+                        <button
+                          key={index}
+                          type="button"
+                          onClick={() => handleServiceToggle(option)}
+                          className={`flex items-center gap-3 rounded-lg border p-3 text-left transition-all ${
+                            isSelected 
+                            ? "border-[var(--brand-blue)] bg-[var(--brand-blue)]/5 ring-1 ring-[var(--brand-blue)]" 
+                            : "border-[var(--brand-border)] bg-[var(--brand-offwhite)] hover:border-gray-300"
+                          }`}
+                        >
+                          <div className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border transition-colors ${
+                            isSelected ? "bg-[var(--brand-blue)] border-[var(--brand-blue)]" : "bg-white border-gray-300"
+                          }`}>
+                            {isSelected && <Check size={12} className="text-white" strokeWidth={3} />}
+                          </div>
+                          <span className={`text-[13px] font-medium leading-tight ${isSelected ? "text-[var(--brand-navy)]" : "text-[var(--brand-muted)]"}`}>
+                            {option}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
 
                 <div>

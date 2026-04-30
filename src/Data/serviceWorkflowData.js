@@ -26,7 +26,7 @@ const contactForm = (service) => ({
     note: {
       label: "Short Note",
       placeholder: "Tell us about your property",
-      rows: 3,
+      rows: 2,
     },
   },
   submitButton: "Get a Quote Today",
