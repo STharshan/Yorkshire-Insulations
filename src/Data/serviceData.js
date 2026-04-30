@@ -383,14 +383,99 @@ const serviceHeaderData = {
       metaTitle:
         "Underfloor Insulation Yorkshire | Basement, Crawl Space & UFH Prep | Yorkshire Insulation",
       metaDescription:
-        "Yorkshire Insulation installs underfloor insulation across Yorkshire. Rockwool stapled and netted for basements and crawl spaces, or Kingspan board laid prior to underfloor heating. Get a quote.",
+        "Underfloor insulation for basements, crawl spaces, and underfloor heating preparation across Yorkshire. Rockwool and Kingspan systems by local specialists.",
       keywords:
         "underfloor insulation Yorkshire, crawl space insulation Yorkshire, basement insulation Yorkshire, underfloor heating insulation Yorkshire, Kingspan underfloor Yorkshire",
       canonical: `${siteUrl}/services/underfloor-insulation`,
+      ogSiteName: "Yorkshire Insulation",
+      ogTitle:
+        "Underfloor Insulation Yorkshire | Basement, Crawl Space & UFH Prep | Yorkshire Insulation",
+      ogDescription:
+        "Underfloor insulation for basements, crawl spaces, and underfloor heating preparation across Yorkshire. Rockwool and Kingspan systems by local specialists.",
+      ogImage: `${siteUrl}/og-image.jpg`,
+      twitterTitle:
+        "Underfloor Insulation Yorkshire | Basement, Crawl Space & UFH Prep | Yorkshire Insulation",
+      twitterDescription:
+        "Underfloor insulation for basements, crawl spaces, and underfloor heating preparation across Yorkshire. Rockwool and Kingspan systems by local specialists.",
+      twitterImage: `${siteUrl}/og-image.jpg`,
       geo: baseGeo,
       schema: {
-        ...baseSchema,
-        name: "Underfloor Insulation",
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            name: "Underfloor Insulation",
+            description:
+              "Underfloor insulation for basements, cellars, crawl spaces, and underfloor heating preparation across Yorkshire.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Yorkshire Insulation",
+              telephone: "07526322379",
+              email: "info@yorkshireinsulationsolutions.co.uk",
+              address: {
+                "@type": "PostalAddress",
+                addressRegion: "Yorkshire",
+                addressCountry: "GB",
+              },
+            },
+            areaServed: {
+              "@type": "AdministrativeArea",
+              name: "Yorkshire",
+            },
+            serviceType: "Underfloor Insulation",
+          },
+          {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: siteUrl,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: `${siteUrl}/#services`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Underfloor Insulation",
+                item: `${siteUrl}/services/underfloor-insulation`,
+              },
+            ],
+          },
+          {
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "What types of underfloor insulation do you install?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "We install Rockwool insulation stapled and netted beneath suspended floors, and Kingspan rigid board insulation beneath floors prior to underfloor heating being laid.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Will underfloor insulation disrupt my flooring?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "No - all work is carried out beneath the floor through the void or crawl space. There is no disruption to your flooring or living space above.",
+                },
+              },
+            ],
+          },
+          {
+            "@type": "WebPage",
+            name: "Underfloor Insulation Yorkshire | Basement, Crawl Space & UFH Prep | Yorkshire Insulation",
+            description:
+              "Underfloor insulation for basements, crawl spaces, and UFH preparation across Yorkshire. Rockwool and Kingspan systems by local specialists.",
+            url: `${siteUrl}/services/underfloor-insulation`,
+          },
+        ],
       },
     },
   },
@@ -407,14 +492,99 @@ const serviceHeaderData = {
       metaTitle:
         "New Build Insulation Yorkshire | First Fix Contractors | Yorkshire Insulation",
       metaDescription:
-        "Yorkshire Insulation works with contractors and developers across Yorkshire on new build and full renovation projects. Supply and fit or labour only - priced per sqm. Get a trade quote.",
+        "Insulation packages for contractors and developers across Yorkshire. Supply and fit or labour only, priced per sqm. Kingspan and Rockwool available.",
       keywords:
         "new build insulation Yorkshire, first fix insulation Yorkshire, insulation contractors Yorkshire, renovation insulation Yorkshire, Kingspan new build Yorkshire, Rockwool contractor Yorkshire",
       canonical: `${siteUrl}/services/new-build-insulation`,
+      ogSiteName: "Yorkshire Insulation",
+      ogTitle:
+        "New Build Insulation Yorkshire | First Fix Contractors | Yorkshire Insulation",
+      ogDescription:
+        "Insulation packages for contractors and developers across Yorkshire. Supply and fit or labour only, priced per sqm. Kingspan and Rockwool available.",
+      ogImage: `${siteUrl}/og-image.jpg`,
+      twitterTitle:
+        "New Build Insulation Yorkshire | First Fix Contractors | Yorkshire Insulation",
+      twitterDescription:
+        "Insulation packages for contractors and developers across Yorkshire. Supply and fit or labour only, priced per sqm. Kingspan and Rockwool available.",
+      twitterImage: `${siteUrl}/og-image.jpg`,
       geo: baseGeo,
       schema: {
-        ...baseSchema,
-        name: "New Build Insulation",
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            name: "New Build Insulation",
+            description:
+              "Insulation packages for contractors, developers, new builds, and renovations across Yorkshire. Supply and fit or labour only, priced per sqm.",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Yorkshire Insulation",
+              telephone: "07526322379",
+              email: "info@yorkshireinsulationsolutions.co.uk",
+              address: {
+                "@type": "PostalAddress",
+                addressRegion: "Yorkshire",
+                addressCountry: "GB",
+              },
+            },
+            areaServed: {
+              "@type": "AdministrativeArea",
+              name: "Yorkshire",
+            },
+            serviceType: "New Build Insulation",
+          },
+          {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: siteUrl,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: `${siteUrl}/#services`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "New Build Insulation",
+                item: `${siteUrl}/services/new-build-insulation`,
+              },
+            ],
+          },
+          {
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Do you offer supply and fit or labour only?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Both - we can price on a supply and fit basis or labour only. All work is priced per square metre with a clear quote before any work begins.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Can you work around our build programme?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes - we schedule installation dates to fit your timeline so insulation never holds up the next trade on site.",
+                },
+              },
+            ],
+          },
+          {
+            "@type": "WebPage",
+            name: "New Build Insulation Yorkshire | First Fix Contractors | Yorkshire Insulation",
+            description:
+              "Insulation packages for contractors and developers across Yorkshire. Supply and fit or labour only, priced per sqm. Kingspan and Rockwool available.",
+            url: `${siteUrl}/services/new-build-insulation`,
+          },
+        ],
       },
     },
   },

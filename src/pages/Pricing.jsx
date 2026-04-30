@@ -73,31 +73,115 @@ const Pricing = () => {
     <main className="min-h-screen bg-white">
       <Seo
         title="Insulation Pricing Yorkshire | Transparent Costs & Estimators | Yorkshire Insulation"
-        description="Clear, upfront insulation pricing across Yorkshire. Use our online estimators for loft, cavity wall, and spray foam removal costs. Every price includes labour, product and clean-up."
+        description="Transparent insulation pricing across Yorkshire. Loft from 8 pounds per sqm, cavity wall from 23 pounds per sqm, spray foam removal from 52 pounds per sqm."
         keywords="insulation cost Yorkshire, loft insulation price Yorkshire, cavity wall insulation cost, spray foam removal cost, insulation estimator Yorkshire"
         canonical="https://insulateyorkshire.co.uk/pricing"
+        ogSiteName="Yorkshire Insulation"
+        ogTitle="Insulation Pricing Yorkshire | Transparent Costs & Estimators | Yorkshire Insulation"
+        ogDescription="Transparent insulation pricing across Yorkshire. Loft from 8 pounds per sqm, cavity wall from 23 pounds per sqm, spray foam removal from 52 pounds per sqm."
+        ogImage="/og-image.jpg"
+        twitterTitle="Insulation Pricing Yorkshire | Transparent Costs & Estimators | Yorkshire Insulation"
+        twitterDescription="Transparent insulation pricing across Yorkshire. Loft from 8 pounds per sqm, cavity wall from 23 pounds per sqm, spray foam removal from 52 pounds per sqm."
+        twitterImage="/og-image.jpg"
         geo={{
           region: "GB-YOR",
           placename: "Yorkshire",
           position: "53.8;-1.5",
         }}
-        ogImage="/newlogo.png"
-        ogImageAlt="Yorkshire Insulation pricing page"
         schema={{
           "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Insulation Pricing",
-          provider: {
-            "@type": "Organization",
-            name: "Yorkshire Insulation",
-          },
-          areaServed: {
-            "@type": "AdministrativeArea",
-            name: "Yorkshire",
-          },
-          url: "https://insulateyorkshire.co.uk/pricing",
-          description:
-            "Clear, upfront insulation pricing across Yorkshire. Use our online estimators for loft, cavity wall, and spray foam removal costs. Every price includes labour, product and clean-up.",
+          "@graph": [
+            {
+              "@type": "Service",
+              name: "Insulation Pricing Yorkshire",
+              description: "Transparent insulation pricing across Yorkshire.",
+              provider: {
+                "@type": "LocalBusiness",
+                name: "Yorkshire Insulation",
+                telephone: "07526322379",
+                email: "info@yorkshireinsulationsolutions.co.uk",
+                address: {
+                  "@type": "PostalAddress",
+                  addressRegion: "Yorkshire",
+                  addressCountry: "GB",
+                },
+              },
+              offers: [
+                {
+                  "@type": "Offer",
+                  name: "Loft Insulation Top-Up",
+                  priceCurrency: "GBP",
+                  price: "8",
+                  priceSpecification: {
+                    "@type": "UnitPriceSpecification",
+                    price: "8",
+                    priceCurrency: "GBP",
+                    unitText: "sqm",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  name: "Cavity Wall Insulation",
+                  priceCurrency: "GBP",
+                  price: "23",
+                  priceSpecification: {
+                    "@type": "UnitPriceSpecification",
+                    price: "23",
+                    priceCurrency: "GBP",
+                    unitText: "sqm",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  name: "Spray Foam Removal - Open Cell",
+                  priceCurrency: "GBP",
+                  price: "52",
+                  priceSpecification: {
+                    "@type": "UnitPriceSpecification",
+                    price: "52",
+                    priceCurrency: "GBP",
+                    unitText: "sqm",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  name: "Spray Foam Removal - Closed Cell",
+                  priceCurrency: "GBP",
+                  price: "80",
+                  priceSpecification: {
+                    "@type": "UnitPriceSpecification",
+                    price: "80",
+                    priceCurrency: "GBP",
+                    unitText: "sqm",
+                  },
+                },
+              ],
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://insulateyorkshire.co.uk",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Pricing",
+                  item: "https://insulateyorkshire.co.uk/pricing",
+                },
+              ],
+            },
+            {
+              "@type": "WebPage",
+              name: "Insulation Pricing Yorkshire | Transparent Costs & Estimators | Yorkshire Insulation",
+              description:
+                "Transparent insulation pricing across Yorkshire. Loft from 8 pounds per sqm, cavity wall from 23 pounds per sqm, spray foam removal from 52 pounds per sqm.",
+              url: "https://insulateyorkshire.co.uk/pricing",
+            },
+          ],
         }}
       />
 
