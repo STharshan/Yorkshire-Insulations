@@ -8,11 +8,23 @@ const Seo = ({
   robots = "index,follow",
   geo,
   schema,
+  ogTitle,
+  ogDescription,
+  ogSiteName,
   ogImage,
   ogImageAlt,
   twitterCard = "summary_large_image",
+  twitterTitle,
+  twitterDescription,
+  twitterImage,
 }) => {
   const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
+  const resolvedOgTitle = ogTitle || title;
+  const resolvedOgDescription = ogDescription || description;
+  const resolvedTwitterTitle = twitterTitle || resolvedOgTitle || title;
+  const resolvedTwitterDescription =
+    twitterDescription || resolvedOgDescription || description;
+  const resolvedTwitterImage = twitterImage || ogImage;
 
   return (
     <Helmet prioritizeSeoTags>
@@ -22,17 +34,26 @@ const Seo = ({
       <meta name="robots" content={robots} />
       {canonical ? <link rel="canonical" href={canonical} /> : null}
 
-      {title ? <meta property="og:title" content={title} /> : null}
-      {description ? <meta property="og:description" content={description} /> : null}
+      {resolvedOgTitle ? <meta property="og:title" content={resolvedOgTitle} /> : null}
+      {resolvedOgDescription ? (
+        <meta property="og:description" content={resolvedOgDescription} />
+      ) : null}
       <meta property="og:type" content="website" />
+      {ogSiteName ? <meta property="og:site_name" content={ogSiteName} /> : null}
       {canonical ? <meta property="og:url" content={canonical} /> : null}
       {ogImage ? <meta property="og:image" content={ogImage} /> : null}
       {ogImageAlt ? <meta property="og:image:alt" content={ogImageAlt} /> : null}
 
       <meta name="twitter:card" content={twitterCard} />
-      {title ? <meta name="twitter:title" content={title} /> : null}
-      {description ? <meta name="twitter:description" content={description} /> : null}
-      {ogImage ? <meta name="twitter:image" content={ogImage} /> : null}
+      {resolvedTwitterTitle ? (
+        <meta name="twitter:title" content={resolvedTwitterTitle} />
+      ) : null}
+      {resolvedTwitterDescription ? (
+        <meta name="twitter:description" content={resolvedTwitterDescription} />
+      ) : null}
+      {resolvedTwitterImage ? (
+        <meta name="twitter:image" content={resolvedTwitterImage} />
+      ) : null}
       {ogImageAlt ? <meta name="twitter:image:alt" content={ogImageAlt} /> : null}
 
       {geo?.region ? <meta name="geo.region" content={geo.region} /> : null}

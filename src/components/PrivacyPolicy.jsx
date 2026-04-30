@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
             <Seo
                 title="Privacy Policy | Yorkshire Insulation"
                 description="Read how Yorkshire Insulation collects, uses, and protects personal information."
-                canonical="https://www.yorkshireinsulationsolutions.co.uk/privacy"
+                canonical="https://insulateyorkshire.co.uk/privacy"
             />
             <div className="mx-auto px-4 py-12 sm:px-6 lg:px-16 bg-black text-white">
             <h1 className="text-4xl font-semibold text-center mb-8 mt-40">Privacy Policy</h1>

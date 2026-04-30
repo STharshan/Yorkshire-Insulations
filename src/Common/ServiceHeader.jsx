@@ -69,7 +69,7 @@ const ServiceHeader = ({ data }) => {
         <nav className="flex flex-wrap items-center gap-2 text-[11px] pt-10 font-semibold uppercase tracking-[0.24em] text-white/72">
           {breadcrumbs.map((item, index) => (
             <React.Fragment key={`${item.label}-${index}`}>
-              {index > 0 ? <span className="text-white/40">/</span> : null}
+              {index > 0 ? <span className="text-white/40"> / </span> : null}
               <span className={item.current ? "text-[var(--brand-gold)]" : ""}>
                 {item.label}
               </span>

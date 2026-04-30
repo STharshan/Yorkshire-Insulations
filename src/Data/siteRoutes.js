@@ -2,7 +2,7 @@ import { services } from "./services";
 
 export const staticSitemapRoutes = [
   "/",
-  "/locations/leeds",
+  "/locations",
   "/pricing",
   "/gallery",
   "/terms",

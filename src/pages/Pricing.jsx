@@ -75,7 +75,7 @@ const Pricing = () => {
         title="Insulation Pricing Yorkshire | Transparent Costs & Estimators | Yorkshire Insulation"
         description="Clear, upfront insulation pricing across Yorkshire. Use our online estimators for loft, cavity wall, and spray foam removal costs. Every price includes labour, product and clean-up."
         keywords="insulation cost Yorkshire, loft insulation price Yorkshire, cavity wall insulation cost, spray foam removal cost, insulation estimator Yorkshire"
-        canonical="https://www.yorkshireinsulationsolutions.co.uk/pricing"
+        canonical="https://insulateyorkshire.co.uk/pricing"
         geo={{
           region: "GB-YOR",
           placename: "Yorkshire",
@@ -95,7 +95,7 @@ const Pricing = () => {
             "@type": "AdministrativeArea",
             name: "Yorkshire",
           },
-          url: "https://www.yorkshireinsulationsolutions.co.uk/pricing",
+          url: "https://insulateyorkshire.co.uk/pricing",
           description:
             "Clear, upfront insulation pricing across Yorkshire. Use our online estimators for loft, cavity wall, and spray foam removal costs. Every price includes labour, product and clean-up.",
         }}

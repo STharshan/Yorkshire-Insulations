@@ -276,12 +276,12 @@ export const locationData = {
       ],
     },
     seo: {
-      title: "Home Insulation in Leeds & Yorkshire | Yorkshire Insulation",
+      title: "Areas We Cover - Yorkshire Insulation",
       description:
-        "Yorkshire Insulation installs loft, cavity wall, spray foam, and underfloor insulation across Leeds, Yorkshire, and beyond - including Sheffield, Bradford, Hull, Harrogate, Nottingham, and Lancashire. Local team, every job done properly.",
+        "Yorkshire Insulation covers West Yorkshire, South Yorkshire, North Yorkshire, Lancashire and the Midlands. Get in touch to confirm your area.",
       keywords:
         "Leeds insulation, loft insulation Leeds, cavity wall Leeds, insulation Yorkshire, loft insulation Sheffield, cavity wall Bradford, insulation Hull, insulation Harrogate, insulation Nottingham, insulation Lancashire",
-      canonical: "https://www.yorkshireinsulationsolutions.co.uk/locations/leeds",
+      canonical: "https://insulateyorkshire.co.uk/locations",
       geo: {
         region: "GB-YOR",
         placename: "Yorkshire",
