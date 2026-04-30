@@ -17,7 +17,7 @@ const ContactSection = () => {
     email: '',
     address: '',
     service: '',
-    time: '09:00',
+    time: '',
     date: ''
   };
 
