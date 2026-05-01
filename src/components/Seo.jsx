@@ -29,6 +29,10 @@ const Seo = ({
   return (
     <Helmet prioritizeSeoTags>
       <title>{title}</title>
+      <meta
+        name="google-site-verification"
+        content="Y4ww93s-eLxsV4VN9RQ7tfvnwi6RN1VEYBo303zhFvE"
+      />
       {description ? <meta name="description" content={description} /> : null}
       {keywords ? <meta name="keywords" content={keywords} /> : null}
       <meta name="robots" content={robots} />
