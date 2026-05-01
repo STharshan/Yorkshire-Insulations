@@ -12,10 +12,13 @@ const emptyFields = Object.freeze({});
 
 const getInitialFormState = (fields = {}) =>
   Object.fromEntries(
-    Object.entries(fields).map(([key, config]) => [
-      config.name || key,
-      config.defaultValue || "",
-    ]),
+    Object.entries(fields).map(([key, config]) => {
+      const name = config.name || key;
+      if (name.toLowerCase().includes("service")) {
+        return [name, []];
+      }
+      return [name, config.defaultValue || ""];
+    }),
   );
 
 const buildWhatsAppMessage = (title, fields, values) => {
@@ -26,8 +29,9 @@ const buildWhatsAppMessage = (title, fields, values) => {
     const label = config.label || fieldName;
     const value = values[fieldName];
 
-    if (value) {
-      message += `*${label}*: ${value}\n`;
+    if (value && value.length > 0) {
+      const displayValue = Array.isArray(value) ? value.join(", ") : value;
+      message += `${label}: ${displayValue}\n`;
     }
   });
 
@@ -47,24 +51,43 @@ const LocationHeroContact = ({ data, onSubmit }) => {
   if (!data) return null;
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState((current) => ({ ...current, [name]: value }));
+    const { name, value, type, checked } = event.target;
+
+    if (type === "checkbox") {
+      setFormState((current) => {
+        const currentArr = Array.isArray(current[name]) ? current[name] : [];
+        return {
+          ...current,
+          [name]: checked
+            ? [...currentArr, value] 
+            : currentArr.filter((item) => item !== value),
+        };
+      });
+    } else {
+      setFormState((current) => ({ ...current, [name]: value }));
+    }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // If a custom onSubmit prop is provided, handle it and reset
     if (typeof onSubmit === "function") {
       onSubmit(formState, data);
+      setFormState(getInitialFormState(formFields));
       return;
     }
 
+    // Default WhatsApp Logic
     const phoneNumber = data.whatsappNumber || "447526322379";
     const message = buildWhatsAppMessage(data.title, formFields, formState);
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+    // Clear the form data automatically after submission
+    setFormState(getInitialFormState(formFields));
   };
 
   return (
@@ -140,13 +163,12 @@ const LocationHeroContact = ({ data, onSubmit }) => {
             </div>
 
             <form onSubmit={handleSubmit} className="p-6 md:p-8">
-              {/* Added grid layout to the field container */}
               <div className="grid grid-cols-1 gap-x-4 gap-y-5 md:grid-cols-2">
                 {Object.entries(formFields).map(([key, config]) => {
                   const fieldName = config.name || key;
                   const labelText = config.label || fieldName;
+                  const isServiceField = fieldName.toLowerCase().includes("service");
 
-                  // Logic to detect if field should be half-width
                   const isHalfWidth = 
                     fieldName.toLowerCase().includes("name") || 
                     fieldName.toLowerCase().includes("phone");
@@ -160,7 +182,30 @@ const LocationHeroContact = ({ data, onSubmit }) => {
                         {labelText}
                       </label>
 
-                      {config.options?.length ? (
+                      {isServiceField && config.options?.length ? (
+                        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                          {config.options.map((option) => (
+                            <label 
+                              key={option} 
+                              className={`flex items-center gap-3 p-3 border rounded-[8px] cursor-pointer transition-all ${
+                                (formState[fieldName] || []).includes(option)
+                                  ? "border-[var(--brand-blue)] bg-[var(--brand-blue)]/5"
+                                  : "border-[var(--brand-border)] bg-[var(--brand-offwhite)] hover:bg-white"
+                              }`}
+                            >
+                              <input
+                                type="checkbox"
+                                name={fieldName}
+                                value={option}
+                                checked={(formState[fieldName] || []).includes(option)}
+                                onChange={handleChange}
+                                className="h-5 w-5 rounded border-[var(--brand-border)] text-[var(--brand-blue)] focus:ring-[var(--brand-blue)]"
+                              />
+                              <span className="text-sm font-medium">{option}</span>
+                            </label>
+                          ))}
+                        </div>
+                      ) : config.options?.length ? (
                         <div className="relative">
                           <select
                             id={fieldName}
@@ -204,11 +249,10 @@ const LocationHeroContact = ({ data, onSubmit }) => {
                   );
                 })}
 
-                {/* Submit button spans both columns */}
                 <div className="md:col-span-2 pt-2">
                   <button
                     type="submit"
-                    className="flex min-h-12 w-full items-center justify-center gap-3  bg-[var(--brand-blue)] px-6 py-4 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[var(--brand-navy)]"
+                    className="flex min-h-12 w-full items-center justify-center gap-3 bg-[var(--brand-blue)] px-6 py-4 text-[15px] font-bold uppercase tracking-[0.18em] text-white transition duration-200 hover:bg-[var(--brand-navy)]"
                     style={headingStyle}
                   >
                     <MessageCircle className="h-5 w-5" />

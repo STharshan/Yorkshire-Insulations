@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ChevronDown, Phone } from 'lucide-react';
+import { Phone, Check } from 'lucide-react';
 
-export const services = [
+export const servicesList = [
   { title: "Loft Insulation" },
   { title: "Cavity Wall Insulation" },
   { title: "Spray Foam Removal" },
@@ -10,13 +10,12 @@ export const services = [
 ];
 
 const ContactSection = () => {
-  // Define initial state in a variable for easy reuse
   const initialState = {
     fullName: '',
     phone: '',
     email: '',
     address: '',
-    service: '',
+    service: [], // Changed to array for multiple selections
     time: '',
     date: ''
   };
@@ -29,32 +28,49 @@ const ContactSection = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Toggle function for multiple services
+  const handleServiceToggle = (title) => {
+    setFormData((prev) => {
+      const isSelected = prev.service.includes(title);
+      const updatedServices = isSelected
+        ? prev.service.filter((t) => t !== title) // Remove if already selected
+        : [...prev.service, title]; // Add if not selected
+      
+      return { ...prev, service: updatedServices };
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 1. Construct the WhatsApp message
+    if (formData.service.length === 0) {
+      alert("Please select at least one service.");
+      return;
+    }
+
+    // Join the array into a string for the WhatsApp message
+    const selectedServicesText = formData.service.join(", ");
+
     const message = `*New Inquiry*%0a` +
       `Name: ${formData.fullName}%0a` +
-      `Service: ${formData.service}%0a` +
+      `Services: ${selectedServicesText}%0a` +
       `Phone: ${formData.phone}%0a` +
       `Email: ${formData.email}%0a` +
       `Address: ${formData.address}%0a` +
       `Preferred Time: ${formData.time}%0a` +
       `Preferred Date: ${formData.date}%0a`;
 
-    // 2. Open WhatsApp
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-
-    // 3. CLEAR FORM DATA - Reset state to initial values
     setFormData(initialState);
   };
 
   return (
     <section id='contact' className="bg-white py-16 md:py-24 scroll-m-20">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
 
-          <div className="order-2 lg:order-1">
+          {/* Left Column: Text Content */}
+          <div className="order-2 lg:order-1 lg:sticky lg:top-24">
             <h4 className="heading-font mb-4 text-[13px] font-bold uppercase tracking-[0.24em] text-[var(--brand-gold)]">
               QUICK INQUIRY
             </h4>
@@ -78,8 +94,9 @@ const ContactSection = () => {
             </div>
           </div>
 
+          {/* Right Column: Multi-Select Form */}
           <div className="order-1 lg:order-2">
-            <div className="brand-card-panel rounded-[2rem] p-8 md:p-12">
+            <div className="brand-card-panel rounded-[2rem] p-8 md:p-12 shadow-xl border border-gray-50">
               <h3 className="heading-font mb-8 text-3xl font-bold text-[var(--brand-text)]">
                 Get in Touch
               </h3>
@@ -90,7 +107,7 @@ const ContactSection = () => {
                     required
                     type="text"
                     name="fullName"
-                    value={formData.fullName} // Added value binding
+                    value={formData.fullName}
                     placeholder="Your full name"
                     className="brand-input"
                     onChange={handleChange}
@@ -99,7 +116,7 @@ const ContactSection = () => {
                     required
                     type="tel"
                     name="phone"
-                    value={formData.phone} // Added value binding
+                    value={formData.phone}
                     placeholder="Phone number"
                     className="brand-input"
                     onChange={handleChange}
@@ -110,29 +127,42 @@ const ContactSection = () => {
                   required
                   type="email"
                   name="email"
-                  value={formData.email} // Added value binding
+                  value={formData.email}
                   placeholder="Email address"
                   className="brand-input"
                   onChange={handleChange}
                 />
 
-                <div className="relative">
-                  <select
-                    required
-                    name="service"
-                    value={formData.service}
-                    className="brand-input w-full appearance-none bg-white pr-10"
-                    onChange={handleChange}
-                  >
-                    <option value="" disabled>Select a Service</option>
-                    {services.map((service) => (
-                      <option key={service.title} value={service.title}>
-                        {service.title}
-                      </option>
-                    ))}
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[var(--brand-muted)]">
-                    <ChevronDown size={20} />
+                {/* Multiple Options Selection Area */}
+                <div className="py-2">
+                  <p className="mb-3 text-sm font-bold text-[var(--brand-muted)] uppercase tracking-wider">
+                    Select Required Services:
+                  </p>
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    {servicesList.map((service) => {
+                      const isSelected = formData.service.includes(service.title);
+                      return (
+                        <button
+                          key={service.title}
+                          type="button"
+                          onClick={() => handleServiceToggle(service.title)}
+                          className={`flex items-center gap-3 rounded-xl border p-3 text-left transition-all ${
+                            isSelected 
+                              ? "border-[var(--brand-blue)] bg-[var(--brand-blue)]/5 ring-1 ring-[var(--brand-blue)]" 
+                              : "border-gray-200 bg-white hover:border-gray-300"
+                          }`}
+                        >
+                          <div className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border transition-colors ${
+                            isSelected ? "bg-[var(--brand-blue)] border-[var(--brand-blue)]" : "bg-white border-gray-300"
+                          }`}>
+                            {isSelected && <Check size={14} className="text-white" />}
+                          </div>
+                          <span className={`text-sm font-medium ${isSelected ? "text-[var(--brand-blue)]" : "text-gray-700"}`}>
+                            {service.title}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -140,27 +170,25 @@ const ContactSection = () => {
                   required
                   type="text"
                   name="address"
-                  value={formData.address} // Added value binding
+                  value={formData.address}
                   placeholder="Property address"
                   className="brand-input"
                   onChange={handleChange}
                 />
 
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  <div className="relative">
-                    <input
-                      type="time"
-                      name="time"
-                      value={formData.time} // Added value binding
-                      className="brand-input cursor-pointer w-full"
-                      onChange={handleChange}
-                    />
-                  </div>
+                  <input
+                    type="time"
+                    name="time"
+                    value={formData.time}
+                    className="brand-input cursor-pointer w-full"
+                    onChange={handleChange}
+                  />
                   <input
                     required
                     type="date"
                     name="date"
-                    value={formData.date} // Added value binding
+                    value={formData.date}
                     className="brand-input cursor-pointer"
                     onChange={handleChange}
                   />
@@ -168,7 +196,7 @@ const ContactSection = () => {
 
                 <button
                   type="submit"
-                  className="heading-font mt-4 w-full bg-[var(--brand-blue)] py-5 text-[15px] font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition hover:bg-[var(--brand-navy)]"
+                  className="heading-font mt-4 w-full bg-[var(--brand-blue)] py-5 text-[15px] font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition hover:bg-[var(--brand-navy)] rounded-xl"
                 >
                   Send My Enquiry
                 </button>
