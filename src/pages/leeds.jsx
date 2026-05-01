@@ -51,7 +51,7 @@ const Leeds = () => {
                 "Professional insulation installation across Yorkshire and beyond.",
               url: siteUrl,
               telephone: "07526322379",
-              email: "info@yorkshireinsulationsolutions.co.uk",
+              email: "info@insulateyorkshire.co.uk",
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "Yorkshire",

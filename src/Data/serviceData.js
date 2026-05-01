@@ -1,8 +1,8 @@
 const contactDetails = {
   phoneLabel: "07526322379",
   phoneHref: "tel:+447526322379",
-  emailLabel: "info@yorkshireinsulationsolutions.co.uk",
-  emailHref: "mailto:info@yorkshireinsulationsolutions.co.uk",
+  emailLabel: "info@insulateyorkshire.co.uk",
+  emailHref: "mailto:info@insulateyorkshire.co.uk",
 };
 
 const baseSchema = {
@@ -60,7 +60,7 @@ const serviceHeaderData = {
               "@type": "LocalBusiness",
               name: "Yorkshire Insulation",
               telephone: "07526322379",
-              email: "info@yorkshireinsulationsolutions.co.uk",
+              email: "info@insulateyorkshire.co.uk",
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "Yorkshire",
@@ -177,7 +177,7 @@ const serviceHeaderData = {
               "@type": "LocalBusiness",
               name: "Yorkshire Insulation",
               telephone: "07526322379",
-              email: "info@yorkshireinsulationsolutions.co.uk",
+              email: "info@insulateyorkshire.co.uk",
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "Yorkshire",
@@ -294,7 +294,7 @@ const serviceHeaderData = {
               "@type": "LocalBusiness",
               name: "Yorkshire Insulation",
               telephone: "07526322379",
-              email: "info@yorkshireinsulationsolutions.co.uk",
+              email: "info@insulateyorkshire.co.uk",
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "Yorkshire",
@@ -411,7 +411,7 @@ const serviceHeaderData = {
               "@type": "LocalBusiness",
               name: "Yorkshire Insulation",
               telephone: "07526322379",
-              email: "info@yorkshireinsulationsolutions.co.uk",
+              email: "info@insulateyorkshire.co.uk",
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "Yorkshire",
@@ -520,7 +520,7 @@ const serviceHeaderData = {
               "@type": "LocalBusiness",
               name: "Yorkshire Insulation",
               telephone: "07526322379",
-              email: "info@yorkshireinsulationsolutions.co.uk",
+              email: "info@insulateyorkshire.co.uk",
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "Yorkshire",

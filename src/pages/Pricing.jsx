@@ -99,7 +99,7 @@ const Pricing = () => {
                 "@type": "LocalBusiness",
                 name: "Yorkshire Insulation",
                 telephone: "07526322379",
-                email: "info@yorkshireinsulationsolutions.co.uk",
+                email: "info@insulateyorkshire.co.uk",
                 address: {
                   "@type": "PostalAddress",
                   addressRegion: "Yorkshire",

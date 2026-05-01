@@ -17,8 +17,8 @@ export const locationData = {
     contactDetails: {
       phoneLabel: "07526322379",
       phoneHref: "tel:+447526322379",
-      emailLabel: "info@yorkshireinsulationsolutions.co.uk",
-      emailHref: "mailto:info@yorkshireinsulationsolutions.co.uk",
+      emailLabel: "info@insulateyorkshire.co.uk",
+      emailHref: "mailto:info@insulateyorkshire.co.uk",
     },
     form: {
       title: "Get in touch",

@@ -41,7 +41,7 @@ const Home = () => {
                             "description": "Professional insulation installation across Yorkshire and beyond. Loft, cavity wall, spray foam removal, underfloor, and new build insulation.",
                             "url": siteUrl,
                             "telephone": "07526322379",
-                            "email": "info@yorkshireinsulationsolutions.co.uk",
+                            "email": "info@insulateyorkshire.co.uk",
                             "address": {
                                 "@type": "PostalAddress",
                                 "addressRegion": "Yorkshire",
