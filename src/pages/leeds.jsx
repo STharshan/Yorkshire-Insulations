@@ -36,11 +36,11 @@ const Leeds = () => {
         ogTitle="Areas We Cover - Yorkshire Insulation"
         ogDescription="Yorkshire Insulation covers West Yorkshire, South Yorkshire, North Yorkshire, Lancashire and the Midlands. Get in touch to confirm your area."
         geo={pageData.seo.geo}
-        ogImage="https://insulateyorkshire.co.uk/og-image.jpg"
+        ogImage="https://insulateyorkshire.co.uk/og-image.png"
         ogImageAlt="Yorkshire Insulation areas covered across Yorkshire and beyond"
         twitterTitle="Areas We Cover - Yorkshire Insulation"
         twitterDescription="Yorkshire Insulation covers West Yorkshire, South Yorkshire, North Yorkshire, Lancashire and the Midlands. Get in touch to confirm your area."
-        twitterImage="https://insulateyorkshire.co.uk/og-image.jpg"
+        twitterImage="https://insulateyorkshire.co.uk/og-image.png"
         schema={{
           "@context": "https://schema.org",
           "@graph": [

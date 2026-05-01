@@ -41,12 +41,12 @@ const serviceHeaderData = {
         "Loft Insulation Yorkshire | Top-Ups, Removal & Relay | Yorkshire Insulation",
       ogDescription:
         "Professional loft insulation across Yorkshire using Knauf products. Top-ups, removal and relay, boarding and hatch fitting. Get in touch for a quote.",
-      ogImage: `${siteUrl}/og-image.jpg`,
+      ogImage: `${siteUrl}/og-image.png`,
       twitterTitle:
         "Loft Insulation Yorkshire | Top-Ups, Removal & Relay | Yorkshire Insulation",
       twitterDescription:
         "Professional loft insulation across Yorkshire using Knauf products. Top-ups, removal and relay, boarding and hatch fitting. Get in touch for a quote.",
-      twitterImage: `${siteUrl}/og-image.jpg`,
+      twitterImage: `${siteUrl}/og-image.png`,
       geo: baseGeo,
       schema: {
         "@context": "https://schema.org",
@@ -158,12 +158,12 @@ const serviceHeaderData = {
         "Cavity Wall Insulation Yorkshire | Superbead 33 Specialists | Yorkshire Insulation",
       ogDescription:
         "Professional cavity wall insulation across Yorkshire using Superbead 33. All work done externally with no disruption inside your home. From 23 pounds per sqm.",
-      ogImage: `${siteUrl}/og-image.jpg`,
+      ogImage: `${siteUrl}/og-image.png`,
       twitterTitle:
         "Cavity Wall Insulation Yorkshire | Superbead 33 Specialists | Yorkshire Insulation",
       twitterDescription:
         "Professional cavity wall insulation across Yorkshire using Superbead 33. All work done externally with no disruption inside your home. From 23 pounds per sqm.",
-      twitterImage: `${siteUrl}/og-image.jpg`,
+      twitterImage: `${siteUrl}/og-image.png`,
       geo: baseGeo,
       schema: {
         "@context": "https://schema.org",
@@ -275,12 +275,12 @@ const serviceHeaderData = {
         "Spray Foam Removal Yorkshire | Mortgage-Approved Removal | Yorkshire Insulation",
       ogDescription:
         "Safe spray foam removal across Yorkshire. Open and closed cell removal with mortgage certificates issued on completion. From 52 pounds per sqm.",
-      ogImage: `${siteUrl}/og-image.jpg`,
+      ogImage: `${siteUrl}/og-image.png`,
       twitterTitle:
         "Spray Foam Removal Yorkshire | Mortgage-Approved Removal | Yorkshire Insulation",
       twitterDescription:
         "Safe spray foam removal across Yorkshire. Open and closed cell removal with mortgage certificates issued on completion. From 52 pounds per sqm.",
-      twitterImage: `${siteUrl}/og-image.jpg`,
+      twitterImage: `${siteUrl}/og-image.png`,
       geo: baseGeo,
       schema: {
         "@context": "https://schema.org",
@@ -392,12 +392,12 @@ const serviceHeaderData = {
         "Underfloor Insulation Yorkshire | Basement, Crawl Space & UFH Prep | Yorkshire Insulation",
       ogDescription:
         "Underfloor insulation for basements, crawl spaces, and underfloor heating preparation across Yorkshire. Rockwool and Kingspan systems by local specialists.",
-      ogImage: `${siteUrl}/og-image.jpg`,
+      ogImage: `${siteUrl}/og-image.png`,
       twitterTitle:
         "Underfloor Insulation Yorkshire | Basement, Crawl Space & UFH Prep | Yorkshire Insulation",
       twitterDescription:
         "Underfloor insulation for basements, crawl spaces, and underfloor heating preparation across Yorkshire. Rockwool and Kingspan systems by local specialists.",
-      twitterImage: `${siteUrl}/og-image.jpg`,
+      twitterImage: `${siteUrl}/og-image.png`,
       geo: baseGeo,
       schema: {
         "@context": "https://schema.org",
@@ -501,12 +501,12 @@ const serviceHeaderData = {
         "New Build Insulation Yorkshire | First Fix Contractors | Yorkshire Insulation",
       ogDescription:
         "Insulation packages for contractors and developers across Yorkshire. Supply and fit or labour only, priced per sqm. Kingspan and Rockwool available.",
-      ogImage: `${siteUrl}/og-image.jpg`,
+      ogImage: `${siteUrl}/og-image.png`,
       twitterTitle:
         "New Build Insulation Yorkshire | First Fix Contractors | Yorkshire Insulation",
       twitterDescription:
         "Insulation packages for contractors and developers across Yorkshire. Supply and fit or labour only, priced per sqm. Kingspan and Rockwool available.",
-      twitterImage: `${siteUrl}/og-image.jpg`,
+      twitterImage: `${siteUrl}/og-image.png`,
       geo: baseGeo,
       schema: {
         "@context": "https://schema.org",
