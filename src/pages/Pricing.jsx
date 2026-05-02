@@ -79,10 +79,10 @@ const Pricing = () => {
         ogSiteName="Yorkshire Insulation"
         ogTitle="Insulation Pricing Yorkshire | Transparent Costs & Estimators | Yorkshire Insulation"
         ogDescription="Transparent insulation pricing across Yorkshire. Loft from 8 pounds per sqm, cavity wall from 23 pounds per sqm, spray foam removal from 52 pounds per sqm."
-        ogImage="/og-image.jpg"
+        ogImage="/og-image.png"
         twitterTitle="Insulation Pricing Yorkshire | Transparent Costs & Estimators | Yorkshire Insulation"
         twitterDescription="Transparent insulation pricing across Yorkshire. Loft from 8 pounds per sqm, cavity wall from 23 pounds per sqm, spray foam removal from 52 pounds per sqm."
-        twitterImage="/og-image.jpg"
+        twitterImage="/og-image.png"
         geo={{
           region: "GB-YOR",
           placename: "Yorkshire",
@@ -99,7 +99,7 @@ const Pricing = () => {
                 "@type": "LocalBusiness",
                 name: "Yorkshire Insulation",
                 telephone: "07526322379",
-                email: "info@yorkshireinsulationsolutions.co.uk",
+                email: "info@insulateyorkshire.co.uk",
                 address: {
                   "@type": "PostalAddress",
                   addressRegion: "Yorkshire",

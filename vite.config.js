@@ -9,7 +9,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     Sitemap({
-      hostname: "https://www.yorkshireinsulationsolutions.co.uk",
+      hostname: "https://insulateyorkshire.co.uk",
       dynamicRoutes: sitemapRoutes.filter((route) => route !== "/"),
     }),
   ],

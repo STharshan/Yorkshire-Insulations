@@ -117,7 +117,7 @@ const PrivacyPolicy = () => {
                     </p>
                     <div className="text-white">
                         <p><strong>Yorkshire Insulations</strong></p>
-                        <p>Email: <a href="mailto:info@yorkshireinsulationsolutions.co.uk" className="text-[#1a2c5b] hover:underline">info@yorkshireinsulationsolutions.co.uk</a></p>
+                        <p>Email: <a href="mailto:info@insulateyorkshire.co.uk" className="text-[#1a2c5b] hover:underline">info@insulateyorkshire.co.uk</a></p>
                         <p>Phone: 07526322379</p>
                         <p>Address: Yorkshire, United Kingdom</p>
                     </div>

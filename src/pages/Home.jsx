@@ -27,11 +27,11 @@ const Home = () => {
                     placename: "Yorkshire",
                     position: "53.8;-1.5",
                 }}
-                ogImage="https://insulateyorkshire.co.uk/og-image.jpg"
+                ogImage="https://insulateyorkshire.co.uk/og-image.png"
                 ogImageAlt="Yorkshire Insulation - Professional insulation services across Yorkshire"
                 twitterTitle="Yorkshire Insulation | Loft, Cavity Wall & Spray Foam Experts"
                 twitterDescription="Yorkshire's trusted insulation specialists. Loft, cavity wall, spray foam removal, underfloor and new build insulation across Yorkshire and beyond."
-                twitterImage="https://insulateyorkshire.co.uk/og-image.jpg"
+                twitterImage="https://insulateyorkshire.co.uk/og-image.png"
                 schema={{
                     "@context": "https://schema.org",
                     "@graph": [
@@ -41,7 +41,7 @@ const Home = () => {
                             "description": "Professional insulation installation across Yorkshire and beyond. Loft, cavity wall, spray foam removal, underfloor, and new build insulation.",
                             "url": siteUrl,
                             "telephone": "07526322379",
-                            "email": "info@yorkshireinsulationsolutions.co.uk",
+                            "email": "info@insulateyorkshire.co.uk",
                             "address": {
                                 "@type": "PostalAddress",
                                 "addressRegion": "Yorkshire",

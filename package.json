@@ -20,9 +20,9 @@
       "/services/new-build-insulation",
       "/pricing",
       "/gallery",
-      "/locations/leeds",
       "/terms",
-      "/privacy"
+      "/privacy",
+      "/locations"
     ],
     "skipThirdPartyRequests": true
   },

@@ -42,10 +42,10 @@ export default function Footer() {
                                     aria-hidden="true"
                                 />
                                 <a
-                                    href="mailto:info@yorkshireinsulationsolutions.co.uk"
+                                    href="mailto:info@insulateyorkshire.co.uk"
                                     className="wrap-break-word w-full leading-snug hover:text-[var(--brand-accent)]"
                                 >
-                                    info@yorkshireinsulationsolutions.co.uk
+                                    info@insulateyorkshire.co.uk
                                 </a>
                             </li>
                             <li className="flex items-start gap-3 transition-colors hover:text-[var(--brand-accent)]">
